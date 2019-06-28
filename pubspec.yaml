@@ -1,0 +1,19 @@
+name: domainrobot_api
+description: Implementation of the domainrobot api
+version: 0.1.0
+author: Daniel Linsenmeier <daniel@ephenodrom.de>
+homepage: https://github.com/Ephenodrom/Dart-Basic-Utils
+publish_to: https://pub.dartlang.org
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  basic_utils: ^1.2.0
+  logging: ^0.11.3+2
+  json_annotation: ^2.0.0
+
+dev_dependencies:
+  test: '>=0.12.42 <2.0.0'
+  build_runner: ^1.0.0
+  json_serializable: ^2.0.0
