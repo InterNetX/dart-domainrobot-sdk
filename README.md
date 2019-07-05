@@ -9,6 +9,7 @@ A dart package for easy integration of the domainrobot api powered by InterNetX 
 2. [Import](#import)
 3. [Usage](#usage)
    * [Provider](#provider)
+   * [Supported API calls](#supported-api-calls)
    * [Models](#models)
    * [Handling exceptions](#exception-handling)
 4. [Changelog](#changelog)
@@ -45,6 +46,25 @@ String password = "PASSWORD";
 String context = "CONTEXT";
 String baseUrl = "URL";
 DomainRobotProvider provider = DomainRobotProvider(userName,password,context,baseUrl);
+```
+
+### Supported API calls
+
+#### Domain tasks
+
+```dart
+
+
+```
+
+#### Contact tasks
+
+```dart
+Future<Contact> contactCreate(Contact contact, {String ctid = ""});
+Future<Contact> contactUpdate(Contact contact, {String ctid = ""});
+Future<void> contactDelete(int id, {String ctid = ""});
+Future<Contact> contactInfo(int id, {String ctid = ""});
+Future<List<Contact>> contactList({Query query, String ctid = ""});
 ```
 
 ### Models

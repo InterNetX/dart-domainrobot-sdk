@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'Contact.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class Contact {
   int id;
   String type;

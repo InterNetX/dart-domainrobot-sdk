@@ -32,23 +32,32 @@ Contact _$ContactFromJson(Map<String, dynamic> json) {
           : User.fromJson(json['updater'] as Map<String, dynamic>));
 }
 
-Map<String, dynamic> _$ContactToJson(Contact instance) => <String, dynamic>{
-      'id': instance.id,
-      'type': instance.type,
-      'title': instance.title,
-      'fname': instance.fname,
-      'lname': instance.lname,
-      'organization': instance.organization,
-      'address': instance.address,
-      'city': instance.city,
-      'pcode': instance.pcode,
-      'country': instance.country,
-      'state': instance.state,
-      'email': instance.email,
-      'phone': instance.phone,
-      'fax': instance.fax,
-      'created': instance.created,
-      'updated': instance.updated,
-      'owner': instance.owner,
-      'updater': instance.updater
-    };
+Map<String, dynamic> _$ContactToJson(Contact instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('type', instance.type);
+  writeNotNull('title', instance.title);
+  writeNotNull('fname', instance.fname);
+  writeNotNull('lname', instance.lname);
+  writeNotNull('organization', instance.organization);
+  writeNotNull('address', instance.address);
+  writeNotNull('city', instance.city);
+  writeNotNull('pcode', instance.pcode);
+  writeNotNull('country', instance.country);
+  writeNotNull('state', instance.state);
+  writeNotNull('email', instance.email);
+  writeNotNull('phone', instance.phone);
+  writeNotNull('fax', instance.fax);
+  writeNotNull('created', instance.created);
+  writeNotNull('updated', instance.updated);
+  writeNotNull('owner', instance.owner);
+  writeNotNull('updater', instance.updater);
+  return val;
+}
