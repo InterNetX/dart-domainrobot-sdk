@@ -22,3 +22,4 @@ part "src/clients/AbstractDomainRobotClient.dart";
 part "src/clients/DomainClient.dart";
 part "src/clients/ContactClient.dart";
 part "src/clients/TrustedApplicationClient.dart";
+part "src/clients/DomainStudioClient.dart";
