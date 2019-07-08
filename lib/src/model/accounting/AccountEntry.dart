@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'Vat.dart';
+
 part 'AccountEntry.g.dart';
 
 @JsonSerializable(includeIfNull: false)
