@@ -1,8 +1,6 @@
 import 'package:domainrobot_api/src/model/SimplePrice.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'WhoisStatus.dart';
-
 part 'PriceServiceData.g.dart';
 
 @JsonSerializable()

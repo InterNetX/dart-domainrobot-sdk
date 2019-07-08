@@ -182,6 +182,19 @@ class DomainRobotProvider extends TrustedApplicationClient {
   }
 
   ///
+  /// Sends a domain studio search request
+  ///
+  /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
+  ///
+  Future<List<DomainStudioDomain>> domainStudio(DomainStudioSearch search,
+      {String ctid = "", Map<String, String> queryParameters}) async {
+    Logger(TAG).info("Sending domainStudio");
+    return await DomainStudioClient.search(
+        _baseUrl, search, getBasicHeaders(ctid),
+        queryParameters: queryParameters);
+  }
+
+  ///
   /// Builds the basic headers that are needed by the domainrobot api
   ///
   Map<String, String> getBasicHeaders(String ctid) {

@@ -5,11 +5,14 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:basic_utils/src/model/exception/HttpResponseException.dart';
 import 'package:domainrobot_api/src/model/DomainRobotApiResponse.dart';
 import 'package:domainrobot_api/src/model/application/TrustedApplication.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioDomain.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioSearch.dart';
 import 'package:logging/logging.dart';
 
 // Basic imports
 import 'dart:convert';
 
+import "src/model/accounting/AccountingDocument.dart";
 import "src/model/Job.dart";
 import "src/model/contact/Contact.dart";
 import "src/model/DomainRobotDomain.dart";
@@ -23,3 +26,4 @@ part "src/clients/DomainClient.dart";
 part "src/clients/ContactClient.dart";
 part "src/clients/TrustedApplicationClient.dart";
 part "src/clients/DomainStudioClient.dart";
+part "src/clients/AccountingDocumentClient.dart";
