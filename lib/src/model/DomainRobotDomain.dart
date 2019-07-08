@@ -1,6 +1,6 @@
+import 'package:domainrobot_api/src/model/contact/Contact.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'Contact.dart';
 import 'NameServer.dart';
 
 part 'DomainRobotDomain.g.dart';

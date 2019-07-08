@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../User.dart';
 import 'Application.dart';
 import 'IpRestrictions.dart';
 import 'TrustedApplicationFunctions.dart';
-import 'User.dart';
 
 part 'TrustedApplication.g.dart';
 

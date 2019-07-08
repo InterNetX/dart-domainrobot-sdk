@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:domainrobot_api/src/model/Contact.dart';
+import 'package:domainrobot_api/src/model/contact/Contact.dart';
 import 'package:domainrobot_api/src/model/exception/DomainRobotApiException.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';

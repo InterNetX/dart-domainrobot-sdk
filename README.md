@@ -53,8 +53,10 @@ DomainRobotProvider provider = DomainRobotProvider(userName,password,context,bas
 #### Domain tasks
 
 ```dart
-
-
+Future<Job> domainCreate(DomainRobotDomain domain, {String ctid = ""});
+Future<Job> domainUpdate(DomainRobotDomain domain, {String ctid =""});
+Future<DomainRobotDomain> domainInfo(String name, {String ctid = ""});
+Future<List<DomainRobotDomain>> domainList({Query query,String ctid = "",Map<String, String> queryParameters});
 ```
 
 #### Contact tasks
@@ -64,7 +66,17 @@ Future<Contact> contactCreate(Contact contact, {String ctid = ""});
 Future<Contact> contactUpdate(Contact contact, {String ctid = ""});
 Future<void> contactDelete(int id, {String ctid = ""});
 Future<Contact> contactInfo(int id, {String ctid = ""});
-Future<List<Contact>> contactList({Query query, String ctid = ""});
+Future<List<Contact>> contactList({Query query, String ctid = "",Map<String, String> queryParameters});
+```
+
+#### TrustedApplication tasks
+
+```dart
+Future<TrustedApplication> trustedApplicationCreate(TrustedApplication trustedApp,{String ctid = ""});
+Future<TrustedApplication> trustedApplicationUpdate(TrustedApplication trustedApp,{String ctid = ""});
+Future<void> trustedApplicationDelete(String uuid, {String ctid = ""});
+Future<TrustedApplication> trustedApplicationInfo(String uuid,{String ctid = ""});
+Future<List<TrustedApplication>> trustedApplicationList({Query query,String ctid = "",Map<String, String> queryParameters});
 ```
 
 ### Models
