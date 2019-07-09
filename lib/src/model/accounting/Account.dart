@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../GenericCustomer.dart';
+import 'GenericCustomer.dart';
 import 'CurrencyRate.dart';
 
 part 'Account.g.dart';

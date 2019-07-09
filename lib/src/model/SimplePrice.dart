@@ -1,5 +1,6 @@
-import 'package:domainrobot_api/src/model/ExchangedPrice.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'accounting/ExchangedPrice.dart';
 
 part 'SimplePrice.g.dart';
 

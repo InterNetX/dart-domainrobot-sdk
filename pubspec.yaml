@@ -2,7 +2,7 @@ name: domainrobot_api
 description: Implementation of the domainrobot api
 version: 0.1.0
 author: InterNetX GmbH <entwicklung@internetx.com>
-homepage: https://github.com/Ephenodrom/Dart-Basic-Utils
+homepage: https://github.com/InterNetX/Dart-Domainrobot-Api
 publish_to: https://pub.dartlang.org
 
 environment:

@@ -7,7 +7,7 @@ class AccountingDocumentClient extends AbstractDomainRobotClient {
   ///
   /// Calculate the accounting document
   ///
-  Future<AccountingDocument> calculate(
+  static Future<AccountingDocument> calculate(
       String baseUrl, AccountingDocument payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
     String payloadAsString = json.encode(payload.toJson());

@@ -1,10 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../DomainRobotTimePeriod.dart';
-import '../ExchangedPrice.dart';
-import '../GenericCustomer.dart';
+
+import 'GenericCustomer.dart';
 import '../User.dart';
 import 'CurrencyRate.dart';
+import 'ExchangedPrice.dart';
 import 'Product.dart';
 import 'Subject.dart';
 

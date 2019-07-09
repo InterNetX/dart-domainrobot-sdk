@@ -235,7 +235,7 @@ void main() {
       return Response(json.encode(mapJson), 200);
     });
     List<DomainStudioDomain> list =
-        await provider.domainStudio(new DomainStudioSearch());
+        await provider.domainStudioSearch(new DomainStudioSearch());
 
     expect(list.length, 5);
     expect(list.elementAt(0).domain, "ebike.com");

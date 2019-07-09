@@ -79,6 +79,18 @@ Future<TrustedApplication> trustedApplicationInfo(String uuid,{String ctid = ""}
 Future<List<TrustedApplication>> trustedApplicationList({Query query,String ctid = "",Map<String, String> queryParameters});
 ```
 
+#### Domainstudio tasks
+
+```dart
+Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{String ctid = "", Map<String, String> queryParameters});
+```
+
+#### Accounting tasks
+
+```dart
+Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{String ctid = "", Map<String, String> queryParameters});
+```
+
 ### Models
 
 The package contains many classes that represents entities from the Domainrobot api.
