@@ -10,7 +10,7 @@ import 'package:domainrobot_api/domainrobot_api.dart';
 
 void main() {
   DomainRobotProvider provider =
-      DomainRobotProvider("hello", "world", "4", "https://api.com");
+      DomainRobotProvider("hello", "world", "https://api.com");
 
   test('Test contactInfo', () async {
     HttpUtils.client = MockClient((request) async {

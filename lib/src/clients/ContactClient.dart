@@ -1,4 +1,9 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/basic_utils.dart';
+import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
+import 'package:domainrobot_api/src/model/contact/Contact.dart';
+import 'package:domainrobot_api/src/model/query/Query.dart';
 
 ///
 /// Implementation of the contact specific api functions
@@ -18,7 +23,7 @@ class ContactClient extends AbstractDomainRobotClient {
       body = await HttpUtils.postForJson("$baseUrl/trustedapp", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return Contact.fromJson(data);
@@ -37,7 +42,7 @@ class ContactClient extends AbstractDomainRobotClient {
           "$baseUrl/contact/${payload.id}", payloadAsString,
           headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
   }
 
@@ -52,7 +57,7 @@ class ContactClient extends AbstractDomainRobotClient {
       return await HttpUtils.deleteForJson("$baseUrl/contact/$id",
           headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
   }
 
@@ -68,7 +73,7 @@ class ContactClient extends AbstractDomainRobotClient {
       body =
           await HttpUtils.getForJson("$baseUrl/contact/$id", headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return Contact.fromJson(data);
@@ -92,7 +97,7 @@ class ContactClient extends AbstractDomainRobotClient {
           "$baseUrl/contact/_search", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     List data = body["data"];
     List<Contact> list = [];

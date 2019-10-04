@@ -1,18 +1,36 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/basic_utils.dart';
+import 'package:domainrobot_api/src/clients/AccountingDocumentClient.dart';
+import 'package:domainrobot_api/src/clients/ContactClient.dart';
+import 'package:domainrobot_api/src/clients/DomainClient.dart';
+import 'package:domainrobot_api/src/clients/DomainStudioClient.dart';
+import 'package:domainrobot_api/src/clients/TrustedApplicationClient.dart';
+import 'package:domainrobot_api/src/model/DomainRobotDomain.dart';
+import 'package:domainrobot_api/src/model/Job.dart';
+import 'package:domainrobot_api/src/model/accounting/AccountingDocument.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioDomain.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioSearch.dart';
+import 'package:domainrobot_api/src/model/exception/DomainRobotApiException.dart';
+import 'package:domainrobot_api/src/model/query/Query.dart';
+import 'package:domainrobot_api/src/model/application/TrustedApplication.dart';
+import 'package:logging/logging.dart';
+
+import 'model/contact/Contact.dart';
 
 ///
 ///
 ///
-class DomainRobotProvider extends TrustedApplicationClient {
+class DomainRobotProvider {
   static const String TAG = "DomainRobotProvider";
 
   String _userName;
   String _password;
-  String _context;
+  String context;
   String _baseUrl;
 
-  DomainRobotProvider(
-      this._userName, this._password, this._context, this._baseUrl);
+  DomainRobotProvider(this._userName, this._password, this._baseUrl,
+      {this.context});
 
   ///
   /// Create a new contact
@@ -217,7 +235,9 @@ class DomainRobotProvider extends TrustedApplicationClient {
     String auth = base64.encode(utf8.encode("$_userName:$_password"));
     auth = "Basic $auth";
     headers.putIfAbsent("authorization", () => auth);
-    headers.putIfAbsent("X-Domainrobot-Context", () => _context);
+    if (context != null) {
+      headers.putIfAbsent("X-Domainrobot-Context", () => context);
+    }
     headers.putIfAbsent("Accept", () => "application/json");
     if (StringUtils.isNotNullOrEmpty(ctid)) {
       headers.putIfAbsent("X-Domainrobot-Ctid", () => ctid);

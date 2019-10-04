@@ -1,4 +1,8 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/src/model/exception/HttpResponseException.dart';
+import 'package:domainrobot_api/src/model/DomainRobotApiResponse.dart';
+import 'package:domainrobot_api/src/model/exception/DomainRobotApiException.dart';
 
 ///
 ///
@@ -7,7 +11,7 @@ class AbstractDomainRobotClient {
   ///
   ///
   ///
-  static void _handleException(Exception e) {
+  static void handleException(Exception e) {
     HttpResponseException ex = e;
     Map<String, dynamic> data = json.decode(ex.body);
     DomainRobotApiResponse response = DomainRobotApiResponse.fromJson(data);

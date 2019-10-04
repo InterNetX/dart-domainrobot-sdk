@@ -1,4 +1,10 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/basic_utils.dart';
+import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
+import 'package:domainrobot_api/src/model/DomainRobotDomain.dart';
+import 'package:domainrobot_api/src/model/Job.dart';
+import 'package:domainrobot_api/src/model/query/Query.dart';
 
 ///
 /// Implementation of the domain specific api functions
@@ -18,7 +24,7 @@ class DomainClient {
       body = await HttpUtils.postForJson("$baseUrl/domain", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return Job.fromJson(data);
@@ -39,7 +45,7 @@ class DomainClient {
           "$baseUrl/domain/${payload.name}", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return Job.fromJson(data);
@@ -58,7 +64,7 @@ class DomainClient {
       body = await HttpUtils.getForJson("$baseUrl/domain/$name",
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return DomainRobotDomain.fromJson(data);
@@ -82,7 +88,7 @@ class DomainClient {
           "$baseUrl/domain/_search", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     List data = body["data"];
     List<DomainRobotDomain> list = [];

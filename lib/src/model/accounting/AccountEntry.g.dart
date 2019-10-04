@@ -11,7 +11,10 @@ AccountEntry _$AccountEntryFromJson(Map<String, dynamic> json) {
       label: json['label'] as String,
       amount: (json['amount'] as num)?.toDouble(),
       vatAmount: (json['vatAmount'] as num)?.toDouble(),
-      vats: json['vats'] as List,
+      vats: (json['vats'] as List)
+          ?.map(
+              (e) => e == null ? null : Vat.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
       netAmount: (json['netAmount'] as num)?.toDouble(),
       currency: json['currency'] as String);
 }

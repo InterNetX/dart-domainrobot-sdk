@@ -1,4 +1,9 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/basic_utils.dart';
+import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioDomain.dart';
+import 'package:domainrobot_api/src/model/domainstudio/DomainStudioSearch.dart';
 
 ///
 /// Implementation of the domainstudio specific api functions
@@ -18,7 +23,7 @@ class DomainStudioClient extends AbstractDomainRobotClient {
       body = await HttpUtils.postForJson("$baseUrl", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     List data = body["data"];
     List<DomainStudioDomain> list = [];

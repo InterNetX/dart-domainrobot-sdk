@@ -1,4 +1,9 @@
-part of domainrobot_api;
+import 'dart:convert';
+
+import 'package:basic_utils/basic_utils.dart';
+import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
+import 'package:domainrobot_api/src/model/application/TrustedApplication.dart';
+import 'package:domainrobot_api/src/model/query/Query.dart';
 
 ///
 /// Implementation of the trusted application specific api functions
@@ -18,7 +23,7 @@ class TrustedApplicationClient {
       body = await HttpUtils.postForJson("$baseUrl/trustedapp", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return TrustedApplication.fromJson(data);
@@ -38,7 +43,7 @@ class TrustedApplicationClient {
           "$baseUrl/trustedapp/${payload.uuid}", payloadAsString,
           headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return TrustedApplication.fromJson(data);
@@ -55,7 +60,7 @@ class TrustedApplicationClient {
       return await HttpUtils.deleteForJson("$baseUrl/trustedapp/$uuid",
           headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
   }
 
@@ -71,7 +76,7 @@ class TrustedApplicationClient {
       body = await HttpUtils.getForJson("$baseUrl/trustedapp/$uuid",
           headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body["data"][0];
     return TrustedApplication.fromJson(data);
@@ -95,7 +100,7 @@ class TrustedApplicationClient {
           "$baseUrl/trustedapp/_search", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
-      AbstractDomainRobotClient._handleException(e);
+      AbstractDomainRobotClient.handleException(e);
     }
     List data = body["data"];
     List<TrustedApplication> list = [];
