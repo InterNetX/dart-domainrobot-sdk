@@ -8,9 +8,10 @@ part of 'PriceServiceEntity.dart';
 
 PriceServiceEntity _$PriceServiceEntityFromJson(Map<String, dynamic> json) {
   return PriceServiceEntity(
-      condition: json['condition'] == null
-          ? null
-          : ServiceEntity.fromJson(json['condition'] as Map<String, dynamic>));
+    condition: json['condition'] == null
+        ? null
+        : ServiceEntity.fromJson(json['condition'] as Map<String, dynamic>),
+  );
 }
 
 Map<String, dynamic> _$PriceServiceEntityToJson(PriceServiceEntity instance) {

@@ -8,29 +8,30 @@ part of 'DomainStudioSources.dart';
 
 DomainStudioSources _$DomainStudioSourcesFromJson(Map<String, dynamic> json) {
   return DomainStudioSources(
-      initial: json['initial'] == null
-          ? null
-          : DomainStudioSourceInitial.fromJson(
-              json['initial'] as Map<String, dynamic>),
-      suggestion: json['suggestion'] == null
-          ? null
-          : DomainStudioSourceSuggestion.fromJson(
-              json['suggestion'] as Map<String, dynamic>),
-      premium: json['premium'] == null
-          ? null
-          : DomainStudioSourcePremium.fromJson(
-              json['premium'] as Map<String, dynamic>),
-      geo: json['geo'] == null
-          ? null
-          : DomainStudioSourceGeo.fromJson(json['geo'] as Map<String, dynamic>),
-      similar: json['similar'] == null
-          ? null
-          : DomainStudioSourceSimilar.fromJson(
-              json['similar'] as Map<String, dynamic>),
-      recommended: json['recommended'] == null
-          ? null
-          : DomainStudioSourceRecommended.fromJson(
-              json['recommended'] as Map<String, dynamic>));
+    initial: json['initial'] == null
+        ? null
+        : DomainStudioSourceInitial.fromJson(
+            json['initial'] as Map<String, dynamic>),
+    suggestion: json['suggestion'] == null
+        ? null
+        : DomainStudioSourceSuggestion.fromJson(
+            json['suggestion'] as Map<String, dynamic>),
+    premium: json['premium'] == null
+        ? null
+        : DomainStudioSourcePremium.fromJson(
+            json['premium'] as Map<String, dynamic>),
+    geo: json['geo'] == null
+        ? null
+        : DomainStudioSourceGeo.fromJson(json['geo'] as Map<String, dynamic>),
+    similar: json['similar'] == null
+        ? null
+        : DomainStudioSourceSimilar.fromJson(
+            json['similar'] as Map<String, dynamic>),
+    recommended: json['recommended'] == null
+        ? null
+        : DomainStudioSourceRecommended.fromJson(
+            json['recommended'] as Map<String, dynamic>),
+  );
 }
 
 Map<String, dynamic> _$DomainStudioSourcesToJson(
@@ -41,5 +42,5 @@ Map<String, dynamic> _$DomainStudioSourcesToJson(
       'premium': instance.premium,
       'geo': instance.geo,
       'similar': instance.similar,
-      'recommended': instance.recommended
+      'recommended': instance.recommended,
     };

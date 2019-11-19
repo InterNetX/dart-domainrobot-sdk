@@ -8,15 +8,15 @@ part of 'AccountEntry.dart';
 
 AccountEntry _$AccountEntryFromJson(Map<String, dynamic> json) {
   return AccountEntry(
-      label: json['label'] as String,
-      amount: (json['amount'] as num)?.toDouble(),
-      vatAmount: (json['vatAmount'] as num)?.toDouble(),
-      vats: (json['vats'] as List)
-          ?.map(
-              (e) => e == null ? null : Vat.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
-      netAmount: (json['netAmount'] as num)?.toDouble(),
-      currency: json['currency'] as String);
+    label: json['label'] as String,
+    amount: (json['amount'] as num)?.toDouble(),
+    vatAmount: (json['vatAmount'] as num)?.toDouble(),
+    vats: (json['vats'] as List)
+        ?.map((e) => e == null ? null : Vat.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+    netAmount: (json['netAmount'] as num)?.toDouble(),
+    currency: json['currency'] as String,
+  );
 }
 
 Map<String, dynamic> _$AccountEntryToJson(AccountEntry instance) {

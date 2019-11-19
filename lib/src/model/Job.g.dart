@@ -8,11 +8,12 @@ part of 'Job.dart';
 
 Job _$JobFromJson(Map<String, dynamic> json) {
   return Job(
-      id: json['id'] as int,
-      updated: json['updated'] as String,
-      created: json['created'] as String,
-      execution: json['execution'] as String,
-      status: json['status'] as String);
+    id: json['id'] as int,
+    updated: json['updated'] as String,
+    created: json['created'] as String,
+    execution: json['execution'] as String,
+    status: json['status'] as String,
+  );
 }
 
 Map<String, dynamic> _$JobToJson(Job instance) {

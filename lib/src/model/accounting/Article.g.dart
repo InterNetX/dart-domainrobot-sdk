@@ -8,16 +8,17 @@ part of 'Article.dart';
 
 Article _$ArticleFromJson(Map<String, dynamic> json) {
   return Article(
-      created: json['created'] as String,
-      updated: json['updated'] as String,
-      owner: json['owner'] == null
-          ? null
-          : User.fromJson(json['owner'] as Map<String, dynamic>),
-      updater: json['updater'] == null
-          ? null
-          : User.fromJson(json['updater'] as Map<String, dynamic>),
-      label: json['label'] as String,
-      type: json['type'] as String);
+    created: json['created'] as String,
+    updated: json['updated'] as String,
+    owner: json['owner'] == null
+        ? null
+        : User.fromJson(json['owner'] as Map<String, dynamic>),
+    updater: json['updater'] == null
+        ? null
+        : User.fromJson(json['updater'] as Map<String, dynamic>),
+    label: json['label'] as String,
+    type: json['type'] as String,
+  );
 }
 
 Map<String, dynamic> _$ArticleToJson(Article instance) {

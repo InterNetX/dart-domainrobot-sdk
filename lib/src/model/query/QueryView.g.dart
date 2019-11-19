@@ -8,11 +8,12 @@ part of 'QueryView.dart';
 
 QueryView _$QueryViewFromJson(Map<String, dynamic> json) {
   return QueryView(
-      limit: json['limit'] as int,
-      offset: json['offset'] as int,
-      children: json['children'] as bool,
-      from: json['from'] as String,
-      to: json['to'] as String);
+    limit: json['limit'] as int,
+    offset: json['offset'] as int,
+    children: json['children'] as bool,
+    from: json['from'] as String,
+    to: json['to'] as String,
+  );
 }
 
 Map<String, dynamic> _$QueryViewToJson(QueryView instance) => <String, dynamic>{
@@ -20,5 +21,5 @@ Map<String, dynamic> _$QueryViewToJson(QueryView instance) => <String, dynamic>{
       'offset': instance.offset,
       'children': instance.children,
       'from': instance.from,
-      'to': instance.to
+      'to': instance.to,
     };

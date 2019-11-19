@@ -9,11 +9,11 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  basic_utils: ^1.6.0
+  basic_utils: ^2.3.3
   logging: ^0.11.3+2
-  json_annotation: ^2.0.0
+  json_annotation: ">=2.0.0 <=3.0.0"
 
 dev_dependencies:
   test: '>=0.12.42 <2.0.0'
-  build_runner: ^1.0.0
-  json_serializable: ^2.0.0
+  build_runner: ^1.5.0
+  json_serializable: ^3.2.2

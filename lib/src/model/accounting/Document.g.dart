@@ -8,15 +8,16 @@ part of 'Document.dart';
 
 Document _$DocumentFromJson(Map<String, dynamic> json) {
   return Document(
-      created: json['created'] as String,
-      updated: json['updated'] as String,
-      name: json['name'] as String,
-      data: json['data'] as String,
-      id: json['id'] as int,
-      mimeType: json['mimeType'] as String,
-      type: json['type'] as String,
-      comment: json['comment'] as String,
-      size: json['size'] as int);
+    created: json['created'] as String,
+    updated: json['updated'] as String,
+    name: json['name'] as String,
+    data: json['data'] as String,
+    id: json['id'] as int,
+    mimeType: json['mimeType'] as String,
+    type: json['type'] as String,
+    comment: json['comment'] as String,
+    size: json['size'] as int,
+  );
 }
 
 Map<String, dynamic> _$DocumentToJson(Document instance) {

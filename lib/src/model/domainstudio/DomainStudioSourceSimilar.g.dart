@@ -9,9 +9,10 @@ part of 'DomainStudioSourceSimilar.dart';
 DomainStudioSourceSimilar _$DomainStudioSourceSimilarFromJson(
     Map<String, dynamic> json) {
   return DomainStudioSourceSimilar(
-      max: json['max'] as int,
-      tlds: (json['tlds'] as List)?.map((e) => e as String)?.toList(),
-      services: (json['services'] as List)?.map((e) => e as String)?.toList());
+    max: json['max'] as int,
+    tlds: (json['tlds'] as List)?.map((e) => e as String)?.toList(),
+    services: (json['services'] as List)?.map((e) => e as String)?.toList(),
+  );
 }
 
 Map<String, dynamic> _$DomainStudioSourceSimilarToJson(
@@ -19,5 +20,5 @@ Map<String, dynamic> _$DomainStudioSourceSimilarToJson(
     <String, dynamic>{
       'services': instance.services,
       'max': instance.max,
-      'tlds': instance.tlds
+      'tlds': instance.tlds,
     };

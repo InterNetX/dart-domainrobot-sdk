@@ -9,10 +9,13 @@ part of 'TrustedApplicationFunctions.dart';
 TrustedApplicationFunctions _$TrustedApplicationFunctionsFromJson(
     Map<String, dynamic> json) {
   return TrustedApplicationFunctions(
-      functionCodes:
-          (json['functionCodes'] as List)?.map((e) => e as String)?.toList());
+    functionCodes:
+        (json['functionCodes'] as List)?.map((e) => e as String)?.toList(),
+  );
 }
 
 Map<String, dynamic> _$TrustedApplicationFunctionsToJson(
         TrustedApplicationFunctions instance) =>
-    <String, dynamic>{'functionCodes': instance.functionCodes};
+    <String, dynamic>{
+      'functionCodes': instance.functionCodes,
+    };

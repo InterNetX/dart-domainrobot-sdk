@@ -8,9 +8,10 @@ part of 'ServiceEntity.dart';
 
 ServiceEntity _$ServiceEntityFromJson(Map<String, dynamic> json) {
   return ServiceEntity(
-      created: json['created'] as String,
-      updated: json['updated'] as String,
-      label: json['label'] as String);
+    created: json['created'] as String,
+    updated: json['updated'] as String,
+    label: json['label'] as String,
+  );
 }
 
 Map<String, dynamic> _$ServiceEntityToJson(ServiceEntity instance) {

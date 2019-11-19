@@ -16,31 +16,44 @@ import 'package:domainrobot_api/src/model/query/Query.dart';
 import 'package:domainrobot_api/src/model/application/TrustedApplication.dart';
 import 'package:logging/logging.dart';
 
+import 'DomainRobotHeaders.dart';
 import 'model/contact/Contact.dart';
 
 ///
-///
+/// Provider for the DomainRobot API
 ///
 class DomainRobotProvider {
   static const String TAG = "DomainRobotProvider";
 
+  /// The DomainRobot API username
   String _userName;
+
+  /// The DomainRobot API user password
   String _password;
+
+  /// The DomainRobot API user context
   String context;
+
+  /// The DomainRobot API base url
   String _baseUrl;
 
-  DomainRobotProvider(this._userName, this._password, this._baseUrl,
-      {this.context});
+  DomainRobotProvider(
+    this._userName,
+    this._password,
+    this.context,
+    this._baseUrl,
+  );
 
   ///
   /// Create a new contact
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Contact> contactCreate(Contact contact, {String ctid = ""}) async {
+  Future<Contact> contactCreate(Contact contact,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending contactCreate");
     return await ContactClient.contactCreate(
-        _baseUrl, contact, getBasicHeaders(ctid));
+        _baseUrl, contact, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -48,10 +61,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Contact> contactUpdate(Contact contact, {String ctid = ""}) async {
+  Future<Contact> contactUpdate(Contact contact,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending contactCreate");
     return await ContactClient.contactCreate(
-        _baseUrl, contact, getBasicHeaders(ctid));
+        _baseUrl, contact, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -59,9 +73,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<void> contactDelete(int id, {String ctid = ""}) async {
+  Future<void> contactDelete(int id,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending contactDelete");
-    await ContactClient.contactDelete(_baseUrl, id, getBasicHeaders(ctid));
+    await ContactClient.contactDelete(
+        _baseUrl, id, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -69,9 +85,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Contact> contactInfo(int id, {String ctid = ""}) async {
+  Future<Contact> contactInfo(int id,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending contactCreate");
-    return await ContactClient.contactInfo(_baseUrl, id, getBasicHeaders(ctid));
+    return await ContactClient.contactInfo(
+        _baseUrl, id, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -82,10 +100,11 @@ class DomainRobotProvider {
   Future<List<Contact>> contactList(
       {Query query,
       String ctid = "",
+      Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     Logger(TAG).info("Sending contactCreate");
     return await ContactClient.contactList(
-        _baseUrl, query, getBasicHeaders(ctid),
+        _baseUrl, query, buildHeaders(ctid, headers: headers),
         queryParameters: queryParameters);
   }
 
@@ -94,10 +113,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Job> domainCreate(DomainRobotDomain domain, {String ctid = ""}) async {
+  Future<Job> domainCreate(DomainRobotDomain domain,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending domainCreate");
     return await DomainClient.domainCreate(
-        _baseUrl, domain, getBasicHeaders(ctid));
+        _baseUrl, domain, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -105,10 +125,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Job> domainUpdate(DomainRobotDomain domain, {String ctid = ""}) async {
+  Future<Job> domainUpdate(DomainRobotDomain domain,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending domainUpdate");
     return await DomainClient.domainUpdate(
-        _baseUrl, domain, getBasicHeaders(ctid));
+        _baseUrl, domain, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -116,9 +137,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<DomainRobotDomain> domainInfo(String name, {String ctid = ""}) async {
+  Future<DomainRobotDomain> domainInfo(String name,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending domainInfo");
-    return await DomainClient.domainInfo(_baseUrl, name, getBasicHeaders(ctid));
+    return await DomainClient.domainInfo(
+        _baseUrl, name, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -129,9 +152,11 @@ class DomainRobotProvider {
   Future<List<DomainRobotDomain>> domainList(
       {Query query,
       String ctid = "",
+      Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     Logger(TAG).info("Sending domainList");
-    return await DomainClient.domainList(_baseUrl, query, getBasicHeaders(ctid),
+    return await DomainClient.domainList(
+        _baseUrl, query, buildHeaders(ctid, headers: headers),
         queryParameters: queryParameters);
   }
 
@@ -142,10 +167,11 @@ class DomainRobotProvider {
   ///
   Future<TrustedApplication> trustedApplicationCreate(
       TrustedApplication trustedApp,
-      {String ctid = ""}) async {
+      {String ctid = "",
+      Map<String, String> headers}) async {
     Logger(TAG).info("Sending trustedApplicationCreate");
     return await TrustedApplicationClient.trustedApplicationCreate(
-        _baseUrl, trustedApp, getBasicHeaders(ctid));
+        _baseUrl, trustedApp, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -155,10 +181,11 @@ class DomainRobotProvider {
   ///
   Future<TrustedApplication> trustedApplicationUpdate(
       TrustedApplication trustedApp,
-      {String ctid = ""}) async {
+      {String ctid = "",
+      Map<String, String> headers}) async {
     Logger(TAG).info("Sending trustedApplicationUpdate");
     return await TrustedApplicationClient.trustedApplicationUpdate(
-        _baseUrl, trustedApp, getBasicHeaders(ctid));
+        _baseUrl, trustedApp, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -166,10 +193,11 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<void> trustedApplicationDelete(String uuid, {String ctid = ""}) async {
+  Future<void> trustedApplicationDelete(String uuid,
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending trustedApplicationDelete");
     return await TrustedApplicationClient.trustedApplicationDelete(
-        _baseUrl, uuid, getBasicHeaders(ctid));
+        _baseUrl, uuid, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -178,10 +206,10 @@ class DomainRobotProvider {
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
   Future<TrustedApplication> trustedApplicationInfo(String uuid,
-      {String ctid = ""}) async {
+      {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending trustedApplicationInfo");
     return await TrustedApplicationClient.trustedApplicationInfo(
-        _baseUrl, uuid, getBasicHeaders(ctid));
+        _baseUrl, uuid, buildHeaders(ctid, headers: headers));
   }
 
   ///
@@ -192,10 +220,11 @@ class DomainRobotProvider {
   Future<List<TrustedApplication>> trustedApplicationList(
       {Query query,
       String ctid = "",
+      Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     Logger(TAG).info("Sending trustedApplicationList");
     return await TrustedApplicationClient.trustedApplicationList(
-        _baseUrl, query, getBasicHeaders(ctid),
+        _baseUrl, query, buildHeaders(ctid, headers: headers),
         queryParameters: queryParameters);
   }
 
@@ -205,10 +234,12 @@ class DomainRobotProvider {
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
   Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,
-      {String ctid = "", Map<String, String> queryParameters}) async {
+      {String ctid = "",
+      Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
     Logger(TAG).info("Sending domainStudioSearch");
     return await DomainStudioClient.search(
-        _baseUrl, search, getBasicHeaders(ctid),
+        _baseUrl, search, buildHeaders(ctid, headers: headers),
         queryParameters: queryParameters);
   }
 
@@ -220,27 +251,34 @@ class DomainRobotProvider {
   Future<AccountingDocument> accountingDocumentCalculate(
       AccountingDocument document,
       {String ctid = "",
+      Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     Logger(TAG).info("Sending accountingDocumentCalculate");
     return await AccountingDocumentClient.calculate(
-        _baseUrl, document, getBasicHeaders(ctid),
+        _baseUrl, document, buildHeaders(ctid, headers: headers),
         queryParameters: queryParameters);
   }
 
   ///
-  /// Builds the basic headers that are needed by the domainrobot api
+  /// Builds the basic headers that are needed by the domainrobot api.
   ///
-  Map<String, String> getBasicHeaders(String ctid) {
-    Map<String, String> headers = <String, String>{};
+  /// If the given [headers] are not null, they will be merged with the basic headers needed by the domainrobot api.
+  ///
+  /// For all possible headers look at the DomainRobotHeaders.dart file.
+  ///
+  Map<String, String> buildHeaders(String ctid, {Map<String, String> headers}) {
+    if (headers == null) {
+      headers = {};
+    }
     String auth = base64.encode(utf8.encode("$_userName:$_password"));
     auth = "Basic $auth";
     headers.putIfAbsent("authorization", () => auth);
     if (context != null) {
-      headers.putIfAbsent("X-Domainrobot-Context", () => context);
+      headers.putIfAbsent(DOMAINROBOT_HEADER_CONTEXT, () => context);
     }
     headers.putIfAbsent("Accept", () => "application/json");
     if (StringUtils.isNotNullOrEmpty(ctid)) {
-      headers.putIfAbsent("X-Domainrobot-Ctid", () => ctid);
+      headers.putIfAbsent(DOMAINROBOT_HEADER_CTID, () => ctid);
     }
     return headers;
   }

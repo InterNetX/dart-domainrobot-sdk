@@ -12,7 +12,7 @@ import 'package:domainrobot_api/domainrobot_api.dart';
 
 void main() {
   DomainRobotProvider provider =
-      DomainRobotProvider("hello", "world", "https://api.com");
+      DomainRobotProvider("hello", "world", "4", "https://api.com");
 
   test('Test domain studio search', () async {
     HttpUtils.client = MockClient((request) async {

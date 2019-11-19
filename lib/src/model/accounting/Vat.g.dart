@@ -8,10 +8,11 @@ part of 'Vat.dart';
 
 Vat _$VatFromJson(Map<String, dynamic> json) {
   return Vat(
-      rate: json['rate'] == null
-          ? null
-          : VatRate.fromJson(json['rate'] as Map<String, dynamic>),
-      amount: (json['amount'] as num)?.toDouble());
+    rate: json['rate'] == null
+        ? null
+        : VatRate.fromJson(json['rate'] as Map<String, dynamic>),
+    amount: (json['amount'] as num)?.toDouble(),
+  );
 }
 
 Map<String, dynamic> _$VatToJson(Vat instance) {

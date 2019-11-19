@@ -9,10 +9,14 @@ part of 'DomainStudioSourceRecommended.dart';
 DomainStudioSourceRecommended _$DomainStudioSourceRecommendedFromJson(
     Map<String, dynamic> json) {
   return DomainStudioSourceRecommended(
-      max: json['max'] as int,
-      services: (json['services'] as List)?.map((e) => e as String)?.toList());
+    max: json['max'] as int,
+    services: (json['services'] as List)?.map((e) => e as String)?.toList(),
+  );
 }
 
 Map<String, dynamic> _$DomainStudioSourceRecommendedToJson(
         DomainStudioSourceRecommended instance) =>
-    <String, dynamic>{'services': instance.services, 'max': instance.max};
+    <String, dynamic>{
+      'services': instance.services,
+      'max': instance.max,
+    };

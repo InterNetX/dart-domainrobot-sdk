@@ -7,8 +7,13 @@ part of 'Custom.dart';
 // **************************************************************************
 
 Custom _$CustomFromJson(Map<String, dynamic> json) {
-  return Custom(key: json['key'] as String, value: json['value'] as String);
+  return Custom(
+    key: json['key'] as String,
+    value: json['value'] as String,
+  );
 }
 
-Map<String, dynamic> _$CustomToJson(Custom instance) =>
-    <String, dynamic>{'key': instance.key, 'value': instance.value};
+Map<String, dynamic> _$CustomToJson(Custom instance) => <String, dynamic>{
+      'key': instance.key,
+      'value': instance.value,
+    };

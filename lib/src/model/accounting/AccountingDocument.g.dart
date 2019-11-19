@@ -8,36 +8,37 @@ part of 'AccountingDocument.dart';
 
 AccountingDocument _$AccountingDocumentFromJson(Map<String, dynamic> json) {
   return AccountingDocument(
-      created: json['created'] as String,
-      updated: json['updated'] as String,
-      owner: json['owner'] == null
-          ? null
-          : User.fromJson(json['owner'] as Map<String, dynamic>),
-      updater: json['updater'] == null
-          ? null
-          : User.fromJson(json['updater'] as Map<String, dynamic>),
-      id: json['id'] as int,
-      entry: json['entry'] == null
-          ? null
-          : AccountEntry.fromJson(json['entry'] as Map<String, dynamic>),
-      type: json['type'] as String,
-      account: json['account'] == null
-          ? null
-          : Account.fromJson(json['account'] as Map<String, dynamic>),
-      subjectProducts: (json['subjectProducts'] as List)
-          ?.map((e) => e == null
-              ? null
-              : SubjectProduct.fromJson(e as Map<String, dynamic>))
-          ?.toList(),
-      view: json['view'] == null
-          ? null
-          : CurrencyRate.fromJson(json['view'] as Map<String, dynamic>),
-      synchronized: json['synchronized'] as bool,
-      status: json['status'] as String,
-      invoice: json['invoice'] == null
-          ? null
-          : Invoice.fromJson(json['invoice'] as Map<String, dynamic>),
-      payment: json['payment'] as String);
+    created: json['created'] as String,
+    updated: json['updated'] as String,
+    owner: json['owner'] == null
+        ? null
+        : User.fromJson(json['owner'] as Map<String, dynamic>),
+    updater: json['updater'] == null
+        ? null
+        : User.fromJson(json['updater'] as Map<String, dynamic>),
+    id: json['id'] as int,
+    entry: json['entry'] == null
+        ? null
+        : AccountEntry.fromJson(json['entry'] as Map<String, dynamic>),
+    type: json['type'] as String,
+    account: json['account'] == null
+        ? null
+        : Account.fromJson(json['account'] as Map<String, dynamic>),
+    subjectProducts: (json['subjectProducts'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SubjectProduct.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+    view: json['view'] == null
+        ? null
+        : CurrencyRate.fromJson(json['view'] as Map<String, dynamic>),
+    synchronized: json['synchronized'] as bool,
+    status: json['status'] as String,
+    invoice: json['invoice'] == null
+        ? null
+        : Invoice.fromJson(json['invoice'] as Map<String, dynamic>),
+    payment: json['payment'] as String,
+  );
 }
 
 Map<String, dynamic> _$AccountingDocumentToJson(AccountingDocument instance) {

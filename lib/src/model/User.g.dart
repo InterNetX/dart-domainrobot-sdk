@@ -7,7 +7,10 @@ part of 'User.dart';
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) {
-  return User(user: json['user'] as String, context: json['context'] as int);
+  return User(
+    user: json['user'] as String,
+    context: json['context'] as int,
+  );
 }
 
 Map<String, dynamic> _$UserToJson(User instance) {

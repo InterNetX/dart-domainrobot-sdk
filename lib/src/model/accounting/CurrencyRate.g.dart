@@ -8,8 +8,9 @@ part of 'CurrencyRate.dart';
 
 CurrencyRate _$CurrencyRateFromJson(Map<String, dynamic> json) {
   return CurrencyRate(
-      currency: json['currency'] as String,
-      rate: (json['rate'] as num)?.toDouble());
+    currency: json['currency'] as String,
+    rate: (json['rate'] as num)?.toDouble(),
+  );
 }
 
 Map<String, dynamic> _$CurrencyRateToJson(CurrencyRate instance) {

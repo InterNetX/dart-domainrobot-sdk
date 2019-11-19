@@ -9,14 +9,15 @@ part of 'DomainStudioSourceSuggestion.dart';
 DomainStudioSourceSuggestion _$DomainStudioSourceSuggestionFromJson(
     Map<String, dynamic> json) {
   return DomainStudioSourceSuggestion(
-      language: json['language'] as String,
-      max: json['max'] as int,
-      maxSldLength: json['maxSldLength'] as int,
-      useDash: json['useDash'] as bool,
-      useNumber: json['useNumber'] as bool,
-      useIdn: json['useIdn'] as bool,
-      tlds: (json['tlds'] as List)?.map((e) => e as String)?.toList(),
-      services: (json['services'] as List)?.map((e) => e as String)?.toList());
+    language: json['language'] as String,
+    max: json['max'] as int,
+    maxSldLength: json['maxSldLength'] as int,
+    useDash: json['useDash'] as bool,
+    useNumber: json['useNumber'] as bool,
+    useIdn: json['useIdn'] as bool,
+    tlds: (json['tlds'] as List)?.map((e) => e as String)?.toList(),
+    services: (json['services'] as List)?.map((e) => e as String)?.toList(),
+  );
 }
 
 Map<String, dynamic> _$DomainStudioSourceSuggestionToJson(
@@ -29,5 +30,5 @@ Map<String, dynamic> _$DomainStudioSourceSuggestionToJson(
       'useDash': instance.useDash,
       'useNumber': instance.useNumber,
       'useIdn': instance.useIdn,
-      'tlds': instance.tlds
+      'tlds': instance.tlds,
     };

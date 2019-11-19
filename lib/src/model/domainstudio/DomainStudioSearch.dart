@@ -9,6 +9,8 @@ class DomainStudioSearch {
   String searchToken;
   String currency;
   DomainStudioSources sources;
+  bool checkPortfolio;
+  String clientIp;
 
   DomainStudioSearch({this.searchToken, this.currency, this.sources});
 

@@ -8,11 +8,12 @@ part of 'Application.dart';
 
 Application _$ApplicationFromJson(Map<String, dynamic> json) {
   return Application(
-      name: json['name'] as String,
-      functionCodes:
-          (json['functionCodes'] as List)?.map((e) => e as String)?.toList(),
-      created: json['created'] as String,
-      updated: json['updated'] as String);
+    name: json['name'] as String,
+    functionCodes:
+        (json['functionCodes'] as List)?.map((e) => e as String)?.toList(),
+    created: json['created'] as String,
+    updated: json['updated'] as String,
+  );
 }
 
 Map<String, dynamic> _$ApplicationToJson(Application instance) =>
@@ -20,5 +21,5 @@ Map<String, dynamic> _$ApplicationToJson(Application instance) =>
       'name': instance.name,
       'functionCodes': instance.functionCodes,
       'created': instance.created,
-      'updated': instance.updated
+      'updated': instance.updated,
     };

@@ -20,7 +20,8 @@ class DomainStudioClient extends AbstractDomainRobotClient {
     String payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson("$baseUrl", payloadAsString,
+      body = await HttpUtils.postForJson(
+          "$baseUrl/domainstudio", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);

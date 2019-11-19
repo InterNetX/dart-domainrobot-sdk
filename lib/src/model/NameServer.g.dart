@@ -7,7 +7,9 @@ part of 'NameServer.dart';
 // **************************************************************************
 
 NameServer _$NameServerFromJson(Map<String, dynamic> json) {
-  return NameServer(name: json['name'] as String);
+  return NameServer(
+    name: json['name'] as String,
+  );
 }
 
 Map<String, dynamic> _$NameServerToJson(NameServer instance) {

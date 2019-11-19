@@ -9,10 +9,11 @@ part of 'DomainStudioSourcePremium.dart';
 DomainStudioSourcePremium _$DomainStudioSourcePremiumFromJson(
     Map<String, dynamic> json) {
   return DomainStudioSourcePremium(
-      promoTlds: (json['promoTlds'] as List)?.map((e) => e as String)?.toList(),
-      topTlds: (json['topTlds'] as List)?.map((e) => e as String)?.toList(),
-      max: json['max'] as int,
-      services: (json['services'] as List)?.map((e) => e as String)?.toList());
+    promoTlds: (json['promoTlds'] as List)?.map((e) => e as String)?.toList(),
+    topTlds: (json['topTlds'] as List)?.map((e) => e as String)?.toList(),
+    max: json['max'] as int,
+    services: (json['services'] as List)?.map((e) => e as String)?.toList(),
+  );
 }
 
 Map<String, dynamic> _$DomainStudioSourcePremiumToJson(
@@ -21,5 +22,5 @@ Map<String, dynamic> _$DomainStudioSourcePremiumToJson(
       'services': instance.services,
       'promoTlds': instance.promoTlds,
       'topTlds': instance.topTlds,
-      'max': instance.max
+      'max': instance.max,
     };

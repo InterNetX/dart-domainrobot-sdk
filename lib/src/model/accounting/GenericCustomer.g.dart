@@ -8,9 +8,10 @@ part of 'GenericCustomer.dart';
 
 GenericCustomer _$GenericCustomerFromJson(Map<String, dynamic> json) {
   return GenericCustomer(
-      number: json['number'] as int,
-      client: json['client'] as String,
-      group: json['group'] as String);
+    number: json['number'] as int,
+    client: json['client'] as String,
+    group: json['group'] as String,
+  );
 }
 
 Map<String, dynamic> _$GenericCustomerToJson(GenericCustomer instance) {

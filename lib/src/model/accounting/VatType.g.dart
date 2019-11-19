@@ -7,7 +7,9 @@ part of 'VatType.dart';
 // **************************************************************************
 
 VatType _$VatTypeFromJson(Map<String, dynamic> json) {
-  return VatType(label: json['label'] as String);
+  return VatType(
+    label: json['label'] as String,
+  );
 }
 
 Map<String, dynamic> _$VatTypeToJson(VatType instance) {
