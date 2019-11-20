@@ -1,6 +1,6 @@
-# Domainrobot API
+# Dart Domainrobot API
 
-A dart package for easy integration of the domainrobot api powered by InterNetX GmbH.
+A dart package for easy integration of the domainrobot API powered by InterNetX GmbH.
 
 ## Table of Contents
 
@@ -18,9 +18,9 @@ A dart package for easy integration of the domainrobot api powered by InterNetX 
 
 ## Preamble
 
-As this sdk is written in pure [Dart](https://dart.dev), it can be used on all plattforms dart is running. This includes the using of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more.
+As this sdk is written in pure [Dart](https://dart.dev), it can be used on all platforms on which dart is currently running. This includes the use of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more.
 
-Important: This package is under developement and more functionalities of the domainrobot api will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
+Important: Important: This package is under development and more functionality of the domainrobot API will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
 
 ## Install And Import
 
@@ -35,7 +35,7 @@ dependencies:
 
 ### Import
 
-Import the package with :
+Import the package with:
 
 ```dart
 import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
@@ -97,11 +97,11 @@ Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{S
 
 ### Models
 
-The package contains many classes that represents entities from the Domainrobot api. All Models can be used inside your own project.
+The package contains many classes that represent entities from the Domainrobot API. All Models can be used inside of your own project.
 
 ### Handling exceptions
 
-If there is any error response from the Api. The DomainRobotprovider will throw a [DomainRobotApiException](/lib/src/model/exception/DomainRobotApiException.dart), that contains information about the error.
+If there is any error response from the API. The DomainRobotprovider will throw a [DomainRobotApiException](/lib/src/model/exception/DomainRobotApiException.dart), which contains information about the error.
 
 ```dart
 try {
