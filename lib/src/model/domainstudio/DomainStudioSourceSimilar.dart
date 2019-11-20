@@ -1,4 +1,4 @@
-import 'package:domainrobot_api/src/model/domainstudio/AbstractDomainStudioSourceConfiguration.dart';
+import 'package:dart_domainrobot_sdk/src/model/domainstudio/AbstractDomainStudioSourceConfiguration.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'DomainStudioSourceSimilar.g.dart';

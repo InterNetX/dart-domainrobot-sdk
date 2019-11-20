@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
-import 'package:domainrobot_api/src/model/domainstudio/DomainStudioDomain.dart';
-import 'package:domainrobot_api/src/model/domainstudio/DomainStudioSearch.dart';
+import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
+import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioDomain.dart';
+import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioSearch.dart';
 
 ///
 /// Implementation of the domainstudio specific api functions

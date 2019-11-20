@@ -1,7 +1,7 @@
 import '../DomainRobotApiResponse.dart';
 
 ///
-///
+/// A exception containing information about the error from the api.
 ///
 class DomainRobotApiException implements Exception {
   final String message;

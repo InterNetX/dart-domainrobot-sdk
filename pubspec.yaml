@@ -1,8 +1,8 @@
-name: domainrobot_api
+name: dart_domainrobot_sdk
 description: Implementation of the domainrobot api
 version: 0.1.0
 author: InterNetX GmbH <entwicklung@internetx.com>
-homepage: https://github.com/InterNetX/Dart-Domainrobot-Api
+homepage: https://github.com/InterNetX/dart-domainrobot-sdk
 publish_to: https://pub.dartlang.org
 
 environment:

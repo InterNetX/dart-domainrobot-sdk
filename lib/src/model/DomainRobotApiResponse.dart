@@ -1,6 +1,6 @@
 import 'dart:core';
 
-import 'package:domainrobot_api/src/model/DomainRobotMessage.dart';
+import 'package:dart_domainrobot_sdk/src/model/DomainRobotMessage.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'ResponseObject.dart';

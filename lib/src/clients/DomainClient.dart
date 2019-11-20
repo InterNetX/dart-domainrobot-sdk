@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
-import 'package:domainrobot_api/src/model/DomainRobotDomain.dart';
-import 'package:domainrobot_api/src/model/Job.dart';
-import 'package:domainrobot_api/src/model/query/Query.dart';
+import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
+import 'package:dart_domainrobot_sdk/src/model/DomainRobotDomain.dart';
+import 'package:dart_domainrobot_sdk/src/model/Job.dart';
+import 'package:dart_domainrobot_sdk/src/model/query/Query.dart';
 
 ///
 /// Implementation of the domain specific api functions

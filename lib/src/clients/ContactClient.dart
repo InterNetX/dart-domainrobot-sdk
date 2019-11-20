@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:domainrobot_api/src/clients/AbstractDomainRobotClient.dart';
-import 'package:domainrobot_api/src/model/contact/Contact.dart';
-import 'package:domainrobot_api/src/model/query/Query.dart';
+import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
+import 'package:dart_domainrobot_sdk/src/model/contact/Contact.dart';
+import 'package:dart_domainrobot_sdk/src/model/query/Query.dart';
 
 ///
 /// Implementation of the contact specific api functions

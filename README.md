@@ -4,9 +4,10 @@ A dart package for easy integration of the domainrobot api powered by InterNetX 
 
 ## Table of Contents
 
-1. [Install](#install)
+1. [Preamble](#preamble)
+2. [Install And Import](#install-and-import)
    * [pubspec.yaml](#pubspec.yaml)
-2. [Import](#import)
+   * [Import](#import)
 3. [Usage](#usage)
    * [Provider](#provider)
    * [Supported API calls](#supported-api-calls)
@@ -15,7 +16,13 @@ A dart package for easy integration of the domainrobot api powered by InterNetX 
 4. [Changelog](#changelog)
 5. [Copyright and license](#copyright-and-license)
 
-## Install
+## Preamble
+
+As this Sdk is written in pure [Dart](https://dart.dev), it can be used on all plattforms dart is running. This includes the using of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more.
+
+Important: This package is under developement and more functionalities of the domainrobot api will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
+
+## Install And Import
 
 ### pubspec.yaml
 
@@ -26,19 +33,22 @@ dependencies:
   domainrobot_api: ^0.1.0
 ```
 
-## Import
+### Import
 
 Import the package with :
 
 ```dart
-import 'package:domainrobot_api/domainrobot_api.dart';
+import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
 ```
 
 ## Usage
 
 ### Provider
 
-The package contains a [DomainRobotProvider](/lib/src/DomainRobotProvider.dart) that is the main access to the api. Instantiate the provider with your api credentials.
+The package contains a [DomainRobotProvider](/lib/src/DomainRobotProvider.dart) that is the main access to the api. Instantiate the provider with your api credentials and the matching baseUrl of the api.
+
+* Productive System: <https://api.autodns.com/v1>
+* Demo System: <https://api.demo.autodns.com/v1>
 
 ```dart
 String userName = "USER";
@@ -85,19 +95,24 @@ Future<List<TrustedApplication>> trustedApplicationList({Query query,String ctid
 Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{String ctid = "", Map<String, String> queryParameters});
 ```
 
-#### Accounting tasks
-
-```dart
-Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{String ctid = "", Map<String, String> queryParameters});
-```
-
 ### Models
 
-The package contains many classes that represents entities from the Domainrobot api.
+The package contains many classes that represents entities from the Domainrobot api. All Models can be used inside your own project.
 
 ### Handling exceptions
 
-TODO
+If there is any error response from the Api. The DomainRobotprovider will throw a [DomainRobotApiException](/lib/src/model/exception/DomainRobotApiException.dart), that contains information about the error.
+
+```dart
+try {
+  List<DomainStudioDomain> domains = await provider.domainStudioSearch(search);
+} on DomainRobotApiException catch (e) {
+    // Handle error from the API
+    print(e.toString());
+} on Exception catch (e){
+    // Handle any other exception
+}
+```
 
 ## Changelog
 

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:basic_utils/src/model/exception/HttpResponseException.dart';
-import 'package:domainrobot_api/src/model/DomainRobotApiResponse.dart';
-import 'package:domainrobot_api/src/model/exception/DomainRobotApiException.dart';
+import 'package:dart_domainrobot_sdk/src/model/DomainRobotApiResponse.dart';
+import 'package:dart_domainrobot_sdk/src/model/exception/DomainRobotApiException.dart';
 
 ///
 ///

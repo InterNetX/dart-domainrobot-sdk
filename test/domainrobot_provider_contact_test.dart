@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:domainrobot_api/src/model/contact/Contact.dart';
-import 'package:domainrobot_api/src/model/exception/DomainRobotApiException.dart';
+import 'package:dart_domainrobot_sdk/src/model/contact/Contact.dart';
+import 'package:dart_domainrobot_sdk/src/model/exception/DomainRobotApiException.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import "package:test/test.dart";
-import 'package:domainrobot_api/domainrobot_api.dart';
+import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
 
 void main() {
   DomainRobotProvider provider =

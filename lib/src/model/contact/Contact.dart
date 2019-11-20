@@ -1,4 +1,4 @@
-import 'package:domainrobot_api/src/model/User.dart';
+import 'package:dart_domainrobot_sdk/src/model/User.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'Contact.g.dart';
