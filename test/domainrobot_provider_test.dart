@@ -1,5 +1,5 @@
 import "package:test/test.dart";
-import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
+import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 
 void main() {
   test('Test getBasicHeaders', () {

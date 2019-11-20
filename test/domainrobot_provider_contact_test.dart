@@ -6,7 +6,7 @@ import 'package:dart_domainrobot_sdk/src/model/exception/DomainRobotApiException
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import "package:test/test.dart";
-import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
+import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 
 void main() {
   DomainRobotProvider provider =
