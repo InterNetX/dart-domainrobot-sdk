@@ -20,7 +20,7 @@ A dart package for easy integration of the domainrobot API powered by InterNetX 
 
 As this sdk is written in pure [Dart](https://dart.dev), it can be used on all platforms on which dart is currently running. This includes the use of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more.
 
-Important: Important: This package is under development and more functionality of the domainrobot API will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
+Important: This package is under development and more functionality of the domainrobot API will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
 
 ## Install And Import
 
