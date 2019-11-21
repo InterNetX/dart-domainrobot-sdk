@@ -30,7 +30,7 @@ Update pubspec.yaml and add the following line to your dependencies.
 
 ```yaml
 dependencies:
-  domainrobot_api: ^0.1.0
+  domainrobot_api: ^0.1.1
 ```
 
 ### Import
