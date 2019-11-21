@@ -29,7 +29,7 @@ class DomainStudioClient extends AbstractDomainRobotClient {
     List data = body["data"];
     List<DomainStudioDomain> list = [];
     data.forEach((e) {
-      DomainStudioDomain domain = new DomainStudioDomain.fromJson(e);
+      DomainStudioDomain domain = DomainStudioDomain.fromJson(e);
       list.add(domain);
     });
     return list;

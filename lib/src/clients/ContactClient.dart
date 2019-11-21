@@ -102,7 +102,7 @@ class ContactClient extends AbstractDomainRobotClient {
     List data = body["data"];
     List<Contact> list = [];
     data.forEach((e) {
-      Contact contact = new Contact.fromJson(e);
+      Contact contact = Contact.fromJson(e);
       list.add(contact);
     });
     return list;

@@ -64,7 +64,7 @@ void main() {
       return Response(json.encode(mapJson), 200);
     });
     TrustedApplication trustedApp =
-        await provider.trustedApplicationCreate(new TrustedApplication());
+        await provider.trustedApplicationCreate(TrustedApplication());
 
     expect(trustedApp.device, "Android Device");
     expect(trustedApp.comment, "Hello World");

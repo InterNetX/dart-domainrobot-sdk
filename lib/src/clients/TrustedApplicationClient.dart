@@ -105,8 +105,7 @@ class TrustedApplicationClient {
     List data = body["data"];
     List<TrustedApplication> list = [];
     data.forEach((e) {
-      TrustedApplication trustedApplication =
-          new TrustedApplication.fromJson(e);
+      TrustedApplication trustedApplication = TrustedApplication.fromJson(e);
       list.add(trustedApplication);
     });
     return list;

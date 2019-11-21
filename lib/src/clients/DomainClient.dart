@@ -93,7 +93,7 @@ class DomainClient {
     List data = body["data"];
     List<DomainRobotDomain> list = [];
     data.forEach((e) {
-      DomainRobotDomain domain = new DomainRobotDomain.fromJson(e);
+      DomainRobotDomain domain = DomainRobotDomain.fromJson(e);
       list.add(domain);
     });
     return list;
