@@ -5,11 +5,13 @@ import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart'
 import 'package:dart_domainrobot_sdk/src/model/accounting/AccountingDocument.dart';
 
 ///
-/// Implementation of the domainstudio specific api functions
+/// Implementation of the accounting specific api functions
 ///
 class AccountingDocumentClient extends AbstractDomainRobotClient {
   ///
   /// Calculate the accounting document
+  ///
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<AccountingDocument> calculate(
       String baseUrl, AccountingDocument payload, Map<String, String> headers,

@@ -12,7 +12,7 @@ class DomainStudioClient extends AbstractDomainRobotClient {
   ///
   /// Sends a domainstudio search request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<List<DomainStudioDomain>> search(
       String baseUrl, DomainStudioSearch payload, Map<String, String> headers,
@@ -26,12 +26,14 @@ class DomainStudioClient extends AbstractDomainRobotClient {
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    List data = body["data"];
     List<DomainStudioDomain> list = [];
-    data.forEach((e) {
-      DomainStudioDomain domain = DomainStudioDomain.fromJson(e);
-      list.add(domain);
-    });
+    if (body.containsKey("data")) {
+      List data = body["data"];
+      data.forEach((e) {
+        DomainStudioDomain domain = DomainStudioDomain.fromJson(e);
+        list.add(domain);
+      });
+    }
     return list;
   }
 }

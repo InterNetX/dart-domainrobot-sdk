@@ -12,7 +12,7 @@ class TrustedApplicationClient {
   ///
   /// Sends a trustedApplicationCreate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<TrustedApplication> trustedApplicationCreate(
       String baseUrl, TrustedApplication payload, Map<String, String> headers,
@@ -32,7 +32,7 @@ class TrustedApplicationClient {
   ///
   /// Sends a trustedApplicationUpdate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<TrustedApplication> trustedApplicationUpdate(String baseUrl,
       TrustedApplication payload, Map<String, String> headers) async {
@@ -52,7 +52,7 @@ class TrustedApplicationClient {
   ///
   /// Sends a trustedApplicationDelete request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<void> trustedApplicationDelete(
       String baseUrl, String uuid, Map<String, String> headers) async {
@@ -67,7 +67,7 @@ class TrustedApplicationClient {
   ///
   /// Sends a trustedApplicationInfo request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<TrustedApplication> trustedApplicationInfo(
       String baseUrl, String uuid, Map<String, String> headers) async {
@@ -85,7 +85,7 @@ class TrustedApplicationClient {
   ///
   /// Sends a trustedApplicationList request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<List<TrustedApplication>> trustedApplicationList(
       String baseUrl, Query payload, Map<String, String> headers,

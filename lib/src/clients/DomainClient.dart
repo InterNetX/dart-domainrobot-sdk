@@ -13,7 +13,7 @@ class DomainClient {
   ///
   /// Sends a domainCreate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<Job> domainCreate(
       String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
@@ -33,7 +33,7 @@ class DomainClient {
   ///
   /// Sends a domainUpdate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<Job> domainUpdate(
       String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
@@ -54,7 +54,7 @@ class DomainClient {
   ///
   /// Sends a domainInfo request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<DomainRobotDomain> domainInfo(
       String baseUrl, String name, Map<String, String> headers,
@@ -73,7 +73,7 @@ class DomainClient {
   ///
   /// Sends a domainList request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<List<DomainRobotDomain>> domainList(
       String baseUrl, Query payload, Map<String, String> headers,

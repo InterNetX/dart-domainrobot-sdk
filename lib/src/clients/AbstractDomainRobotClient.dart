@@ -5,11 +5,11 @@ import 'package:dart_domainrobot_sdk/src/model/DomainRobotApiResponse.dart';
 import 'package:dart_domainrobot_sdk/src/model/exception/DomainRobotApiException.dart';
 
 ///
-///
+/// Abstract class for all clients
 ///
 class AbstractDomainRobotClient {
   ///
-  ///
+  /// Method for converting a [HttpResponseException] to a [DomainRobotApiResponse].
   ///
   static void handleException(Exception e) {
     HttpResponseException ex = e;

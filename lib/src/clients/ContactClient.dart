@@ -12,7 +12,7 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Sends a contactCreate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<Contact> contactCreate(
       String baseUrl, Contact payload, Map<String, String> headers,
@@ -32,7 +32,7 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Sends a contactUpdate request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<void> contactUpdate(
       String baseUrl, Contact payload, Map<String, String> headers) async {
@@ -49,7 +49,7 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Sends a contactDelete request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<void> contactDelete(
       String baseUrl, int id, Map<String, String> headers) async {
@@ -64,7 +64,7 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Sends a contactInfo request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<Contact> contactInfo(
       String baseUrl, int id, Map<String, String> headers) async {
@@ -82,7 +82,7 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Sends a contactList request
   ///
-  /// Throws an [HttpClientException] if the status code is not 200.
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
   static Future<List<Contact>> contactList(
       String baseUrl, Query payload, Map<String, String> headers,
