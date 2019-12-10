@@ -61,10 +61,10 @@ class DomainRobotProvider {
   ///
   /// Throws an [DomainRobotApiException] if the status code was not 200 and it received a json response.
   ///
-  Future<Contact> contactUpdate(Contact contact,
+  Future<void> contactUpdate(Contact contact,
       {String ctid = "", Map<String, String> headers}) async {
     Logger(TAG).info("Sending contactCreate");
-    return await ContactClient.contactCreate(
+    return await ContactClient.contactUpdate(
         _baseUrl, contact, buildHeaders(ctid, headers: headers));
   }
 
