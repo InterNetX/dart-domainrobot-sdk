@@ -20,7 +20,7 @@ class ContactClient extends AbstractDomainRobotClient {
     String payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson("$baseUrl/trustedapp", payloadAsString,
+      body = await HttpUtils.postForJson("$baseUrl/contact", payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
