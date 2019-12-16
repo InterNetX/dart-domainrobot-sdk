@@ -12,7 +12,7 @@ main(List<String> args) async {
       DomainRobotProvider(userName, password, context, baseUrl);
 
   String ctid = "Some UUID";
-  // Define
+  // Define the custom headers
   Map<String, String> headers = {
     DOMAINROBOT_HEADER_WEBSOCKET: "SYNC",
     DOMAINROBOT_HEADER_CTID: ctid,
@@ -25,9 +25,22 @@ main(List<String> args) async {
       ),
     ),
   );
-  List<DomainStudioDomain> domains =
-      await provider.domainStudioSearch(search, headers: headers);
-  for (DomainStudioDomain domain in domains) {
-    print(domain.domain);
+  try {
+    List<DomainStudioDomain> domains =
+        await provider.domainStudioSearch(search, headers: headers);
+    if (domains != null && domains.isNotEmpty) {
+      print("Result from the DomainStudio:");
+      for (DomainStudioDomain domain in domains) {
+        print(domain.domain);
+      }
+    }
+  } on DomainRobotApiException catch (e) {
+    // Handle error from the API
+    print("Got http status > 299");
+    print(e.toString());
+  } on Exception catch (e) {
+    // Handle any other exception
+    print("Unexpected error while communicating with the api.");
+    print(e.toString());
   }
 }

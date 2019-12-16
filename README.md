@@ -1,6 +1,6 @@
 # Dart Domainrobot API
 
-A dart package for easy integration of the domainrobot API powered by InterNetX GmbH.
+A dart package for easy integration of the **Domainrobot API** powered by [InterNetX GmbH](https://internetx.com).
 
 ## Table of Contents
 
@@ -18,9 +18,9 @@ A dart package for easy integration of the domainrobot API powered by InterNetX 
 
 ## Preamble
 
-As this sdk is written in pure [Dart](https://dart.dev), it can be used on all platforms on which dart is currently running. This includes the use of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more.
+As this sdk is written in pure [Dart](https://dart.dev), it can be used on all [platforms](https://dart.dev/platforms) on which dart is currently running. This includes the use of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more. This package can also be used for command line tools or rest services compiled with [dart2native](https://dart.dev/tools/dart2native).
 
-Important: Important: This package is under development and more functionality of the domainrobot API will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
+Important: This package is under development and more functionality of the **Domainrobot API** will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
 
 ## Install And Import
 
@@ -30,7 +30,7 @@ Update pubspec.yaml and add the following line to your dependencies.
 
 ```yaml
 dependencies:
-  dart_domainrobot_sdk: ^0.1.2
+  dart_domainrobot_sdk: ^0.1.3
 ```
 
 ### Import
@@ -38,7 +38,7 @@ dependencies:
 Import the package with:
 
 ```dart
-import 'package:dart_domainrobot_sdk/domainrobot_api.dart';
+import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 ```
 
 ## Usage

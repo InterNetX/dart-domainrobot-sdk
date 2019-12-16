@@ -21,7 +21,7 @@ packages:
       name: asn1lib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.14"
+    version: "0.5.15"
   async:
     dependency: transitive
     description:
@@ -35,7 +35,7 @@ packages:
       name: basic_utils
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.3"
+    version: "2.4.1"
   boolean_selector:
     dependency: transitive
     description:
