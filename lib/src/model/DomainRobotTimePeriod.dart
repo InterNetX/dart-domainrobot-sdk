@@ -4,12 +4,11 @@ part 'DomainRobotTimePeriod.g.dart';
 
 @JsonSerializable()
 class DomainRobotTimePeriod {
-
   String unit;
 
   int period;
 
-  DomainRobotTimePeriod({this.period,this.unit});
+  DomainRobotTimePeriod({this.period, this.unit});
 
   /*
    * Json to Location object
@@ -22,4 +21,3 @@ class DomainRobotTimePeriod {
    */
   Map<String, dynamic> toJson() => _$DomainRobotTimePeriodToJson(this);
 }
-

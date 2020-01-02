@@ -12,8 +12,7 @@ class Custom {
   /*
    * Json to Location object
    */
-  factory Custom.fromJson(Map<String, dynamic> json) =>
-      _$CustomFromJson(json);
+  factory Custom.fromJson(Map<String, dynamic> json) => _$CustomFromJson(json);
 
   /*
    * Location object to json

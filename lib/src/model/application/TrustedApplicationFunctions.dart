@@ -4,10 +4,11 @@ part 'TrustedApplicationFunctions.g.dart';
 
 @JsonSerializable()
 class TrustedApplicationFunctions {
-
   List<String> functionCodes;
 
-  TrustedApplicationFunctions({this.functionCodes,});
+  TrustedApplicationFunctions({
+    this.functionCodes,
+  });
 
   /*
    * Json to Location object

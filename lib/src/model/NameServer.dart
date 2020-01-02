@@ -6,8 +6,7 @@ part 'NameServer.g.dart';
 class NameServer {
   String name;
 
-  NameServer(
-      {this.name});
+  NameServer({this.name});
 
   /*
    * Json to Location object

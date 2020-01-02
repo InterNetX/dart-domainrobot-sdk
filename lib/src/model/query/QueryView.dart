@@ -4,19 +4,13 @@ part 'QueryView.g.dart';
 
 @JsonSerializable()
 class QueryView {
-
   int limit;
   int offset;
   bool children;
   String from;
   String to;
 
-  QueryView(
-      {this.limit,
-      this.offset,
-      this.children,
-      this.from,
-      this.to});
+  QueryView({this.limit, this.offset, this.children, this.from, this.to});
 
   /*
    * Json to Location object

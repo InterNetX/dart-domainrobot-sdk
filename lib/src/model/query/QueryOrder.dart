@@ -4,15 +4,11 @@ part 'QueryOrder.g.dart';
 
 @JsonSerializable()
 class QueryOrder {
-
   String key;
   String type;
   String ins;
 
-  QueryOrder(
-      {this.key,
-      this.type,
-      this.ins});
+  QueryOrder({this.key, this.type, this.ins});
 
   /*
    * Json to Location object

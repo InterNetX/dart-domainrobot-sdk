@@ -4,19 +4,13 @@ part 'QueryFilter.g.dart';
 
 @JsonSerializable()
 class QueryFilter {
-
   String link;
   String key;
   String value;
   String operator;
   List<QueryFilter> filters;
 
-  QueryFilter(
-      {this.link,
-        this.key,
-        this.value,
-        this.operator,
-        this.filters});
+  QueryFilter({this.link, this.key, this.value, this.operator, this.filters});
 
   /*
    * Json to Location object
