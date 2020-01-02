@@ -13,10 +13,8 @@ class Query {
 
   Query({this.filters, this.view, this.orders});
 
-  addFilter(QueryFilter filter) {
-    if (filters == null) {
-      filters = [];
-    }
+  void addFilter(QueryFilter filter) {
+    filters ??= [];
     filters.add(filter);
   }
 

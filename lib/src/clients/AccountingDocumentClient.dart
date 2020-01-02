@@ -16,16 +16,16 @@ class AccountingDocumentClient extends AbstractDomainRobotClient {
   static Future<AccountingDocument> calculate(
       String baseUrl, AccountingDocument payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          "$baseUrl/accounting/calculate", payloadAsString,
+          '$baseUrl/accounting/calculate', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return AccountingDocument.fromJson(data);
   }
 }

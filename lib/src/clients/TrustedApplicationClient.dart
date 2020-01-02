@@ -17,15 +17,15 @@ class TrustedApplicationClient {
   static Future<TrustedApplication> trustedApplicationCreate(
       String baseUrl, TrustedApplication payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson("$baseUrl/trustedapp", payloadAsString,
+      body = await HttpUtils.postForJson('$baseUrl/trustedapp', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return TrustedApplication.fromJson(data);
   }
 
@@ -36,16 +36,16 @@ class TrustedApplicationClient {
   ///
   static Future<TrustedApplication> trustedApplicationUpdate(String baseUrl,
       TrustedApplication payload, Map<String, String> headers) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.putForJson(
-          "$baseUrl/trustedapp/${payload.uuid}", payloadAsString,
+          '$baseUrl/trustedapp/${payload.uuid}', payloadAsString,
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return TrustedApplication.fromJson(data);
   }
 
@@ -57,7 +57,7 @@ class TrustedApplicationClient {
   static Future<void> trustedApplicationDelete(
       String baseUrl, String uuid, Map<String, String> headers) async {
     try {
-      return await HttpUtils.deleteForJson("$baseUrl/trustedapp/$uuid",
+      return await HttpUtils.deleteForJson('$baseUrl/trustedapp/$uuid',
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
@@ -73,12 +73,12 @@ class TrustedApplicationClient {
       String baseUrl, String uuid, Map<String, String> headers) async {
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.getForJson("$baseUrl/trustedapp/$uuid",
+      body = await HttpUtils.getForJson('$baseUrl/trustedapp/$uuid',
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return TrustedApplication.fromJson(data);
   }
 
@@ -90,22 +90,22 @@ class TrustedApplicationClient {
   static Future<List<TrustedApplication>> trustedApplicationList(
       String baseUrl, Query payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = "";
+    var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());
     }
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          "$baseUrl/trustedapp/_search", payloadAsString,
+          '$baseUrl/trustedapp/_search', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    List data = body["data"];
-    List<TrustedApplication> list = [];
+    List data = body['data'];
+    var list = <TrustedApplication>[];
     data.forEach((e) {
-      TrustedApplication trustedApplication = TrustedApplication.fromJson(e);
+      var trustedApplication = TrustedApplication.fromJson(e);
       list.add(trustedApplication);
     });
     return list;

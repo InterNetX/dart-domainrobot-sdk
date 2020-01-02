@@ -17,15 +17,15 @@ class ContactClient extends AbstractDomainRobotClient {
   static Future<Contact> contactCreate(
       String baseUrl, Contact payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson("$baseUrl/contact", payloadAsString,
+      body = await HttpUtils.postForJson('$baseUrl/contact', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return Contact.fromJson(data);
   }
 
@@ -36,10 +36,10 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   static Future<void> contactUpdate(
       String baseUrl, Contact payload, Map<String, String> headers) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     try {
       return await HttpUtils.putForJson(
-          "$baseUrl/contact/${payload.id}", payloadAsString,
+          '$baseUrl/contact/${payload.id}', payloadAsString,
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
@@ -54,7 +54,7 @@ class ContactClient extends AbstractDomainRobotClient {
   static Future<void> contactDelete(
       String baseUrl, int id, Map<String, String> headers) async {
     try {
-      return await HttpUtils.deleteForJson("$baseUrl/contact/$id",
+      return await HttpUtils.deleteForJson('$baseUrl/contact/$id',
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
@@ -71,11 +71,11 @@ class ContactClient extends AbstractDomainRobotClient {
     Map<String, dynamic> body;
     try {
       body =
-          await HttpUtils.getForJson("$baseUrl/contact/$id", headers: headers);
+          await HttpUtils.getForJson('$baseUrl/contact/$id', headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return Contact.fromJson(data);
   }
 
@@ -87,22 +87,22 @@ class ContactClient extends AbstractDomainRobotClient {
   static Future<List<Contact>> contactList(
       String baseUrl, Query payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = "";
+    var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());
     }
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          "$baseUrl/contact/_search", payloadAsString,
+          '$baseUrl/contact/_search', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    List data = body["data"];
-    List<Contact> list = [];
+    List data = body['data'];
+    var list = <Contact>[];
     data.forEach((e) {
-      Contact contact = Contact.fromJson(e);
+      var contact = Contact.fromJson(e);
       list.add(contact);
     });
     return list;

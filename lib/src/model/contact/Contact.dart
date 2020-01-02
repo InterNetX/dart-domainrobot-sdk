@@ -26,7 +26,7 @@ class Contact {
 
   Contact(
       {this.id,
-      this.type = "PERSON",
+      this.type = 'PERSON',
       this.title,
       this.fname,
       this.lname,

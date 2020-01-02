@@ -13,5 +13,6 @@ class DomainRobotApiException implements Exception {
   DomainRobotApiException(this.message, this.errorCode,
       {this.stid, this.body, this.headers});
 
-  String toString() => stid + " " + errorCode + " : " + message;
+  @override
+  String toString() => stid + ' ' + errorCode + ' : ' + message;
 }

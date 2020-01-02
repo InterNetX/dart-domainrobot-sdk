@@ -17,20 +17,20 @@ class DomainStudioClient extends AbstractDomainRobotClient {
   static Future<List<DomainStudioDomain>> search(
       String baseUrl, DomainStudioSearch payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          "$baseUrl/domainstudio", payloadAsString,
+          '$baseUrl/domainstudio', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    List<DomainStudioDomain> list = [];
-    if (body.containsKey("data")) {
-      List data = body["data"];
+    var list = <DomainStudioDomain>[];
+    if (body.containsKey('data')) {
+      List data = body['data'];
       data.forEach((e) {
-        DomainStudioDomain domain = DomainStudioDomain.fromJson(e);
+        var domain = DomainStudioDomain.fromJson(e);
         list.add(domain);
       });
     }

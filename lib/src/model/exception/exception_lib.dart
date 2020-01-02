@@ -1,1 +1,1 @@
-export "DomainRobotApiException.dart";
+export 'DomainRobotApiException.dart';

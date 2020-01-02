@@ -1,2 +1,2 @@
 // Export contact models
-export "Contact.dart";
+export 'Contact.dart';

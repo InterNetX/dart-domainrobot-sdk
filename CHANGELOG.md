@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.4] - 2020-01-02
+
+* Fix all linter problems
+
 ## [0.1.3] - 2019-12-16
 
 * Update dependencies

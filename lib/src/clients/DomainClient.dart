@@ -18,15 +18,15 @@ class DomainClient {
   static Future<Job> domainCreate(
       String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson("$baseUrl/domain", payloadAsString,
+      body = await HttpUtils.postForJson('$baseUrl/domain', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return Job.fromJson(data);
   }
 
@@ -38,16 +38,16 @@ class DomainClient {
   static Future<Job> domainUpdate(
       String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = json.encode(payload.toJson());
+    var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.putForJson(
-          "$baseUrl/domain/${payload.name}", payloadAsString,
+          '$baseUrl/domain/${payload.name}', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return Job.fromJson(data);
   }
 
@@ -61,12 +61,12 @@ class DomainClient {
       {Map<String, String> queryParameters}) async {
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.getForJson("$baseUrl/domain/$name",
+      body = await HttpUtils.getForJson('$baseUrl/domain/$name',
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body["data"][0];
+    Map<String, dynamic> data = body['data'][0];
     return DomainRobotDomain.fromJson(data);
   }
 
@@ -78,22 +78,22 @@ class DomainClient {
   static Future<List<DomainRobotDomain>> domainList(
       String baseUrl, Query payload, Map<String, String> headers,
       {Map<String, String> queryParameters}) async {
-    String payloadAsString = "";
+    var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());
     }
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          "$baseUrl/domain/_search", payloadAsString,
+          '$baseUrl/domain/_search', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    List data = body["data"];
-    List<DomainRobotDomain> list = [];
+    List data = body['data'];
+    var list = <DomainRobotDomain>[];
     data.forEach((e) {
-      DomainRobotDomain domain = DomainRobotDomain.fromJson(e);
+      var domain = DomainRobotDomain.fromJson(e);
       list.add(domain);
     });
     return list;
