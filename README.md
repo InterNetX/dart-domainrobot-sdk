@@ -30,7 +30,7 @@ Update pubspec.yaml and add the following line to your dependencies.
 
 ```yaml
 dependencies:
-  dart_domainrobot_sdk: ^0.1.4
+  dart_domainrobot_sdk: ^0.2.0
 ```
 
 ### Import
