@@ -1,0 +1,18 @@
+enum UkTypeConstants { 
+  	  LTD,
+  	  PLC,
+  	  PTNR,
+  	  STRA,
+  	  LLP,
+  	  IP,
+  	  IND,
+  	  SCH,
+  	  RCHAR,
+  	  GOV,
+  	  CRC,
+  	  STAT,
+  	  OTHER,
+  	  FIND,
+  	  FCORP,
+  	  FOTHER,
+}

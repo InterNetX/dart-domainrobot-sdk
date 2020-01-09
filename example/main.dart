@@ -1,4 +1,7 @@
 import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainEnvelopeSearchRequest.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioSourceInitial.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioSources.dart';
 
 void main(List<String> args) async {
   // The domainrobot credentials and the baseUrl
@@ -16,7 +19,7 @@ void main(List<String> args) async {
     DOMAINROBOT_HEADER_WEBSOCKET: 'SYNC',
     DOMAINROBOT_HEADER_CTID: ctid,
   };
-  var search = DomainStudioSearch(
+  var search = DomainEnvelopeSearchRequest(
     searchToken: 'treehouse',
     sources: DomainStudioSources(
       initial: DomainStudioSourceInitial(
@@ -25,7 +28,7 @@ void main(List<String> args) async {
     ),
   );
   try {
-    var domains = await provider.domainStudioSearch(search, headers: headers);
+    var domains = await provider.domainStudio.search(search, headers: headers);
     if (domains != null && domains.isNotEmpty) {
       print('Result from the DomainStudio:');
       for (var domain in domains) {

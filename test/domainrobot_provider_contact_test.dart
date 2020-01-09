@@ -45,7 +45,7 @@ void main() {
       };
       return Response(json.encode(mapJson), 200);
     });
-    var persistent = await provider.contactInfo(100);
+    var persistent = await provider.contact.contactInfo(100);
 
     expect(persistent.id, 100);
     expect(persistent.fname, 'Jon');
@@ -76,7 +76,7 @@ void main() {
       return Response(json.encode(mapJson), 404);
     });
     try {
-      await provider.contactInfo(12345);
+      await provider.contact.contactInfo(12345);
       fail('Expected exception!');
     } catch (e) {
       DomainRobotApiException ex = e;
@@ -143,7 +143,7 @@ void main() {
       };
       return Response(json.encode(mapJson), 200);
     });
-    var contacts = await provider.contactList();
+    var contacts = await provider.contact.contactList();
 
     expect(contacts.length, 2);
     expect(contacts.elementAt(0).id, 100);

@@ -2,21 +2,26 @@ import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
-import 'package:dart_domainrobot_sdk/src/model/contact/Contact.dart';
-import 'package:dart_domainrobot_sdk/src/model/query/Query.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Contact.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 
 ///
 /// Implementation of the contact specific api functions
 ///
 class ContactClient extends AbstractDomainRobotClient {
+  ContactClient(
+      String userName, String password, String context, String baseUrl)
+      : super(userName, password, context, baseUrl);
+
   ///
   /// Sends a contactCreate request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<Contact> contactCreate(
-      String baseUrl, Contact payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<Contact> contactCreate(Contact payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -34,8 +39,9 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<void> contactUpdate(
-      String baseUrl, Contact payload, Map<String, String> headers) async {
+  Future<void> contactUpdate(Contact payload,
+      {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     try {
       return await HttpUtils.putForJson(
@@ -51,8 +57,8 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<void> contactDelete(
-      String baseUrl, int id, Map<String, String> headers) async {
+  Future<void> contactDelete(int id, {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     try {
       return await HttpUtils.deleteForJson('$baseUrl/contact/$id',
           headers: headers);
@@ -66,8 +72,8 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<Contact> contactInfo(
-      String baseUrl, int id, Map<String, String> headers) async {
+  Future<Contact> contactInfo(int id, {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     Map<String, dynamic> body;
     try {
       body =
@@ -84,9 +90,11 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<List<Contact>> contactList(
-      String baseUrl, Query payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<List<Contact>> contactList(
+      {Query payload,
+      Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());

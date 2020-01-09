@@ -1,0 +1,18 @@
+enum ModifierConstants { 
+  	  TTL,
+  	  MX,
+  	  A,
+  	  AAAA,
+  	  SOA_EMAIL,
+  	  NSERVER,
+  	  CNAME,
+  	  TXT,
+  	  ALL,
+  	  MAIN_IP,
+  	  OWNERC,
+  	  ADMINC,
+  	  TECHC,
+  	  ZONEC,
+  	  BILLINGC,
+  	  ALIAS,
+}

@@ -1,9 +1,10 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
-import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioSearch.dart';
-import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioServiceStatus.dart';
-import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioSource.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainEnvelopeSearchRequest.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioDomainSource.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioServiceStatus.dart';
+
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:test/test.dart';
@@ -232,14 +233,15 @@ void main() {
       };
       return Response(json.encode(mapJson), 200);
     });
-    var list = await provider.domainStudioSearch(DomainStudioSearch());
+    var list =
+        await provider.domainStudio.search(DomainEnvelopeSearchRequest());
 
     expect(list.length, 5);
     expect(list.elementAt(0).domain, 'ebike.com');
-    expect(list.elementAt(0).source, DomainStudioSource.RECOMMENDED);
+    expect(list.elementAt(0).source, DomainStudioDomainSource.RECOMMENDED);
     expect(list.elementAt(0).services.estimation, null);
     expect(list.elementAt(4).domain, 'ebike.tickets');
-    expect(list.elementAt(4).source, DomainStudioSource.PREMIUM);
+    expect(list.elementAt(4).source, DomainStudioDomainSource.PREMIUM);
     expect(list.elementAt(4).services.estimation.status,
         DomainStudioServiceStatus.SUCCESS);
     expect(list.elementAt(4).services.estimation.data.currency, 'USD');

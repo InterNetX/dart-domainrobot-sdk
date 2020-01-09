@@ -2,21 +2,26 @@ import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
-import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioDomain.dart';
-import 'package:dart_domainrobot_sdk/src/model/domainstudio/DomainStudioSearch.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainEnvelope.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainEnvelopeSearchRequest.dart';
 
 ///
 /// Implementation of the domainstudio specific api functions
 ///
 class DomainStudioClient extends AbstractDomainRobotClient {
+  DomainStudioClient(
+      String userName, String password, String context, String baseUrl)
+      : super(userName, password, context, baseUrl);
+
   ///
   /// Sends a domainstudio search request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<List<DomainStudioDomain>> search(
-      String baseUrl, DomainStudioSearch payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<List<DomainEnvelope>> search(DomainEnvelopeSearchRequest payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -26,11 +31,11 @@ class DomainStudioClient extends AbstractDomainRobotClient {
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    var list = <DomainStudioDomain>[];
+    var list = <DomainEnvelope>[];
     if (body.containsKey('data')) {
       List data = body['data'];
       data.forEach((e) {
-        var domain = DomainStudioDomain.fromJson(e);
+        var domain = DomainEnvelope.fromJson(e);
         list.add(domain);
       });
     }

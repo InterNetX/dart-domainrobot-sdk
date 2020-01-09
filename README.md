@@ -63,36 +63,43 @@ DomainRobotProvider provider = DomainRobotProvider(userName,password,context,bas
 #### Domain tasks
 
 ```dart
-Future<Job> domainCreate(DomainRobotDomain domain, {String ctid = ""});
-Future<Job> domainUpdate(DomainRobotDomain domain, {String ctid =""});
-Future<DomainRobotDomain> domainInfo(String name, {String ctid = ""});
-Future<List<DomainRobotDomain>> domainList({Query query,String ctid = "",Map<String, String> queryParameters});
+Future<Job> domainCreate(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> domainUpdate(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<domainrobot.Domain> domainInfo(String name, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<List<domainrobot.Domain>> domainList(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Contact tasks
 
 ```dart
-Future<Contact> contactCreate(Contact contact, {String ctid = ""});
-Future<Contact> contactUpdate(Contact contact, {String ctid = ""});
-Future<void> contactDelete(int id, {String ctid = ""});
-Future<Contact> contactInfo(int id, {String ctid = ""});
-Future<List<Contact>> contactList({Query query, String ctid = "",Map<String, String> queryParameters});
+Future<Contact> contactCreate(Contact payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> contactUpdate(Contact payload, {Map<String, String> headers});
+Future<void> contactDelete(int id, {Map<String, String> headers});
+Future<Contact> contactInfo(int id, {Map<String, String> headers});
+Future<List<Contact>> contactList({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+```
+
+#### Certificate tasks
+
+```dart
+Future<Certificate> realtime(Certificate payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<CertificateData> prepareOrder(CertificateData payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### TrustedApplication tasks
 
 ```dart
-Future<TrustedApplication> trustedApplicationCreate(TrustedApplication trustedApp,{String ctid = ""});
-Future<TrustedApplication> trustedApplicationUpdate(TrustedApplication trustedApp,{String ctid = ""});
-Future<void> trustedApplicationDelete(String uuid, {String ctid = ""});
-Future<TrustedApplication> trustedApplicationInfo(String uuid,{String ctid = ""});
-Future<List<TrustedApplication>> trustedApplicationList({Query query,String ctid = "",Map<String, String> queryParameters});
+Future<TrustedApplication> trustedApplicationCreate(TrustedApplication payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<TrustedApplication> trustedApplicationUpdate(TrustedApplication payload, {Map<String, String> headers});
+Future<void> trustedApplicationDelete(String uuid,{Map<String, String> headers});
+Future<TrustedApplication> trustedApplicationInfo(String uuid, {Map<String, String> headers})
+Future<List<TrustedApplication>> trustedApplicationList({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Domainstudio tasks
 
 ```dart
-Future<List<DomainStudioDomain>> domainStudioSearch(DomainStudioSearch search,{String ctid = "", Map<String, String> queryParameters});
+Future<List<DomainEnvelope>> search(DomainEnvelopeSearchRequest payload,{Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 ### Models
@@ -105,7 +112,7 @@ If there is any error response from the API. The DomainRobotprovider will throw 
 
 ```dart
 try {
-  List<DomainStudioDomain> domains = await provider.domainStudioSearch(search);
+  List<DomainEnvelope> domains = await provider.domainStudio.search(search);
 } on DomainRobotApiException catch (e) {
     // Handle error from the API
     print(e.toString());

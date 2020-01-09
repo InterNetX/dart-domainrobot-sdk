@@ -2,22 +2,27 @@ import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
-import 'package:dart_domainrobot_sdk/src/model/DomainRobotDomain.dart';
-import 'package:dart_domainrobot_sdk/src/model/Job.dart';
-import 'package:dart_domainrobot_sdk/src/model/query/Query.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Domain.dart'
+    as domainrobot;
+import 'package:dart_domainrobot_sdk/src/model/generated/Job.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 
 ///
 /// Implementation of the domain specific api functions
 ///
-class DomainClient {
+class DomainClient extends AbstractDomainRobotClient {
+  DomainClient(String userName, String password, String context, String baseUrl)
+      : super(userName, password, context, baseUrl);
+
   ///
   /// Sends a domainCreate request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<Job> domainCreate(
-      String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<Job> domainCreate(domainrobot.Domain payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -35,9 +40,10 @@ class DomainClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<Job> domainUpdate(
-      String baseUrl, DomainRobotDomain payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<Job> domainUpdate(domainrobot.Domain payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -56,9 +62,10 @@ class DomainClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<DomainRobotDomain> domainInfo(
-      String baseUrl, String name, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<domainrobot.Domain> domainInfo(String name,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.getForJson('$baseUrl/domain/$name',
@@ -67,7 +74,7 @@ class DomainClient {
       AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body['data'][0];
-    return DomainRobotDomain.fromJson(data);
+    return domainrobot.Domain.fromJson(data);
   }
 
   ///
@@ -75,9 +82,10 @@ class DomainClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<List<DomainRobotDomain>> domainList(
-      String baseUrl, Query payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<List<domainrobot.Domain>> domainList(Query payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());
@@ -91,9 +99,9 @@ class DomainClient {
       AbstractDomainRobotClient.handleException(e);
     }
     List data = body['data'];
-    var list = <DomainRobotDomain>[];
+    var list = <domainrobot.Domain>[];
     data.forEach((e) {
-      var domain = DomainRobotDomain.fromJson(e);
+      var domain = domainrobot.Domain.fromJson(e);
       list.add(domain);
     });
     return list;

@@ -2,21 +2,27 @@ import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
-import 'package:dart_domainrobot_sdk/src/model/application/TrustedApplication.dart';
-import 'package:dart_domainrobot_sdk/src/model/query/Query.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/TrustedApplication.dart';
 
 ///
 /// Implementation of the trusted application specific api functions
 ///
-class TrustedApplicationClient {
+class TrustedApplicationClient extends AbstractDomainRobotClient {
+  TrustedApplicationClient(
+      String userName, String password, String context, String baseUrl)
+      : super(userName, password, context, baseUrl);
+
   ///
   /// Sends a trustedApplicationCreate request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<TrustedApplication> trustedApplicationCreate(
-      String baseUrl, TrustedApplication payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<TrustedApplication> trustedApplicationCreate(
+      TrustedApplication payload,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -34,8 +40,10 @@ class TrustedApplicationClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<TrustedApplication> trustedApplicationUpdate(String baseUrl,
-      TrustedApplication payload, Map<String, String> headers) async {
+  Future<TrustedApplication> trustedApplicationUpdate(
+      TrustedApplication payload,
+      {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
@@ -54,8 +62,9 @@ class TrustedApplicationClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<void> trustedApplicationDelete(
-      String baseUrl, String uuid, Map<String, String> headers) async {
+  Future<void> trustedApplicationDelete(String uuid,
+      {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     try {
       return await HttpUtils.deleteForJson('$baseUrl/trustedapp/$uuid',
           headers: headers);
@@ -69,8 +78,9 @@ class TrustedApplicationClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<TrustedApplication> trustedApplicationInfo(
-      String baseUrl, String uuid, Map<String, String> headers) async {
+  Future<TrustedApplication> trustedApplicationInfo(String uuid,
+      {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.getForJson('$baseUrl/trustedapp/$uuid',
@@ -87,9 +97,11 @@ class TrustedApplicationClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  static Future<List<TrustedApplication>> trustedApplicationList(
-      String baseUrl, Query payload, Map<String, String> headers,
-      {Map<String, String> queryParameters}) async {
+  Future<List<TrustedApplication>> trustedApplicationList(
+      {Query payload,
+      Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
     var payloadAsString = '';
     if (payload != null) {
       payloadAsString = json.encode(payload.toJson());

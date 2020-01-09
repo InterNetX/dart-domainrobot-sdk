@@ -1,0 +1,4 @@
+enum IdentityStatus { 
+  	  VERIFY,
+  	  SUCCESS,
+}

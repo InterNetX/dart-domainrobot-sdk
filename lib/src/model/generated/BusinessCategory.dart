@@ -1,0 +1,5 @@
+enum BusinessCategory { 
+  	  PRIVATE_ORGANIZATION,
+  	  GOVERNMENT_ENTITY,
+  	  BUSINESS_ENTITY,
+}

@@ -1,11 +1,11 @@
-import '../DomainRobotApiResponse.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/JsonResponseData.dart';
 
 ///
 /// A exception containing information about the error from the api.
 ///
 class DomainRobotApiException implements Exception {
   final String message;
-  final DomainRobotApiResponse body;
+  final JsonResponseData body;
   final String errorCode;
   final String stid;
   final Map<String, String> headers;
