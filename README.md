@@ -63,20 +63,20 @@ var provider = DomainRobot(userName,password,context,baseUrl);
 #### Domain tasks
 
 ```dart
-Future<Job> domainCreate(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
-Future<Job> domainUpdate(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
-Future<domainrobot.Domain> domainInfo(String name, {Map<String, String> headers, Map<String, String> queryParameters});
-Future<List<domainrobot.Domain>> domainList(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> create(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> update(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<domainrobot.Domain> info(String name, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<List<domainrobot.Domain>> list(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Contact tasks
 
 ```dart
-Future<Contact> contactCreate(Contact payload, {Map<String, String> headers, Map<String, String> queryParameters});
-Future<void> contactUpdate(Contact payload, {Map<String, String> headers});
-Future<void> contactDelete(int id, {Map<String, String> headers});
-Future<Contact> contactInfo(int id, {Map<String, String> headers});
-Future<List<Contact>> contactList({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+Future<Contact> create(Contact payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> update(Contact payload, {Map<String, String> headers});
+Future<void> delete(int id, {Map<String, String> headers});
+Future<Contact> info(int id, {Map<String, String> headers});
+Future<List<Contact>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Certificate tasks
@@ -84,22 +84,31 @@ Future<List<Contact>> contactList({Query payload, Map<String, String> headers, M
 ```dart
 Future<Certificate> realtime(Certificate payload, {Map<String, String> headers, Map<String, String> queryParameters});
 Future<CertificateData> prepareOrder(CertificateData payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> create(Certificate payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> reissue(int id, {Certificate payload, Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> delete(int id, {Map<String, String> headers});
+Future<Certificate> info(int id, {Map<String, String> headers});
+Future<Job> renew(int id, {Certificate payload, Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### SslContact tasks
 
 ```dart
-
+Future<SslContact> create(SslContact payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> update(SslContact payload, {Map<String, String> headers});
+Future<void> delete(int id, {Map<String, String> headers});
+Future<SslContact> info(int id, {Map<String, String> headers});
+Future<List<SslContact>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### TrustedApplication tasks
 
 ```dart
-Future<TrustedApplication> trustedApplicationCreate(TrustedApplication payload, {Map<String, String> headers, Map<String, String> queryParameters});
-Future<TrustedApplication> trustedApplicationUpdate(TrustedApplication payload, {Map<String, String> headers});
-Future<void> trustedApplicationDelete(String uuid,{Map<String, String> headers});
-Future<TrustedApplication> trustedApplicationInfo(String uuid, {Map<String, String> headers})
-Future<List<TrustedApplication>> trustedApplicationList({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+Future<TrustedApplication> create(TrustedApplication payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<TrustedApplication> update(TrustedApplication payload, {Map<String, String> headers});
+Future<void> delete(String uuid,{Map<String, String> headers});
+Future<TrustedApplication> info(String uuid, {Map<String, String> headers})
+Future<List<TrustedApplication>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Domainstudio tasks

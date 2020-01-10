@@ -16,11 +16,11 @@ class DomainClient extends AbstractDomainRobotClient {
       : super(userName, password, context, baseUrl, version);
 
   ///
-  /// Sends a domainCreate request
+  /// Sends a domain create request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<Job> domainCreate(domainrobot.Domain payload,
+  Future<Job> create(domainrobot.Domain payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
@@ -37,11 +37,11 @@ class DomainClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a domainUpdate request
+  /// Sends a domain update request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<Job> domainUpdate(domainrobot.Domain payload,
+  Future<Job> update(domainrobot.Domain payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
@@ -59,11 +59,11 @@ class DomainClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a domainInfo request
+  /// Sends a domain info request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<domainrobot.Domain> domainInfo(String name,
+  Future<domainrobot.Domain> info(String name,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
@@ -79,11 +79,11 @@ class DomainClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a domainList request
+  /// Sends a domain list request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<List<domainrobot.Domain>> domainList(Query payload,
+  Future<List<domainrobot.Domain>> list(Query payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);

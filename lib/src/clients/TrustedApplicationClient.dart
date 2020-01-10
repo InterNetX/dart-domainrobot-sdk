@@ -14,12 +14,11 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
       : super(userName, password, context, baseUrl, version);
 
   ///
-  /// Sends a trustedApplicationCreate request
+  /// Sends a trustedApplication create request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<TrustedApplication> trustedApplicationCreate(
-      TrustedApplication payload,
+  Future<TrustedApplication> create(TrustedApplication payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
@@ -40,8 +39,7 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<TrustedApplication> trustedApplicationUpdate(
-      TrustedApplication payload,
+  Future<TrustedApplication> update(TrustedApplication payload,
       {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
@@ -62,8 +60,7 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<void> trustedApplicationDelete(String uuid,
-      {Map<String, String> headers}) async {
+  Future<void> delete(String uuid, {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     try {
       return await HttpUtils.deleteForJson('$baseUrl/trustedapp/$uuid',
@@ -78,7 +75,7 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<TrustedApplication> trustedApplicationInfo(String uuid,
+  Future<TrustedApplication> info(String uuid,
       {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     Map<String, dynamic> body;
@@ -97,7 +94,7 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<List<TrustedApplication>> trustedApplicationList(
+  Future<List<TrustedApplication>> list(
       {Query payload,
       Map<String, String> headers,
       Map<String, String> queryParameters}) async {
