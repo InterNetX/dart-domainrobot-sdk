@@ -62,8 +62,8 @@ void main() {
       };
       return Response(json.encode(mapJson), 200);
     });
-    var trustedApp = await provider.trustedApplication
-        .trustedApplicationCreate(TrustedApplication());
+    var trustedApp =
+        await provider.trustedApplication.create(TrustedApplication());
 
     expect(trustedApp.device, 'Android Device');
     expect(trustedApp.comment, 'Hello World');
@@ -122,7 +122,7 @@ void main() {
       return Response(json.encode(mapJson), 200);
     });
     var trustedApp = await provider.trustedApplication
-        .trustedApplicationInfo('b6351bcb-e5e4-4b95-930f-2a2dff9cb795');
+        .info('b6351bcb-e5e4-4b95-930f-2a2dff9cb795');
 
     expect(trustedApp.device, 'Android Device');
     expect(trustedApp.comment, 'Hello World');
@@ -182,8 +182,7 @@ void main() {
     var app = TrustedApplication();
     app.uuid = 'b6351bcb-e5e4-4b95-930f-2a2dff9cb795';
     app.device = 'Iphone XL';
-    var trustedApp =
-        await provider.trustedApplication.trustedApplicationUpdate(app);
+    var trustedApp = await provider.trustedApplication.update(app);
 
     expect(trustedApp.device, 'Iphone XL');
     expect(trustedApp.application.name, 'test-app');
@@ -206,7 +205,7 @@ void main() {
       return Response(json.encode(mapJson), 200);
     });
     await provider.trustedApplication
-        .trustedApplicationDelete('b6351bcb-e5e4-4b95-930f-2a2dff9cb795');
+        .delete('b6351bcb-e5e4-4b95-930f-2a2dff9cb795');
   });
 
   test('Test trustedApplicationList', () async {
@@ -279,7 +278,7 @@ void main() {
       };
       return Response(json.encode(mapJson), 200);
     });
-    var list = await provider.trustedApplication.trustedApplicationList();
+    var list = await provider.trustedApplication.list();
     expect(list.length, 7);
     expect(list.elementAt(0).uuid, '7b129a79-c325-45e7-b87d-c69256bb3851');
   });
