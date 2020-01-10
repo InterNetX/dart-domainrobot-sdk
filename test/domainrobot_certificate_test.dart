@@ -40,4 +40,52 @@ void main() {
       expect(ex.body.toJson(), mapJson);
     }
   });
+
+  test('Test realtime', () async {
+    final mapJson = {
+      'stid': '20200110-test-1',
+      'status': {'code': 'S4001012', 'text': 'S4001012', 'type': 'SUCCESS'},
+      'object': {'type': 'Certificate', 'value': 'domain.de'},
+      'data': [
+        {
+          'created': '2020-01-10T00:00:00.000+0100',
+          'owner': {'context': 9, 'user': 'testuser'},
+          'updater': {'context': 9, 'user': 'testuser'},
+          'orderId': '18345169',
+          'name': 'domain.de',
+          'lifetime': {'unit': 'MONTH', 'period': 12},
+          'software': 'APACHESSL',
+          'csr':
+              '-----BEGIN CERTIFICATE REQUEST-----\n...\n-----END CERTIFICATE REQUEST-----',
+          'server':
+              '-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----\r\n',
+          'serialNumber': '536951DE1675EB0F8B00D2ED43CC0AE',
+          'product': 'BASIC_SSL',
+          'certificateType': 'FQDN',
+          'expire': '2020-02-09T13:00:00.000+0100',
+          'certificationAuthority': [
+            {
+              'caType': 'INTERMEDIATE',
+              'caCertificate':
+                  '-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----\r\n'
+            },
+            {
+              'caType': 'ROOT',
+              'caCertificate':
+                  '-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----\r\n'
+            }
+          ],
+          'authentication': {'method': 'FILE'}
+        }
+      ]
+    };
+    HttpUtils.client = MockClient((request) async {
+      return Response(json.encode(mapJson), 200);
+    });
+    var cert = Certificate();
+    var c = await provider.certificate.realtime(cert);
+    expect(c.name, 'domain.de');
+    expect(c.lifetime.period, 12);
+    expect(c.lifetime.unit, TimeUnitConstants.MONTH);
+  });
 }
