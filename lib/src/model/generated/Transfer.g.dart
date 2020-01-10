@@ -47,26 +47,35 @@ Transfer _$TransferFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TransferToJson(Transfer instance) => <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'domain': instance.domain,
-      'gainingRegistrar': instance.gainingRegistrar,
-      'loosingRegistrar': instance.loosingRegistrar,
-      'start': instance.start?.toIso8601String(),
-      'reminder': instance.reminder?.toIso8601String(),
-      'autoAck': instance.autoAck?.toIso8601String(),
-      'autoNack': instance.autoNack?.toIso8601String(),
-      'end': instance.end?.toIso8601String(),
-      'autoAnswer': instance.autoAnswer,
-      'recipient': instance.recipient,
-      'mailserver': instance.mailserver,
-      'deliveredMailserver': instance.deliveredMailserver,
-      'delivered': instance.delivered?.toIso8601String(),
-      'status': _$TransferStatusConstantsEnumMap[instance.status],
-    };
+Map<String, dynamic> _$TransferToJson(Transfer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('domain', instance.domain);
+  writeNotNull('gainingRegistrar', instance.gainingRegistrar);
+  writeNotNull('loosingRegistrar', instance.loosingRegistrar);
+  writeNotNull('start', instance.start?.toIso8601String());
+  writeNotNull('reminder', instance.reminder?.toIso8601String());
+  writeNotNull('autoAck', instance.autoAck?.toIso8601String());
+  writeNotNull('autoNack', instance.autoNack?.toIso8601String());
+  writeNotNull('end', instance.end?.toIso8601String());
+  writeNotNull('autoAnswer', instance.autoAnswer);
+  writeNotNull('recipient', instance.recipient);
+  writeNotNull('mailserver', instance.mailserver);
+  writeNotNull('deliveredMailserver', instance.deliveredMailserver);
+  writeNotNull('delivered', instance.delivered?.toIso8601String());
+  writeNotNull('status', _$TransferStatusConstantsEnumMap[instance.status]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

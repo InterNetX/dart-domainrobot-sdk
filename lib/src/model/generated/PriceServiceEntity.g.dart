@@ -15,8 +15,16 @@ PriceServiceEntity _$PriceServiceEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PriceServiceEntityToJson(PriceServiceEntity instance) =>
-    <String, dynamic>{
-      'configuration': instance.configuration,
-      'condition': instance.condition,
-    };
+Map<String, dynamic> _$PriceServiceEntityToJson(PriceServiceEntity instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('configuration', instance.configuration);
+  writeNotNull('condition', instance.condition?.toJson());
+  return val;
+}

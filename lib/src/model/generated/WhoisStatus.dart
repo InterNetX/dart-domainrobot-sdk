@@ -3,22 +3,20 @@ import 'DomainStudioDomainStatus.dart';
 
 part 'WhoisStatus.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class WhoisStatus {
   /// The whois status
   DomainStudioDomainStatus status;
-  
-  
-  
+
   WhoisStatus({
-  	this.status,
+    this.status,
   });
 
   @override
   String toString() {
     return 'WhoisStatus[status=$status, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -29,6 +27,4 @@ class WhoisStatus {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$WhoisStatusToJson(this);
-  
 }
-

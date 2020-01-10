@@ -3,42 +3,40 @@ import 'GenericStatusConstants.dart';
 
 part 'ContactVerificationDomain.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactVerificationDomain {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// the domain of the Verification
+
+  /// the domain of the Verification
   String name;
-  
-/// the idn domain
+
+  /// the idn domain
   String idn;
-  
-/// the status of the domain Verification
+
+  /// the status of the domain Verification
   GenericStatusConstants status;
-  
-/// the deactivation of the domain Verification
+
+  /// the deactivation of the domain Verification
   DateTime deactivation;
-  
-  
-  
+
   ContactVerificationDomain({
-  	this.created,
-  	this.updated,
-  	this.name,
-  	this.idn,
-  	this.status,
-  	this.deactivation,
+    this.created,
+    this.updated,
+    this.name,
+    this.idn,
+    this.status,
+    this.deactivation,
   });
 
   @override
   String toString() {
     return 'ContactVerificationDomain[created=$created, updated=$updated, name=$name, idn=$idn, status=$status, deactivation=$deactivation, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -49,6 +47,4 @@ class ContactVerificationDomain {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactVerificationDomainToJson(this);
-  
 }
-

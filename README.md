@@ -30,7 +30,7 @@ Update pubspec.yaml and add the following line to your dependencies.
 
 ```yaml
 dependencies:
-  dart_domainrobot_sdk: ^0.2.0
+  dart_domainrobot_sdk: ^0.3.0
 ```
 
 ### Import
@@ -51,11 +51,11 @@ The package contains a [DomainRobotProvider](/lib/src/DomainRobotProvider.dart) 
 * Demo System: <https://api.demo.autodns.com/v1>
 
 ```dart
-String userName = "USER";
-String password = "PASSWORD";
-String context = "CONTEXT";
-String baseUrl = "URL";
-DomainRobotProvider provider = DomainRobotProvider(userName,password,context,baseUrl);
+String userName = 'USER';
+String password = 'PASSWORD';
+String context = 'CONTEXT';
+String baseUrl = 'URL';
+var provider = DomainRobot(userName,password,context,baseUrl);
 ```
 
 ### Supported API calls
@@ -84,6 +84,12 @@ Future<List<Contact>> contactList({Query payload, Map<String, String> headers, M
 ```dart
 Future<Certificate> realtime(Certificate payload, {Map<String, String> headers, Map<String, String> queryParameters});
 Future<CertificateData> prepareOrder(CertificateData payload, {Map<String, String> headers, Map<String, String> queryParameters});
+```
+
+#### SslContact tasks
+
+```dart
+
 ```
 
 #### TrustedApplication tasks

@@ -262,8 +262,6 @@ export 'generated/HandleVerification.dart';
 
 export 'generated/HkDocumentTypeConstants.dart';
 
-export 'generated/HkIndustryTypeConstants.dart';
-
 export 'generated/Id4MeAgent.dart';
 
 export 'generated/Id4MeAgentStatus.dart';

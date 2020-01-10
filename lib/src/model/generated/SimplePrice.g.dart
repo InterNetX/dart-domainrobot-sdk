@@ -18,9 +18,17 @@ SimplePrice _$SimplePriceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SimplePriceToJson(SimplePrice instance) =>
-    <String, dynamic>{
-      'price': instance.price,
-      'businessCase': instance.businessCase,
-      'period': instance.period,
-    };
+Map<String, dynamic> _$SimplePriceToJson(SimplePrice instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('price', instance.price?.toJson());
+  writeNotNull('businessCase', instance.businessCase);
+  writeNotNull('period', instance.period?.toJson());
+  return val;
+}

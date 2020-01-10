@@ -20,9 +20,17 @@ DomainMonitoringSetup _$DomainMonitoringSetupFromJson(
 }
 
 Map<String, dynamic> _$DomainMonitoringSetupToJson(
-        DomainMonitoringSetup instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'data': instance.data,
-    };
+    DomainMonitoringSetup instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('data', instance.data);
+  return val;
+}

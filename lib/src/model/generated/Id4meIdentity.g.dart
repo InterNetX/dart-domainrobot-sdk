@@ -45,25 +45,33 @@ Id4meIdentity _$Id4meIdentityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$Id4meIdentityToJson(Id4meIdentity instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'agent': instance.agent,
-      'verifyExpire': instance.verifyExpire?.toIso8601String(),
-      'addons': instance.addons,
-      'magicLink': instance.magicLink,
-      'claims': instance.claims,
-      'showClaims': instance.showClaims,
-      'resetUrl': instance.resetUrl,
-      'resetUrlExpire': instance.resetUrlExpire?.toIso8601String(),
-      'name': instance.name,
-      'status': _$IdentityStatusEnumMap[instance.status],
-      'language': instance.language,
-      'record': instance.record,
-    };
+Map<String, dynamic> _$Id4meIdentityToJson(Id4meIdentity instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('agent', instance.agent?.toJson());
+  writeNotNull('verifyExpire', instance.verifyExpire?.toIso8601String());
+  writeNotNull('addons', instance.addons?.toJson());
+  writeNotNull('magicLink', instance.magicLink);
+  writeNotNull('claims', instance.claims?.toJson());
+  writeNotNull('showClaims', instance.showClaims);
+  writeNotNull('resetUrl', instance.resetUrl);
+  writeNotNull('resetUrlExpire', instance.resetUrlExpire?.toIso8601String());
+  writeNotNull('name', instance.name);
+  writeNotNull('status', _$IdentityStatusEnumMap[instance.status]);
+  writeNotNull('language', instance.language);
+  writeNotNull('record', instance.record);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

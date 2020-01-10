@@ -49,31 +49,40 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'id': instance.id,
-      'number': instance.number,
-      'customer': instance.customer,
-      'payment': _$PaymentConstantsEnumMap[instance.payment],
-      'paymentMode': instance.paymentMode,
-      'paymentTransaction': instance.paymentTransaction,
-      'subType': instance.subType,
-      'sepaMandateReference': instance.sepaMandateReference,
-      'sepaMandateCollection':
-          instance.sepaMandateCollection?.toIso8601String(),
-      'amount': instance.amount,
-      'vatAmount': instance.vatAmount,
-      'status': _$InvoiceStatusConstantsEnumMap[instance.status],
-      'type': _$AccountingDocumentTypeConstantsEnumMap[instance.type],
-      'failed': instance.failed,
-      'currency': instance.currency,
-      'paid': instance.paid?.toIso8601String(),
-      'document': instance.document,
-      'comment': instance.comment,
-    };
+Map<String, dynamic> _$InvoiceToJson(Invoice instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('id', instance.id);
+  writeNotNull('number', instance.number);
+  writeNotNull('customer', instance.customer?.toJson());
+  writeNotNull('payment', _$PaymentConstantsEnumMap[instance.payment]);
+  writeNotNull('paymentMode', instance.paymentMode);
+  writeNotNull('paymentTransaction', instance.paymentTransaction);
+  writeNotNull('subType', instance.subType);
+  writeNotNull('sepaMandateReference', instance.sepaMandateReference);
+  writeNotNull('sepaMandateCollection',
+      instance.sepaMandateCollection?.toIso8601String());
+  writeNotNull('amount', instance.amount);
+  writeNotNull('vatAmount', instance.vatAmount);
+  writeNotNull('status', _$InvoiceStatusConstantsEnumMap[instance.status]);
+  writeNotNull('type', _$AccountingDocumentTypeConstantsEnumMap[instance.type]);
+  writeNotNull('failed', instance.failed);
+  writeNotNull('currency', instance.currency);
+  writeNotNull('paid', instance.paid?.toIso8601String());
+  writeNotNull('document', instance.document?.toJson());
+  writeNotNull('comment', instance.comment);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

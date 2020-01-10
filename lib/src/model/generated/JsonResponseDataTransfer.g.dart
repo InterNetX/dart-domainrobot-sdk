@@ -29,12 +29,21 @@ JsonResponseDataTransfer _$JsonResponseDataTransferFromJson(
 }
 
 Map<String, dynamic> _$JsonResponseDataTransferToJson(
-        JsonResponseDataTransfer instance) =>
-    <String, dynamic>{
-      'stid': instance.stid,
-      'messages': instance.messages,
-      'status': instance.status,
-      'object': instance.object,
-      'data': instance.data,
-      'ctid': instance.ctid,
-    };
+    JsonResponseDataTransfer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('stid', instance.stid);
+  writeNotNull(
+      'messages', instance.messages?.map((e) => e?.toJson())?.toList());
+  writeNotNull('status', instance.status?.toJson());
+  writeNotNull('object', instance.object?.toJson());
+  writeNotNull('data', instance.data?.map((e) => e?.toJson())?.toList());
+  writeNotNull('ctid', instance.ctid);
+  return val;
+}

@@ -3,22 +3,20 @@ import 'UkTypeConstants.dart';
 
 part 'ContactUkExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactUkExtensions {
   /// The entity type.
   UkTypeConstants entityType;
-  
-  
-  
+
   ContactUkExtensions({
-  	this.entityType,
+    this.entityType,
   });
 
   @override
   String toString() {
     return 'ContactUkExtensions[entityType=$entityType, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -29,6 +27,4 @@ class ContactUkExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactUkExtensionsToJson(this);
-  
 }
-

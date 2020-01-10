@@ -13,7 +13,15 @@ ContactCatExtensions _$ContactCatExtensionsFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$ContactCatExtensionsToJson(
-        ContactCatExtensions instance) =>
-    <String, dynamic>{
-      'intendedUse': instance.intendedUse,
-    };
+    ContactCatExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('intendedUse', instance.intendedUse);
+  return val;
+}

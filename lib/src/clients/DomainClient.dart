@@ -11,8 +11,9 @@ import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 /// Implementation of the domain specific api functions
 ///
 class DomainClient extends AbstractDomainRobotClient {
-  DomainClient(String userName, String password, String context, String baseUrl)
-      : super(userName, password, context, baseUrl);
+  DomainClient(String userName, String password, String context, String baseUrl,
+      String version)
+      : super(userName, password, context, baseUrl, version);
 
   ///
   /// Sends a domainCreate request

@@ -13,8 +13,16 @@ WorkflowEvent _$WorkflowEventFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$WorkflowEventToJson(WorkflowEvent instance) =>
-    <String, dynamic>{
-      'vertex': instance.vertex,
-      'type': instance.type,
-    };
+Map<String, dynamic> _$WorkflowEventToJson(WorkflowEvent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('vertex', instance.vertex);
+  writeNotNull('type', instance.type);
+  return val;
+}

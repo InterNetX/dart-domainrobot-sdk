@@ -6,42 +6,40 @@ import 'ResponseStatus.dart';
 
 part 'JsonResponseDataCertificateData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class JsonResponseDataCertificateData {
   /// The server transaction id for the response.
   String stid;
-  
-/// The messages belonging to the response.
+
+  /// The messages belonging to the response.
   List<Message> messages;
-  
-/// The status of the response.
+
+  /// The status of the response.
   ResponseStatus status;
-  
-/// The object of the response.
+
+  /// The object of the response.
   ResponseObject object;
-  
-/// The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.
+
+  /// The data for the response. The type of the objects are depending on the request and are also specified in the responseObject value of the response.
   List<CertificateData> data;
-  
-/// The client transaction id for the response.
+
+  /// The client transaction id for the response.
   String ctid;
-  
-  
-  
+
   JsonResponseDataCertificateData({
-  	this.stid,
-  	this.messages,
-  	this.status,
-  	this.object,
-  	this.data,
-  	this.ctid,
+    this.stid,
+    this.messages,
+    this.status,
+    this.object,
+    this.data,
+    this.ctid,
   });
 
   @override
   String toString() {
     return 'JsonResponseDataCertificateData[stid=$stid, messages=$messages, status=$status, object=$object, data=$data, ctid=$ctid, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -51,7 +49,6 @@ class JsonResponseDataCertificateData {
   ///
   /// Location object to json
   ///
-  Map<String, dynamic> toJson() => _$JsonResponseDataCertificateDataToJson(this);
-  
+  Map<String, dynamic> toJson() =>
+      _$JsonResponseDataCertificateDataToJson(this);
 }
-

@@ -18,14 +18,22 @@ ContactReference _$ContactReferenceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactReferenceToJson(ContactReference instance) =>
-    <String, dynamic>{
-      'nic': instance.nic,
-      'status': _$ObjectStatusEnumMap[instance.status],
-      'type': _$ContactReferenceTypeEnumMap[instance.type],
-      'role': _$ContactReferenceTypeEnumMap[instance.role],
-      'name': instance.name,
-    };
+Map<String, dynamic> _$ContactReferenceToJson(ContactReference instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('nic', instance.nic?.toJson());
+  writeNotNull('status', _$ObjectStatusEnumMap[instance.status]);
+  writeNotNull('type', _$ContactReferenceTypeEnumMap[instance.type]);
+  writeNotNull('role', _$ContactReferenceTypeEnumMap[instance.role]);
+  writeNotNull('name', instance.name);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

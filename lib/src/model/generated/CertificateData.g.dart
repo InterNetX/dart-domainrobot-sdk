@@ -40,28 +40,41 @@ CertificateData _$CertificateDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CertificateDataToJson(CertificateData instance) =>
-    <String, dynamic>{
-      'plain': instance.plain,
-      'name': instance.name,
-      'san': instance.san,
-      'histories': instance.histories,
-      'keySize': instance.keySize,
-      'countryCode': instance.countryCode,
-      'challengePassword': instance.challengePassword,
-      'state': instance.state,
-      'city': instance.city,
-      'organization': instance.organization,
-      'organizationUnit': instance.organizationUnit,
-      'email': instance.email,
-      'product': instance.product,
-      'authentication': instance.authentication,
-      'algorithm': _$CsrHashAlgorithmConstantsEnumMap[instance.algorithm],
-      'signatureHashAlgorithm': _$SignatureHashAlgorithmConstantsEnumMap[
-          instance.signatureHashAlgorithm],
-      'idn': instance.idn,
-      'checkCaa': instance.checkCaa,
-    };
+Map<String, dynamic> _$CertificateDataToJson(CertificateData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('plain', instance.plain);
+  writeNotNull('name', instance.name);
+  writeNotNull('san', instance.san);
+  writeNotNull(
+      'histories', instance.histories?.map((e) => e?.toJson())?.toList());
+  writeNotNull('keySize', instance.keySize);
+  writeNotNull('countryCode', instance.countryCode);
+  writeNotNull('challengePassword', instance.challengePassword);
+  writeNotNull('state', instance.state);
+  writeNotNull('city', instance.city);
+  writeNotNull('organization', instance.organization);
+  writeNotNull('organizationUnit', instance.organizationUnit);
+  writeNotNull('email', instance.email);
+  writeNotNull('product', instance.product);
+  writeNotNull('authentication',
+      instance.authentication?.map((e) => e?.toJson())?.toList());
+  writeNotNull(
+      'algorithm', _$CsrHashAlgorithmConstantsEnumMap[instance.algorithm]);
+  writeNotNull(
+      'signatureHashAlgorithm',
+      _$SignatureHashAlgorithmConstantsEnumMap[
+          instance.signatureHashAlgorithm]);
+  writeNotNull('idn', instance.idn);
+  writeNotNull('checkCaa', instance.checkCaa);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

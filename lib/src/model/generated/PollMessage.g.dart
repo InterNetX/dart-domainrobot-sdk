@@ -34,16 +34,25 @@ PollMessage _$PollMessageFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PollMessageToJson(PollMessage instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'owner': instance.owner,
-      'job': instance.job,
-      'notify': instance.notify,
-      'stid': instance.stid,
-      'ctid': instance.ctid,
-      'messages': instance.messages,
-      'flags': instance.flags,
-      'created': instance.created?.toIso8601String(),
-      'object': instance.object,
-    };
+Map<String, dynamic> _$PollMessageToJson(PollMessage instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('id', instance.id);
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('job', instance.job?.toJson());
+  writeNotNull('notify', instance.notify?.toJson());
+  writeNotNull('stid', instance.stid);
+  writeNotNull('ctid', instance.ctid);
+  writeNotNull(
+      'messages', instance.messages?.map((e) => e?.toJson())?.toList());
+  writeNotNull('flags', instance.flags);
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('object', instance.object?.toJson());
+  return val;
+}

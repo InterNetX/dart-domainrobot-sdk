@@ -12,108 +12,103 @@ import 'VirtualNameServerGroup.dart';
 
 part 'User.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class User {
   /// The user created date.
   DateTime created;
-  
-/// The user updated date.
+
+  /// The user updated date.
   DateTime updated;
-  
-/// The context.
+
+  /// The context.
   int context;
-  
-/// The password.
+
+  /// The password.
   String password;
-  
-/// The default email.
+
+  /// The default email.
   String defaultEmail;
-  
-/// The status.
+
+  /// The status.
   int status;
-  
-/// The substatus.
+
+  /// The substatus.
   int substatus;
-  
-/// The users authorization method.
+
+  /// The users authorization method.
   AuthType authType;
-  
-/// The user details.
+
+  /// The user details.
   UserDetails details;
-  
-/// The lock status of the user.
+
+  /// The lock status of the user.
   UserLock lock;
-  
-/// Wrapper for the user acls.
+
+  /// Wrapper for the user acls.
   UserAcls acls;
-  
-/// Wrapper for the user profiles.
+
+  /// Wrapper for the user profiles.
   UserProfileViews profiles;
-  
-/// The ancestors of the user.
+
+  /// The ancestors of the user.
   List<BasicUser> ancestors;
-  
-/// The customer belonging to the user.
+
+  /// The customer belonging to the user.
   BasicCustomer customer;
-  
-/// The available name server groups
+
+  /// The available name server groups
   List<VirtualNameServerGroup> nameServerGroups;
-  
-/// Wrapper for the subscriptions.
+
+  /// Wrapper for the subscriptions.
   List<Subscription> subscriptions;
-  
-/// Holds the used applications.
+
+  /// Holds the used applications.
   List<TrustedApplication> applications;
-  
-/// The user name.
+
+  /// The user name.
   String user;
-  
-/// The language.
+
+  /// The language.
   String language;
-  
-/// The parent.
+
+  /// The parent.
   User parent;
-  
-  
-  
+
   User({
-  	this.created,
-  	this.updated,
-  	this.context,
-  	this.password,
-  	this.defaultEmail,
-  	this.status,
-  	this.substatus,
-  	this.authType,
-  	this.details,
-  	this.lock,
-  	this.acls,
-  	this.profiles,
-  	this.ancestors,
-  	this.customer,
-  	this.nameServerGroups,
-  	this.subscriptions,
-  	this.applications,
-  	this.user,
-  	this.language,
-  	this.parent,
+    this.created,
+    this.updated,
+    this.context,
+    this.password,
+    this.defaultEmail,
+    this.status,
+    this.substatus,
+    this.authType,
+    this.details,
+    this.lock,
+    this.acls,
+    this.profiles,
+    this.ancestors,
+    this.customer,
+    this.nameServerGroups,
+    this.subscriptions,
+    this.applications,
+    this.user,
+    this.language,
+    this.parent,
   });
 
   @override
   String toString() {
     return 'User[created=$created, updated=$updated, context=$context, password=$password, defaultEmail=$defaultEmail, status=$status, substatus=$substatus, authType=$authType, details=$details, lock=$lock, acls=$acls, profiles=$profiles, ancestors=$ancestors, customer=$customer, nameServerGroups=$nameServerGroups, subscriptions=$subscriptions, applications=$applications, user=$user, language=$language, parent=$parent, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
-  factory User.fromJson(Map<String, dynamic> json) =>
-      _$UserFromJson(json);
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   ///
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$UserToJson(this);
-  
 }
-

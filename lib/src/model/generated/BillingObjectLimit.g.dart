@@ -22,13 +22,21 @@ BillingObjectLimit _$BillingObjectLimitFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BillingObjectLimitToJson(BillingObjectLimit instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'articleLabel': instance.articleLabel,
-      'limitSelf': instance.limitSelf,
-      'limitChildren': instance.limitChildren,
-      'articleTypeLabel': instance.articleTypeLabel,
-      'count': instance.count,
-    };
+Map<String, dynamic> _$BillingObjectLimitToJson(BillingObjectLimit instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('articleLabel', instance.articleLabel);
+  writeNotNull('limitSelf', instance.limitSelf);
+  writeNotNull('limitChildren', instance.limitChildren);
+  writeNotNull('articleTypeLabel', instance.articleTypeLabel);
+  writeNotNull('count', instance.count);
+  return val;
+}

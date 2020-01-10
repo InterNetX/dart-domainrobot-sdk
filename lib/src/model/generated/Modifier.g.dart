@@ -14,11 +14,20 @@ Modifier _$ModifierFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ModifierToJson(Modifier instance) => <String, dynamic>{
-      'search': instance.search,
-      'replace': instance.replace,
-      'type': _$ModifierConstantsEnumMap[instance.type],
-    };
+Map<String, dynamic> _$ModifierToJson(Modifier instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('search', instance.search);
+  writeNotNull('replace', instance.replace);
+  writeNotNull('type', _$ModifierConstantsEnumMap[instance.type]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

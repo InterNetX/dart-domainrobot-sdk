@@ -19,8 +19,17 @@ DomainExtensions _$DomainExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainExtensionsToJson(DomainExtensions instance) =>
-    <String, dynamic>{
-      'parkingExtensions': instance.parkingExtensions,
-      'tmchClaimsNoticeExtensions': instance.tmchClaimsNoticeExtensions,
-    };
+Map<String, dynamic> _$DomainExtensionsToJson(DomainExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('parkingExtensions', instance.parkingExtensions?.toJson());
+  writeNotNull('tmchClaimsNoticeExtensions',
+      instance.tmchClaimsNoticeExtensions?.toJson());
+  return val;
+}

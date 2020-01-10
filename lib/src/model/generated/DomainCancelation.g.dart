@@ -36,23 +36,32 @@ DomainCancelation _$DomainCancelationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainCancelationToJson(DomainCancelation instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'domain': instance.domain,
-      'registryWhen': instance.registryWhen?.toIso8601String(),
-      'gainingRegistrar': instance.gainingRegistrar,
-      'disconnect': instance.disconnect,
-      'notice': instance.notice,
-      'logId': instance.logId,
-      'registryStatus':
-          _$RegistryStatusConstantsEnumMap[instance.registryStatus],
-      'type': _$CancelationTypeConstantsEnumMap[instance.type],
-      'execution': _$ExecutionTypeConstantsEnumMap[instance.execution],
-    };
+Map<String, dynamic> _$DomainCancelationToJson(DomainCancelation instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('domain', instance.domain);
+  writeNotNull('registryWhen', instance.registryWhen?.toIso8601String());
+  writeNotNull('gainingRegistrar', instance.gainingRegistrar);
+  writeNotNull('disconnect', instance.disconnect);
+  writeNotNull('notice', instance.notice);
+  writeNotNull('logId', instance.logId);
+  writeNotNull('registryStatus',
+      _$RegistryStatusConstantsEnumMap[instance.registryStatus]);
+  writeNotNull('type', _$CancelationTypeConstantsEnumMap[instance.type]);
+  writeNotNull(
+      'execution', _$ExecutionTypeConstantsEnumMap[instance.execution]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

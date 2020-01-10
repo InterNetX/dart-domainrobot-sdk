@@ -3,26 +3,24 @@ import 'DomainEnvelopeSearchService.dart';
 
 part 'DomainStudioSourceInitial.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DomainStudioSourceInitial {
   /// The services to fetch extra data from for this source
   List<DomainEnvelopeSearchService> services;
-  
-/// Selected tlds
+
+  /// Selected tlds
   List<String> tlds;
-  
-  
-  
+
   DomainStudioSourceInitial({
-  	this.services,
-  	this.tlds,
+    this.services,
+    this.tlds,
   });
 
   @override
   String toString() {
     return 'DomainStudioSourceInitial[services=$services, tlds=$tlds, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -33,6 +31,4 @@ class DomainStudioSourceInitial {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainStudioSourceInitialToJson(this);
-  
 }
-

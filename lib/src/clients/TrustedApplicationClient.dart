@@ -9,9 +9,9 @@ import 'package:dart_domainrobot_sdk/src/model/generated/TrustedApplication.dart
 /// Implementation of the trusted application specific api functions
 ///
 class TrustedApplicationClient extends AbstractDomainRobotClient {
-  TrustedApplicationClient(
-      String userName, String password, String context, String baseUrl)
-      : super(userName, password, context, baseUrl);
+  TrustedApplicationClient(String userName, String password, String context,
+      String baseUrl, String version)
+      : super(userName, password, context, baseUrl, version);
 
   ///
   /// Sends a trustedApplicationCreate request

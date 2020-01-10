@@ -2,38 +2,36 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'QueryView.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class QueryView {
   /// Lorem Ipsum
   int limit;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   int offset;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   bool children;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   DateTime from;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   DateTime to;
-  
-  
-  
+
   QueryView({
-  	this.limit,
-  	this.offset,
-  	this.children,
-  	this.from,
-  	this.to,
+    this.limit,
+    this.offset,
+    this.children,
+    this.from,
+    this.to,
   });
 
   @override
   String toString() {
     return 'QueryView[limit=$limit, offset=$offset, children=$children, from=$from, to=$to, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -44,6 +42,4 @@ class QueryView {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$QueryViewToJson(this);
-  
 }
-

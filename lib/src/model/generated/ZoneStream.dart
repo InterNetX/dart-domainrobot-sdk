@@ -3,26 +3,24 @@ import 'ResourceRecord.dart';
 
 part 'ZoneStream.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ZoneStream {
   /// the records to add.
   List<ResourceRecord> adds;
-  
-/// the records to remove.
+
+  /// the records to remove.
   List<ResourceRecord> rems;
-  
-  
-  
+
   ZoneStream({
-  	this.adds,
-  	this.rems,
+    this.adds,
+    this.rems,
   });
 
   @override
   String toString() {
     return 'ZoneStream[adds=$adds, rems=$rems, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -33,6 +31,4 @@ class ZoneStream {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ZoneStreamToJson(this);
-  
 }
-

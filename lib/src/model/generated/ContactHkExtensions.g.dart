@@ -18,16 +18,24 @@ ContactHkExtensions _$ContactHkExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactHkExtensionsToJson(
-        ContactHkExtensions instance) =>
-    <String, dynamic>{
-      'documentType': _$HkDocumentTypeConstantsEnumMap[instance.documentType],
-      'others': instance.others,
-      'documentNumber': instance.documentNumber,
-      'documentOrigin': instance.documentOrigin,
-      'above18': instance.above18,
-      'industryType': instance.industryType,
-    };
+Map<String, dynamic> _$ContactHkExtensionsToJson(ContactHkExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'documentType', _$HkDocumentTypeConstantsEnumMap[instance.documentType]);
+  writeNotNull('others', instance.others);
+  writeNotNull('documentNumber', instance.documentNumber);
+  writeNotNull('documentOrigin', instance.documentOrigin);
+  writeNotNull('above18', instance.above18);
+  writeNotNull('industryType', instance.industryType);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

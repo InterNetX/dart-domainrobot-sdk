@@ -5,66 +5,64 @@ import 'Phone.dart';
 
 part 'DomainMonitoring.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DomainMonitoring {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// The owner of the object.
+
+  /// The owner of the object.
   BasicUser owner;
-  
-/// The updating user of the object.
+
+  /// The updating user of the object.
   BasicUser updater;
-  
-/// The name of the domain.
+
+  /// The name of the domain.
   String name;
-  
-/// The idn version of the domain.
+
+  /// The idn version of the domain.
   String idn;
-  
-/// The notification mobile phone numbers.
+
+  /// The notification mobile phone numbers.
   List<Phone> notificationMobiles;
-  
-/// The ocval
+
+  /// The ocval
   bool ocval;
-  
-/// The cancelation
+
+  /// The cancelation
   bool cancelation;
-  
-/// The removed
+
+  /// The removed
   bool removed;
-  
-/// The monitoringSetups
+
+  /// The monitoringSetups
   List<DomainMonitoringSetup> monitoringSetups;
-  
-/// The notification email-addresses.
+
+  /// The notification email-addresses.
   List<String> notificationEmails;
-  
-  
-  
+
   DomainMonitoring({
-  	this.created,
-  	this.updated,
-  	this.owner,
-  	this.updater,
-  	this.name,
-  	this.idn,
-  	this.notificationMobiles,
-  	this.ocval,
-  	this.cancelation,
-  	this.removed,
-  	this.monitoringSetups,
-  	this.notificationEmails,
+    this.created,
+    this.updated,
+    this.owner,
+    this.updater,
+    this.name,
+    this.idn,
+    this.notificationMobiles,
+    this.ocval,
+    this.cancelation,
+    this.removed,
+    this.monitoringSetups,
+    this.notificationEmails,
   });
 
   @override
   String toString() {
     return 'DomainMonitoring[created=$created, updated=$updated, owner=$owner, updater=$updater, name=$name, idn=$idn, notificationMobiles=$notificationMobiles, ocval=$ocval, cancelation=$cancelation, removed=$removed, monitoringSetups=$monitoringSetups, notificationEmails=$notificationEmails, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -75,6 +73,4 @@ class DomainMonitoring {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainMonitoringToJson(this);
-  
 }
-

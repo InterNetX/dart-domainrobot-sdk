@@ -21,12 +21,20 @@ DomainEnvelopeSearchRequest _$DomainEnvelopeSearchRequestFromJson(
 }
 
 Map<String, dynamic> _$DomainEnvelopeSearchRequestToJson(
-        DomainEnvelopeSearchRequest instance) =>
-    <String, dynamic>{
-      'searchToken': instance.searchToken,
-      'currency': instance.currency,
-      'debug': instance.debug,
-      'checkPortfolio': instance.checkPortfolio,
-      'sources': instance.sources,
-      'clientIp': instance.clientIp,
-    };
+    DomainEnvelopeSearchRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('searchToken', instance.searchToken);
+  writeNotNull('currency', instance.currency);
+  writeNotNull('debug', instance.debug);
+  writeNotNull('checkPortfolio', instance.checkPortfolio);
+  writeNotNull('sources', instance.sources?.toJson());
+  writeNotNull('clientIp', instance.clientIp);
+  return val;
+}

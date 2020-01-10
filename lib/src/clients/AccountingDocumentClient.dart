@@ -4,9 +4,9 @@ import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart'
 /// Implementation of the accounting specific api functions
 ///
 class AccountingDocumentClient extends AbstractDomainRobotClient {
-  AccountingDocumentClient(
-      String userName, String password, String context, String baseUrl)
-      : super(userName, password, context, baseUrl);
+  AccountingDocumentClient(String userName, String password, String context,
+      String baseUrl, String version)
+      : super(userName, password, context, baseUrl, version);
 
   ///
   /// Calculate the accounting document

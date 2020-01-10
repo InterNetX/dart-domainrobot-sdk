@@ -3,34 +3,32 @@ import 'IpRestrictionTypeConstants.dart';
 
 part 'IpRestriction.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class IpRestriction {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// The restriction level
+
+  /// The restriction level
   IpRestrictionTypeConstants type;
-  
-/// A net address or ip address
+
+  /// A net address or ip address
   String address;
-  
-  
-  
+
   IpRestriction({
-  	this.created,
-  	this.updated,
-  	this.type,
-  	this.address,
+    this.created,
+    this.updated,
+    this.type,
+    this.address,
   });
 
   @override
   String toString() {
     return 'IpRestriction[created=$created, updated=$updated, type=$type, address=$address, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -41,6 +39,4 @@ class IpRestriction {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$IpRestrictionToJson(this);
-  
 }
-

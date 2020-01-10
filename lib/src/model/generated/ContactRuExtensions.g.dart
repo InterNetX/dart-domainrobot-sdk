@@ -15,9 +15,18 @@ ContactRuExtensions _$ContactRuExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactRuExtensionsToJson(
-        ContactRuExtensions instance) =>
-    <String, dynamic>{
-      'taxpayerIdentificationNumber': instance.taxpayerIdentificationNumber,
-      'territoryLinkedTaxpayerNumber': instance.territoryLinkedTaxpayerNumber,
-    };
+Map<String, dynamic> _$ContactRuExtensionsToJson(ContactRuExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'taxpayerIdentificationNumber', instance.taxpayerIdentificationNumber);
+  writeNotNull(
+      'territoryLinkedTaxpayerNumber', instance.territoryLinkedTaxpayerNumber);
+  return val;
+}

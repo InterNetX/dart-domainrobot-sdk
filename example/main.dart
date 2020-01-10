@@ -11,7 +11,7 @@ void main(List<String> args) async {
   var baseUrl = 'URL';
 
   // Setup the provider
-  var provider = DomainRobotProvider(userName, password, context, baseUrl);
+  var provider = DomainRobot(userName, password, context, baseUrl);
 
   var ctid = 'Some UUID';
   // Define the custom headers

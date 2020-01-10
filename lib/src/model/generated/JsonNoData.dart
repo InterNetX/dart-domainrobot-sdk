@@ -2,17 +2,15 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'JsonNoData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class JsonNoData {
-    
   JsonNoData();
-  
 
   @override
   String toString() {
     return 'JsonNoData[]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -23,6 +21,4 @@ class JsonNoData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$JsonNoDataToJson(this);
-  
 }
-

@@ -17,13 +17,20 @@ ContactJpExtensions _$ContactJpExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactJpExtensionsToJson(
-        ContactJpExtensions instance) =>
-    <String, dynamic>{
-      'first': instance.first,
-      'last': instance.last,
-      'organization': instance.organization,
-      'adressLine1': instance.adressLine1,
-      'adressLine2': instance.adressLine2,
-      'adressLine3': instance.adressLine3,
-    };
+Map<String, dynamic> _$ContactJpExtensionsToJson(ContactJpExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('first', instance.first);
+  writeNotNull('last', instance.last);
+  writeNotNull('organization', instance.organization);
+  writeNotNull('adressLine1', instance.adressLine1);
+  writeNotNull('adressLine2', instance.adressLine2);
+  writeNotNull('adressLine3', instance.adressLine3);
+  return val;
+}

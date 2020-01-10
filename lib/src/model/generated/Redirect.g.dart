@@ -35,22 +35,31 @@ Redirect _$RedirectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$RedirectToJson(Redirect instance) => <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'source': instance.source,
-      'target': instance.target,
-      'type': _$RedirectTypeConstantsEnumMap[instance.type],
-      'mode': _$RedirectModeConstantsEnumMap[instance.mode],
-      'domain': instance.domain,
-      'title': instance.title,
-      'backups': instance.backups,
-      'sourceIdn': instance.sourceIdn,
-      'targetIdn': instance.targetIdn,
-      'lastSeen': instance.lastSeen?.toIso8601String(),
-    };
+Map<String, dynamic> _$RedirectToJson(Redirect instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('source', instance.source);
+  writeNotNull('target', instance.target);
+  writeNotNull('type', _$RedirectTypeConstantsEnumMap[instance.type]);
+  writeNotNull('mode', _$RedirectModeConstantsEnumMap[instance.mode]);
+  writeNotNull('domain', instance.domain);
+  writeNotNull('title', instance.title);
+  writeNotNull('backups', instance.backups);
+  writeNotNull('sourceIdn', instance.sourceIdn);
+  writeNotNull('targetIdn', instance.targetIdn);
+  writeNotNull('lastSeen', instance.lastSeen?.toIso8601String());
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

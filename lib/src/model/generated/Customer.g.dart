@@ -61,38 +61,50 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CustomerToJson(Customer instance) => <String, dynamic>{
-      'number': instance.number,
-      'client': instance.client,
-      'group': instance.group,
-      'name': instance.name,
-      'organization': instance.organization,
-      'vatNumber': instance.vatNumber,
-      'gender': _$GenderConstantsEnumMap[instance.gender],
-      'title': instance.title,
-      'addressLines': instance.addressLines,
-      'city': instance.city,
-      'state': instance.state,
-      'country': instance.country,
-      'phone': instance.phone,
-      'fax': instance.fax,
-      'emails': instance.emails,
-      'billingEmails': instance.billingEmails,
-      'payment': _$PaymentConstantsEnumMap[instance.payment],
-      'paymentMode': instance.paymentMode,
-      'paymentCurrency': instance.paymentCurrency,
-      'invoiceLanguage': instance.invoiceLanguage,
-      'taxable': instance.taxable,
-      'card': instance.card,
-      'contracts': instance.contracts,
-      'billingUsers': instance.billingUsers,
-      'account': instance.account,
-      'clearAccount': _$ClearAccountPeriodEnumMap[instance.clearAccount],
-      'fname': instance.fname,
-      'lname': instance.lname,
-      'pcode': instance.pcode,
-      'sepa': instance.sepa,
-    };
+Map<String, dynamic> _$CustomerToJson(Customer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('number', instance.number);
+  writeNotNull('client', instance.client);
+  writeNotNull('group', instance.group);
+  writeNotNull('name', instance.name);
+  writeNotNull('organization', instance.organization);
+  writeNotNull('vatNumber', instance.vatNumber);
+  writeNotNull('gender', _$GenderConstantsEnumMap[instance.gender]);
+  writeNotNull('title', instance.title);
+  writeNotNull('addressLines', instance.addressLines);
+  writeNotNull('city', instance.city);
+  writeNotNull('state', instance.state);
+  writeNotNull('country', instance.country);
+  writeNotNull('phone', instance.phone?.toJson());
+  writeNotNull('fax', instance.fax?.toJson());
+  writeNotNull('emails', instance.emails);
+  writeNotNull('billingEmails', instance.billingEmails);
+  writeNotNull('payment', _$PaymentConstantsEnumMap[instance.payment]);
+  writeNotNull('paymentMode', instance.paymentMode);
+  writeNotNull('paymentCurrency', instance.paymentCurrency);
+  writeNotNull('invoiceLanguage', instance.invoiceLanguage);
+  writeNotNull('taxable', instance.taxable);
+  writeNotNull('card', instance.card?.toJson());
+  writeNotNull(
+      'contracts', instance.contracts?.map((e) => e?.toJson())?.toList());
+  writeNotNull(
+      'billingUsers', instance.billingUsers?.map((e) => e?.toJson())?.toList());
+  writeNotNull('account', instance.account?.toJson());
+  writeNotNull(
+      'clearAccount', _$ClearAccountPeriodEnumMap[instance.clearAccount]);
+  writeNotNull('fname', instance.fname);
+  writeNotNull('lname', instance.lname);
+  writeNotNull('pcode', instance.pcode);
+  writeNotNull('sepa', instance.sepa?.toJson());
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

@@ -14,7 +14,15 @@ ContactMadridExtensions _$ContactMadridExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactMadridExtensionsToJson(
-        ContactMadridExtensions instance) =>
-    <String, dynamic>{
-      'intendedUse': instance.intendedUse,
-    };
+    ContactMadridExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('intendedUse', instance.intendedUse);
+  return val;
+}

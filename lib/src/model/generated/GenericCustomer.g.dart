@@ -14,9 +14,17 @@ GenericCustomer _$GenericCustomerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenericCustomerToJson(GenericCustomer instance) =>
-    <String, dynamic>{
-      'number': instance.number,
-      'client': instance.client,
-      'group': instance.group,
-    };
+Map<String, dynamic> _$GenericCustomerToJson(GenericCustomer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('number', instance.number);
+  writeNotNull('client', instance.client);
+  writeNotNull('group', instance.group);
+  return val;
+}

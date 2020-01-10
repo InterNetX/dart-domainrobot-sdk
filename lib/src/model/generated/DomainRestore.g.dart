@@ -116,68 +116,78 @@ DomainRestore _$DomainRestoreFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainRestoreToJson(DomainRestore instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'name': instance.name,
-      'idn': instance.idn,
-      'nicMemberLabel': instance.nicMemberLabel,
-      'registryStatus':
-          _$RegistryStatusConstantsEnumMap[instance.registryStatus],
-      'nameServers': instance.nameServers,
-      'nameServerEntries': instance.nameServerEntries,
-      'period': instance.period,
-      'trustee': instance.trustee,
-      'privacy': instance.privacy,
-      'authinfo': instance.authinfo,
-      'domainsafe': instance.domainsafe,
-      'parking': _$ParkingProviderConstantsEnumMap[instance.parking],
-      'extensions': instance.extensions,
-      'logId': instance.logId,
-      'nsCheck': _$DNSCheckEnumMap[instance.nsCheck],
-      'confirmOrder': instance.confirmOrder,
-      'confirmOwnerConsent': instance.confirmOwnerConsent,
-      'ignoreWhois': instance.ignoreWhois,
-      'comment': instance.comment,
-      'includeWWW': instance.includeWWW,
-      'includeWildcard': instance.includeWildcard,
-      'registrarStatus':
-          _$RegistryStatusConstantsEnumMap[instance.registrarStatus],
-      'registrarStatusReason': instance.registrarStatusReason,
-      'removeCancelation': instance.removeCancelation,
-      'autodnsSecJob': instance.autodnsSecJob,
-      'priceClass': instance.priceClass,
-      'priceClassRenew': instance.priceClassRenew,
-      'abuseEmail': instance.abuseEmail,
-      'generalRequestEmail': instance.generalRequestEmail,
-      'privacyPlusMail': instance.privacyPlusMail,
-      'privacyPlus': instance.privacyPlus,
-      'nameServerGroup': instance.nameServerGroup,
-      'rddsOptIn': _$RddsOptInConstantsEnumMap[instance.rddsOptIn],
-      'servicesAdd': instance.servicesAdd,
-      'servicesRem': instance.servicesRem,
-      'deleted': instance.deleted?.toIso8601String(),
-      'restorePhaseEnd': instance.restorePhaseEnd?.toIso8601String(),
-      'ownerc': instance.ownerc,
-      'adminc': instance.adminc,
-      'techc': instance.techc,
-      'zonec': instance.zonec,
-      'expire': instance.expire?.toIso8601String(),
-      'payable': instance.payable?.toIso8601String(),
-      'action': _$DomainActionConstantsEnumMap[instance.action],
-      'autoDnssec': instance.autoDnssec,
-      'dnssec': instance.dnssec,
-      'validCertificate': instance.validCertificate,
-      'cancelationStatus':
-          _$CancelationStatusConstantsEnumMap[instance.cancelationStatus],
-      'autoRenewStatus':
-          _$AutoRenewStatusConstantsEnumMap[instance.autoRenewStatus],
-      'dnssecData': instance.dnssecData,
-      'zone': instance.zone,
-    };
+Map<String, dynamic> _$DomainRestoreToJson(DomainRestore instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('name', instance.name);
+  writeNotNull('idn', instance.idn);
+  writeNotNull('nicMemberLabel', instance.nicMemberLabel);
+  writeNotNull('registryStatus',
+      _$RegistryStatusConstantsEnumMap[instance.registryStatus]);
+  writeNotNull(
+      'nameServers', instance.nameServers?.map((e) => e?.toJson())?.toList());
+  writeNotNull('nameServerEntries', instance.nameServerEntries);
+  writeNotNull('period', instance.period?.toJson());
+  writeNotNull('trustee', instance.trustee);
+  writeNotNull('privacy', instance.privacy);
+  writeNotNull('authinfo', instance.authinfo);
+  writeNotNull('domainsafe', instance.domainsafe);
+  writeNotNull('parking', _$ParkingProviderConstantsEnumMap[instance.parking]);
+  writeNotNull('extensions', instance.extensions?.toJson());
+  writeNotNull('logId', instance.logId);
+  writeNotNull('nsCheck', _$DNSCheckEnumMap[instance.nsCheck]);
+  writeNotNull('confirmOrder', instance.confirmOrder);
+  writeNotNull('confirmOwnerConsent', instance.confirmOwnerConsent);
+  writeNotNull('ignoreWhois', instance.ignoreWhois);
+  writeNotNull('comment', instance.comment);
+  writeNotNull('includeWWW', instance.includeWWW);
+  writeNotNull('includeWildcard', instance.includeWildcard);
+  writeNotNull('registrarStatus',
+      _$RegistryStatusConstantsEnumMap[instance.registrarStatus]);
+  writeNotNull('registrarStatusReason', instance.registrarStatusReason);
+  writeNotNull('removeCancelation', instance.removeCancelation);
+  writeNotNull('autodnsSecJob', instance.autodnsSecJob?.toJson());
+  writeNotNull('priceClass', instance.priceClass);
+  writeNotNull('priceClassRenew', instance.priceClassRenew);
+  writeNotNull('abuseEmail', instance.abuseEmail);
+  writeNotNull('generalRequestEmail', instance.generalRequestEmail);
+  writeNotNull('privacyPlusMail', instance.privacyPlusMail);
+  writeNotNull('privacyPlus', instance.privacyPlus);
+  writeNotNull('nameServerGroup', instance.nameServerGroup);
+  writeNotNull('rddsOptIn', _$RddsOptInConstantsEnumMap[instance.rddsOptIn]);
+  writeNotNull('servicesAdd', instance.servicesAdd?.toJson());
+  writeNotNull('servicesRem', instance.servicesRem?.toJson());
+  writeNotNull('deleted', instance.deleted?.toIso8601String());
+  writeNotNull('restorePhaseEnd', instance.restorePhaseEnd?.toIso8601String());
+  writeNotNull('ownerc', instance.ownerc?.toJson());
+  writeNotNull('adminc', instance.adminc?.toJson());
+  writeNotNull('techc', instance.techc?.toJson());
+  writeNotNull('zonec', instance.zonec?.toJson());
+  writeNotNull('expire', instance.expire?.toIso8601String());
+  writeNotNull('payable', instance.payable?.toIso8601String());
+  writeNotNull('action', _$DomainActionConstantsEnumMap[instance.action]);
+  writeNotNull('autoDnssec', instance.autoDnssec);
+  writeNotNull('dnssec', instance.dnssec);
+  writeNotNull('validCertificate', instance.validCertificate);
+  writeNotNull('cancelationStatus',
+      _$CancelationStatusConstantsEnumMap[instance.cancelationStatus]);
+  writeNotNull('autoRenewStatus',
+      _$AutoRenewStatusConstantsEnumMap[instance.autoRenewStatus]);
+  writeNotNull(
+      'dnssecData', instance.dnssecData?.map((e) => e?.toJson())?.toList());
+  writeNotNull('zone', instance.zone?.toJson());
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

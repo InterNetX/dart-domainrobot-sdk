@@ -9,9 +9,9 @@ import 'package:dart_domainrobot_sdk/src/model/generated/DomainEnvelopeSearchReq
 /// Implementation of the domainstudio specific api functions
 ///
 class DomainStudioClient extends AbstractDomainRobotClient {
-  DomainStudioClient(
-      String userName, String password, String context, String baseUrl)
-      : super(userName, password, context, baseUrl);
+  DomainStudioClient(String userName, String password, String context,
+      String baseUrl, String version)
+      : super(userName, password, context, baseUrl, version);
 
   ///
   /// Sends a domainstudio search request

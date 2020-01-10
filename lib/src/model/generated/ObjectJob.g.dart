@@ -17,7 +17,16 @@ ObjectJob _$ObjectJobFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ObjectJobToJson(ObjectJob instance) => <String, dynamic>{
-      'job': instance.job,
-      'object': instance.object,
-    };
+Map<String, dynamic> _$ObjectJobToJson(ObjectJob instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('job', instance.job?.toJson());
+  writeNotNull('object', instance.object?.toJson());
+  return val;
+}

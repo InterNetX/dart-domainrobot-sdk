@@ -37,21 +37,29 @@ PeriodicBilling _$PeriodicBillingFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PeriodicBillingToJson(PeriodicBilling instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'status': _$BillingStatusEnumMap[instance.status],
-      'object': instance.object,
-      'description': instance.description,
-      'period': instance.period,
-      'articleTypeLabel': instance.articleTypeLabel,
-      'articleLabel': instance.articleLabel,
-      'item': instance.item,
-      'businessCase': instance.businessCase,
-    };
+Map<String, dynamic> _$PeriodicBillingToJson(PeriodicBilling instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('status', _$BillingStatusEnumMap[instance.status]);
+  writeNotNull('object', instance.object);
+  writeNotNull('description', instance.description);
+  writeNotNull('period', instance.period?.toJson());
+  writeNotNull('articleTypeLabel', instance.articleTypeLabel);
+  writeNotNull('articleLabel', instance.articleLabel);
+  writeNotNull('item', instance.item?.map((e) => e?.toJson())?.toList());
+  writeNotNull('businessCase', instance.businessCase);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

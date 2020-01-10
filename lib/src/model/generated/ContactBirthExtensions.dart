@@ -2,34 +2,32 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactBirthExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactBirthExtensions {
   /// The country.
   String country;
-  
-/// The day.
+
+  /// The day.
   DateTime day;
-  
-/// The postalCode.
+
+  /// The postalCode.
   String postalCode;
-  
-/// The place.
+
+  /// The place.
   String place;
-  
-  
-  
+
   ContactBirthExtensions({
-  	this.country,
-  	this.day,
-  	this.postalCode,
-  	this.place,
+    this.country,
+    this.day,
+    this.postalCode,
+    this.place,
   });
 
   @override
   String toString() {
     return 'ContactBirthExtensions[country=$country, day=$day, postalCode=$postalCode, place=$place, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -40,6 +38,4 @@ class ContactBirthExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactBirthExtensionsToJson(this);
-  
 }
-

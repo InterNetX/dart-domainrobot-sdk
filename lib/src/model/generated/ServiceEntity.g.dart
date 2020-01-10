@@ -18,9 +18,17 @@ ServiceEntity _$ServiceEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ServiceEntityToJson(ServiceEntity instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'label': instance.label,
-    };
+Map<String, dynamic> _$ServiceEntityToJson(ServiceEntity instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('label', instance.label);
+  return val;
+}

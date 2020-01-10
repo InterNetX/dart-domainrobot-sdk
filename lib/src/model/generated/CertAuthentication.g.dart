@@ -19,16 +19,24 @@ CertAuthentication _$CertAuthenticationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CertAuthenticationToJson(CertAuthentication instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'method': _$AuthMethodConstantsEnumMap[instance.method],
-      'dns': instance.dns,
-      'fileName': instance.fileName,
-      'fileContent': instance.fileContent,
-      'approverEmails': instance.approverEmails,
-      'provisioning': instance.provisioning,
-    };
+Map<String, dynamic> _$CertAuthenticationToJson(CertAuthentication instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('method', _$AuthMethodConstantsEnumMap[instance.method]);
+  writeNotNull('dns', instance.dns);
+  writeNotNull('fileName', instance.fileName);
+  writeNotNull('fileContent', instance.fileContent);
+  writeNotNull('approverEmails', instance.approverEmails);
+  writeNotNull('provisioning', instance.provisioning);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

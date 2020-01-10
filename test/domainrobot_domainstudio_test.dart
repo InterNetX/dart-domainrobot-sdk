@@ -11,7 +11,7 @@ import 'package:test/test.dart';
 import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 
 void main() {
-  var provider = DomainRobotProvider('hello', 'world', '4', 'https://api.com');
+  var provider = DomainRobot('hello', 'world', '4', 'https://api.com');
 
   test('Test domain studio search', () async {
     HttpUtils.client = MockClient((request) async {

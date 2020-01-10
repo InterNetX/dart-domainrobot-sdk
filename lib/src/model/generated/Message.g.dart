@@ -23,13 +23,23 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
-      'text': instance.text,
-      'messages': instance.messages,
-      'objects': instance.objects,
-      'code': instance.code,
-      'status': _$StatusTypeEnumMap[instance.status],
-    };
+Map<String, dynamic> _$MessageToJson(Message instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('text', instance.text);
+  writeNotNull(
+      'messages', instance.messages?.map((e) => e?.toJson())?.toList());
+  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
+  writeNotNull('code', instance.code);
+  writeNotNull('status', _$StatusTypeEnumMap[instance.status]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

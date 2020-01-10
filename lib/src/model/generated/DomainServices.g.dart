@@ -28,10 +28,22 @@ DomainServices _$DomainServicesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainServicesToJson(DomainServices instance) =>
-    <String, dynamic>{
-      'backupMx': instance.backupMx,
-      'mailProxy': instance.mailProxy,
-      'redirect': instance.redirect,
-      'domainMonitoring': instance.domainMonitoring,
-    };
+Map<String, dynamic> _$DomainServicesToJson(DomainServices instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'backupMx', instance.backupMx?.map((e) => e?.toJson())?.toList());
+  writeNotNull(
+      'mailProxy', instance.mailProxy?.map((e) => e?.toJson())?.toList());
+  writeNotNull(
+      'redirect', instance.redirect?.map((e) => e?.toJson())?.toList());
+  writeNotNull('domainMonitoring',
+      instance.domainMonitoring?.map((e) => e?.toJson())?.toList());
+  return val;
+}

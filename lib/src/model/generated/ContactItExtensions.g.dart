@@ -12,8 +12,15 @@ ContactItExtensions _$ContactItExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactItExtensionsToJson(
-        ContactItExtensions instance) =>
-    <String, dynamic>{
-      'entityType': instance.entityType,
-    };
+Map<String, dynamic> _$ContactItExtensionsToJson(ContactItExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('entityType', instance.entityType);
+  return val;
+}

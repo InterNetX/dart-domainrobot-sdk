@@ -12,8 +12,15 @@ ContactNzExtensions _$ContactNzExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactNzExtensionsToJson(
-        ContactNzExtensions instance) =>
-    <String, dynamic>{
-      'irpo': instance.irpo,
-    };
+Map<String, dynamic> _$ContactNzExtensionsToJson(ContactNzExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('irpo', instance.irpo);
+  return val;
+}

@@ -14,12 +14,20 @@ ResponseStatus _$ResponseStatusFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ResponseStatusToJson(ResponseStatus instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      'text': instance.text,
-      'type': _$StatusTypeEnumMap[instance.type],
-    };
+Map<String, dynamic> _$ResponseStatusToJson(ResponseStatus instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('code', instance.code);
+  writeNotNull('text', instance.text);
+  writeNotNull('type', _$StatusTypeEnumMap[instance.type]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

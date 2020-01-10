@@ -23,12 +23,20 @@ ContactTrademarkExtensions _$ContactTrademarkExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactTrademarkExtensionsToJson(
-        ContactTrademarkExtensions instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'number': instance.number,
-      'country': instance.country,
-      'regdate': instance.regdate?.toIso8601String(),
-      'appdate': instance.appdate?.toIso8601String(),
-      'office': instance.office,
-    };
+    ContactTrademarkExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('number', instance.number);
+  writeNotNull('country', instance.country);
+  writeNotNull('regdate', instance.regdate?.toIso8601String());
+  writeNotNull('appdate', instance.appdate?.toIso8601String());
+  writeNotNull('office', instance.office);
+  return val;
+}

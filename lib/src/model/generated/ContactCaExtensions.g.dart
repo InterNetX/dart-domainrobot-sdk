@@ -16,15 +16,22 @@ ContactCaExtensions _$ContactCaExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactCaExtensionsToJson(
-        ContactCaExtensions instance) =>
-    <String, dynamic>{
-      'cpr': _$CiraCprConstantsEnumMap[instance.cpr],
-      'agreementVersion': instance.agreementVersion,
-      'originatingIp': instance.originatingIp,
-      'officialRepresentative': instance.officialRepresentative,
-      'trusteePercentage': instance.trusteePercentage,
-    };
+Map<String, dynamic> _$ContactCaExtensionsToJson(ContactCaExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('cpr', _$CiraCprConstantsEnumMap[instance.cpr]);
+  writeNotNull('agreementVersion', instance.agreementVersion);
+  writeNotNull('originatingIp', instance.originatingIp);
+  writeNotNull('officialRepresentative', instance.officialRepresentative);
+  writeNotNull('trusteePercentage', instance.trusteePercentage);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

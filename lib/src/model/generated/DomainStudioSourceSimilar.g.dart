@@ -18,13 +18,23 @@ DomainStudioSourceSimilar _$DomainStudioSourceSimilarFromJson(
 }
 
 Map<String, dynamic> _$DomainStudioSourceSimilarToJson(
-        DomainStudioSourceSimilar instance) =>
-    <String, dynamic>{
-      'services': instance.services
+    DomainStudioSourceSimilar instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'services',
+      instance.services
           ?.map((e) => _$DomainEnvelopeSearchServiceEnumMap[e])
-          ?.toList(),
-      'max': instance.max,
-    };
+          ?.toList());
+  writeNotNull('max', instance.max);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

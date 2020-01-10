@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0] - 2020-01-13
+
+* Rename DomainRobotProvider to DomainRobot
+* Add new certificate routes
+* Add new ssl contact routes
+
 ## [0.2.0] - 2020-01-10
 
 * Rewrite to match the Java / JS / PHP Sdk

@@ -21,14 +21,22 @@ DomainParkingExtensions _$DomainParkingExtensionsFromJson(
 }
 
 Map<String, dynamic> _$DomainParkingExtensionsToJson(
-        DomainParkingExtensions instance) =>
-    <String, dynamic>{
-      'parkingCategory': instance.parkingCategory,
-      'currency': instance.currency,
-      'domainLanguage': instance.domainLanguage,
-      'forSale': instance.forSale,
-      'keyword': instance.keyword,
-      'price': instance.price,
-      'fixedPrice': instance.fixedPrice,
-      'minPrice': instance.minPrice,
-    };
+    DomainParkingExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('parkingCategory', instance.parkingCategory);
+  writeNotNull('currency', instance.currency);
+  writeNotNull('domainLanguage', instance.domainLanguage);
+  writeNotNull('forSale', instance.forSale);
+  writeNotNull('keyword', instance.keyword);
+  writeNotNull('price', instance.price);
+  writeNotNull('fixedPrice', instance.fixedPrice);
+  writeNotNull('minPrice', instance.minPrice);
+  return val;
+}

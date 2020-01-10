@@ -24,13 +24,21 @@ ContactVerificationMessage _$ContactVerificationMessageFromJson(
 }
 
 Map<String, dynamic> _$ContactVerificationMessageToJson(
-        ContactVerificationMessage instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'mail': instance.mail,
-      'status': _$GenericStatusConstantsEnumMap[instance.status],
-    };
+    ContactVerificationMessage instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('mail', instance.mail?.toJson());
+  writeNotNull('status', _$GenericStatusConstantsEnumMap[instance.status]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

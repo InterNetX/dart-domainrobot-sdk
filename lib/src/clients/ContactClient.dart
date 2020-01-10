@@ -9,9 +9,9 @@ import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 /// Implementation of the contact specific api functions
 ///
 class ContactClient extends AbstractDomainRobotClient {
-  ContactClient(
-      String userName, String password, String context, String baseUrl)
-      : super(userName, password, context, baseUrl);
+  ContactClient(String userName, String password, String context,
+      String baseUrl, String version)
+      : super(userName, password, context, baseUrl, version);
 
   ///
   /// Sends a contactCreate request

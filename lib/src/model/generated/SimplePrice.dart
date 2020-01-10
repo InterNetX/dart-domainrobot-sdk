@@ -4,30 +4,28 @@ import 'TimePeriod.dart';
 
 part 'SimplePrice.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class SimplePrice {
   /// The price
   ExchangedPrice price;
-  
-/// The business case
+
+  /// The business case
   String businessCase;
-  
-/// The period for the price
+
+  /// The period for the price
   TimePeriod period;
-  
-  
-  
+
   SimplePrice({
-  	this.price,
-  	this.businessCase,
-  	this.period,
+    this.price,
+    this.businessCase,
+    this.period,
   });
 
   @override
   String toString() {
     return 'SimplePrice[price=$price, businessCase=$businessCase, period=$period, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -38,6 +36,4 @@ class SimplePrice {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$SimplePriceToJson(this);
-  
 }
-

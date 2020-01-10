@@ -33,20 +33,28 @@ BasicDocument _$BasicDocumentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BasicDocumentToJson(BasicDocument instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'id': instance.id,
-      'comment': instance.comment,
-      'type': instance.type,
-      'mimeType': instance.mimeType,
-      'data': instance.data,
-      'size': instance.size,
-      'name': instance.name,
-      'link': instance.link,
-      'uuid': instance.uuid,
-      'alias': instance.alias,
-      'owner': instance.owner,
-      'updater': instance.updater,
-    };
+Map<String, dynamic> _$BasicDocumentToJson(BasicDocument instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('id', instance.id);
+  writeNotNull('comment', instance.comment);
+  writeNotNull('type', instance.type);
+  writeNotNull('mimeType', instance.mimeType);
+  writeNotNull('data', instance.data);
+  writeNotNull('size', instance.size);
+  writeNotNull('name', instance.name);
+  writeNotNull('link', instance.link);
+  writeNotNull('uuid', instance.uuid);
+  writeNotNull('alias', instance.alias);
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  return val;
+}

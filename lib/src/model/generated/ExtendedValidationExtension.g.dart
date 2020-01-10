@@ -17,12 +17,21 @@ ExtendedValidationExtension _$ExtendedValidationExtensionFromJson(
 }
 
 Map<String, dynamic> _$ExtendedValidationExtensionToJson(
-        ExtendedValidationExtension instance) =>
-    <String, dynamic>{
-      'joiCountryName': instance.joiCountryName,
-      'companyNumber': instance.companyNumber,
-      'businessCategory': _$BusinessCategoryEnumMap[instance.businessCategory],
-    };
+    ExtendedValidationExtension instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('joiCountryName', instance.joiCountryName);
+  writeNotNull('companyNumber', instance.companyNumber);
+  writeNotNull(
+      'businessCategory', _$BusinessCategoryEnumMap[instance.businessCategory]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

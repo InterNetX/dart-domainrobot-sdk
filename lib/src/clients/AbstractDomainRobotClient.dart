@@ -22,8 +22,11 @@ abstract class AbstractDomainRobotClient {
   /// The DomainRobot API base url
   final String baseUrl;
 
-  AbstractDomainRobotClient(
-      this._userName, this._password, this._context, this.baseUrl);
+  /// The package version
+  final String version;
+
+  AbstractDomainRobotClient(this._userName, this._password, this._context,
+      this.baseUrl, this.version);
 
   ///
   /// Method for converting a [HttpResponseException] to a [DomainRobotApiResponse].
@@ -54,6 +57,7 @@ abstract class AbstractDomainRobotClient {
       headers.putIfAbsent(DOMAINROBOT_HEADER_CONTEXT, () => _context);
     }
     headers.putIfAbsent('Accept', () => 'application/json');
+    headers.putIfAbsent('User-Agent', () => 'DartDomainrobotSdk/$version');
     return headers;
   }
 }

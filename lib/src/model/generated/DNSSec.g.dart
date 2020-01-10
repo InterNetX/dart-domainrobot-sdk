@@ -15,9 +15,18 @@ DNSSec _$DNSSecFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DNSSecToJson(DNSSec instance) => <String, dynamic>{
-      'algorithm': instance.algorithm,
-      'flags': instance.flags,
-      'protocol': instance.protocol,
-      'publicKey': instance.publicKey,
-    };
+Map<String, dynamic> _$DNSSecToJson(DNSSec instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('algorithm', instance.algorithm);
+  writeNotNull('flags', instance.flags);
+  writeNotNull('protocol', instance.protocol);
+  writeNotNull('publicKey', instance.publicKey);
+  return val;
+}

@@ -3,22 +3,20 @@ import 'IpRestriction.dart';
 
 part 'IpRestrictions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class IpRestrictions {
   /// A list of ip restrictions
   List<IpRestriction> acls;
-  
-  
-  
+
   IpRestrictions({
-  	this.acls,
+    this.acls,
   });
 
   @override
   String toString() {
     return 'IpRestrictions[acls=$acls, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -29,6 +27,4 @@ class IpRestrictions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$IpRestrictionsToJson(this);
-  
 }
-

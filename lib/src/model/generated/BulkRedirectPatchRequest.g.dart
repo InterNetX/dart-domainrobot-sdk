@@ -23,9 +23,17 @@ BulkRedirectPatchRequest _$BulkRedirectPatchRequestFromJson(
 }
 
 Map<String, dynamic> _$BulkRedirectPatchRequestToJson(
-        BulkRedirectPatchRequest instance) =>
-    <String, dynamic>{
-      'objects': instance.objects,
-      'template': instance.template,
-      'query': instance.query,
-    };
+    BulkRedirectPatchRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
+  writeNotNull('template', instance.template?.toJson());
+  writeNotNull('query', instance.query?.toJson());
+  return val;
+}

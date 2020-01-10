@@ -4,34 +4,32 @@ import 'Message.dart';
 
 part 'ContactVerificationMessage.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactVerificationMessage {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// the email of the VerificationMessage
+
+  /// the email of the VerificationMessage
   Message mail;
-  
-/// the status of the VerificationMessage
+
+  /// the status of the VerificationMessage
   GenericStatusConstants status;
-  
-  
-  
+
   ContactVerificationMessage({
-  	this.created,
-  	this.updated,
-  	this.mail,
-  	this.status,
+    this.created,
+    this.updated,
+    this.mail,
+    this.status,
   });
 
   @override
   String toString() {
     return 'ContactVerificationMessage[created=$created, updated=$updated, mail=$mail, status=$status, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -42,6 +40,4 @@ class ContactVerificationMessage {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactVerificationMessageToJson(this);
-  
 }
-

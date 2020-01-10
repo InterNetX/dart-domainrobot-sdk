@@ -21,10 +21,18 @@ DomainTmchClaimNoticeExtensions _$DomainTmchClaimNoticeExtensionsFromJson(
 }
 
 Map<String, dynamic> _$DomainTmchClaimNoticeExtensionsToJson(
-        DomainTmchClaimNoticeExtensions instance) =>
-    <String, dynamic>{
-      'externalReference': instance.externalReference,
-      'notAfter': instance.notAfter?.toIso8601String(),
-      'confirmed': instance.confirmed?.toIso8601String(),
-      'confirmIp': instance.confirmIp,
-    };
+    DomainTmchClaimNoticeExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('externalReference', instance.externalReference);
+  writeNotNull('notAfter', instance.notAfter?.toIso8601String());
+  writeNotNull('confirmed', instance.confirmed?.toIso8601String());
+  writeNotNull('confirmIp', instance.confirmIp);
+  return val;
+}

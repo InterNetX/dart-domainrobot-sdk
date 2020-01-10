@@ -2,22 +2,20 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactNzExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactNzExtensions {
   /// The irpo.
   bool irpo;
-  
-  
-  
+
   ContactNzExtensions({
-  	this.irpo,
+    this.irpo,
   });
 
   @override
   String toString() {
     return 'ContactNzExtensions[irpo=$irpo, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -28,6 +26,4 @@ class ContactNzExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactNzExtensionsToJson(this);
-  
 }
-

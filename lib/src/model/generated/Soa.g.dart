@@ -16,10 +16,19 @@ Soa _$SoaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SoaToJson(Soa instance) => <String, dynamic>{
-      'refresh': instance.refresh,
-      'retry': instance.retry,
-      'expire': instance.expire,
-      'ttl': instance.ttl,
-      'email': instance.email,
-    };
+Map<String, dynamic> _$SoaToJson(Soa instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('refresh', instance.refresh);
+  writeNotNull('retry', instance.retry);
+  writeNotNull('expire', instance.expire);
+  writeNotNull('ttl', instance.ttl);
+  writeNotNull('email', instance.email);
+  return val;
+}

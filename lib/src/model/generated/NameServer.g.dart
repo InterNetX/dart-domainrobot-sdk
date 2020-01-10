@@ -15,9 +15,17 @@ NameServer _$NameServerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NameServerToJson(NameServer instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'ttl': instance.ttl,
-      'ipAddresses': instance.ipAddresses,
-    };
+Map<String, dynamic> _$NameServerToJson(NameServer instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('ttl', instance.ttl);
+  writeNotNull('ipAddresses', instance.ipAddresses);
+  return val;
+}

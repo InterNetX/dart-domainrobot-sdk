@@ -34,19 +34,27 @@ Id4MeAgent _$Id4MeAgentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$Id4MeAgentToJson(Id4MeAgent instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'externalReference': instance.externalReference,
-      'certificate': instance.certificate,
-      'layoutAddon': instance.layoutAddon,
-      'name': instance.name,
-      'status': _$Id4MeAgentStatusEnumMap[instance.status],
-      'records': instance.records,
-    };
+Map<String, dynamic> _$Id4MeAgentToJson(Id4MeAgent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('externalReference', instance.externalReference);
+  writeNotNull('certificate', instance.certificate?.toJson());
+  writeNotNull('layoutAddon', instance.layoutAddon?.toJson());
+  writeNotNull('name', instance.name);
+  writeNotNull('status', _$Id4MeAgentStatusEnumMap[instance.status]);
+  writeNotNull('records', instance.records);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

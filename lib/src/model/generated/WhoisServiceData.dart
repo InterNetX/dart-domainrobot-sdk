@@ -4,34 +4,32 @@ import 'WhoisStatus.dart';
 
 part 'WhoisServiceData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class WhoisServiceData {
   /// The debug time
   int debugTime;
-  
-/// The status
+
+  /// The status
   DomainStudioServiceStatus status;
-  
-/// A message with more information, if the status is FAILED.
+
+  /// A message with more information, if the status is FAILED.
   String message;
-  
-/// The service data
+
+  /// The service data
   WhoisStatus data;
-  
-  
-  
+
   WhoisServiceData({
-  	this.debugTime,
-  	this.status,
-  	this.message,
-  	this.data,
+    this.debugTime,
+    this.status,
+    this.message,
+    this.data,
   });
 
   @override
   String toString() {
     return 'WhoisServiceData[debugTime=$debugTime, status=$status, message=$message, data=$data, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -42,6 +40,4 @@ class WhoisServiceData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$WhoisServiceDataToJson(this);
-  
 }
-

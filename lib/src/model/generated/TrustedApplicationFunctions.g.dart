@@ -15,7 +15,15 @@ TrustedApplicationFunctions _$TrustedApplicationFunctionsFromJson(
 }
 
 Map<String, dynamic> _$TrustedApplicationFunctionsToJson(
-        TrustedApplicationFunctions instance) =>
-    <String, dynamic>{
-      'functionCodes': instance.functionCodes,
-    };
+    TrustedApplicationFunctions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('functionCodes', instance.functionCodes);
+  return val;
+}

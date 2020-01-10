@@ -21,10 +21,17 @@ DomainStudioService _$DomainStudioServiceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainStudioServiceToJson(
-        DomainStudioService instance) =>
-    <String, dynamic>{
-      'whois': instance.whois,
-      'price': instance.price,
-      'estimation': instance.estimation,
-    };
+Map<String, dynamic> _$DomainStudioServiceToJson(DomainStudioService instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('whois', instance.whois?.toJson());
+  writeNotNull('price', instance.price?.toJson());
+  writeNotNull('estimation', instance.estimation?.toJson());
+  return val;
+}

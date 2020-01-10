@@ -15,6 +15,15 @@ PriceData _$PriceDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PriceDataToJson(PriceData instance) => <String, dynamic>{
-      'prices': instance.prices,
-    };
+Map<String, dynamic> _$PriceDataToJson(PriceData instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('prices', instance.prices?.map((e) => e?.toJson())?.toList());
+  return val;
+}

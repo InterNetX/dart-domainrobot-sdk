@@ -16,11 +16,19 @@ ResourceRecord _$ResourceRecordFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ResourceRecordToJson(ResourceRecord instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'ttl': instance.ttl,
-      'type': instance.type,
-      'value': instance.value,
-      'pref': instance.pref,
-    };
+Map<String, dynamic> _$ResourceRecordToJson(ResourceRecord instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('ttl', instance.ttl);
+  writeNotNull('type', instance.type);
+  writeNotNull('value', instance.value);
+  writeNotNull('pref', instance.pref);
+  return val;
+}

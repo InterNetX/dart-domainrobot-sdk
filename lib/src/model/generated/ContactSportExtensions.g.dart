@@ -14,7 +14,15 @@ ContactSportExtensions _$ContactSportExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactSportExtensionsToJson(
-        ContactSportExtensions instance) =>
-    <String, dynamic>{
-      'intendedUse': instance.intendedUse,
-    };
+    ContactSportExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('intendedUse', instance.intendedUse);
+  return val;
+}

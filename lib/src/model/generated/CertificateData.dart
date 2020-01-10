@@ -6,90 +6,88 @@ import 'SignatureHashAlgorithmConstants.dart';
 
 part 'CertificateData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class CertificateData {
   /// The plain csr.
   String plain;
-  
-/// The common name.
+
+  /// The common name.
   String name;
-  
-/// The subject alternative names, listed in the csr.
+
+  /// The subject alternative names, listed in the csr.
   List<String> san;
-  
-/// The certificate history.
+
+  /// The certificate history.
   List<CertificateHistory> histories;
-  
-/// The size of the csr key.
+
+  /// The size of the csr key.
   int keySize;
-  
-/// The country code defined in the csr.
+
+  /// The country code defined in the csr.
   String countryCode;
-  
-/// The password defined in the csr.
+
+  /// The password defined in the csr.
   String challengePassword;
-  
-/// The state defined in the csr.
+
+  /// The state defined in the csr.
   String state;
-  
-/// The city defined in the csr.
+
+  /// The city defined in the csr.
   String city;
-  
-/// The organization defined in the csr.
+
+  /// The organization defined in the csr.
   String organization;
-  
-/// The organization unit defined in the csr.
+
+  /// The organization unit defined in the csr.
   String organizationUnit;
-  
-/// The email defined in the csr.
+
+  /// The email defined in the csr.
   String email;
-  
-/// The ssl product.
+
+  /// The ssl product.
   String product;
-  
-/// The authentication data.
+
+  /// The authentication data.
   List<CertAuthentication> authentication;
-  
-/// The csr algorithm.
+
+  /// The csr algorithm.
   CsrHashAlgorithmConstants algorithm;
-  
-/// The signature hash algorithm.
+
+  /// The signature hash algorithm.
   SignatureHashAlgorithmConstants signatureHashAlgorithm;
-  
-/// The idn version of the common name.
+
+  /// The idn version of the common name.
   String idn;
-  
-/// Activates the caa record check.
+
+  /// Activates the caa record check.
   bool checkCaa;
-  
-  
-  
+
   CertificateData({
-  	this.plain,
-  	this.name,
-  	this.san,
-  	this.histories,
-  	this.keySize,
-  	this.countryCode,
-  	this.challengePassword,
-  	this.state,
-  	this.city,
-  	this.organization,
-  	this.organizationUnit,
-  	this.email,
-  	this.product,
-  	this.authentication,
-  	this.algorithm,
-  	this.signatureHashAlgorithm,
-  	this.idn,
-  	this.checkCaa,
+    this.plain,
+    this.name,
+    this.san,
+    this.histories,
+    this.keySize,
+    this.countryCode,
+    this.challengePassword,
+    this.state,
+    this.city,
+    this.organization,
+    this.organizationUnit,
+    this.email,
+    this.product,
+    this.authentication,
+    this.algorithm,
+    this.signatureHashAlgorithm,
+    this.idn,
+    this.checkCaa,
   });
 
   @override
   String toString() {
     return 'CertificateData[plain=$plain, name=$name, san=$san, histories=$histories, keySize=$keySize, countryCode=$countryCode, challengePassword=$challengePassword, state=$state, city=$city, organization=$organization, organizationUnit=$organizationUnit, email=$email, product=$product, authentication=$authentication, algorithm=$algorithm, signatureHashAlgorithm=$signatureHashAlgorithm, idn=$idn, checkCaa=$checkCaa, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -100,6 +98,4 @@ class CertificateData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$CertificateDataToJson(this);
-  
 }
-

@@ -55,32 +55,43 @@ Zone _$ZoneFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ZoneToJson(Zone instance) => <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'origin': instance.origin,
-      'idn': instance.idn,
-      'soa': instance.soa,
-      'dnssec': instance.dnssec,
-      'nameServerGroup': instance.nameServerGroup,
-      'allowTransfer': instance.allowTransfer,
-      'owner': instance.owner,
-      'updater': instance.updater,
-      'logId': instance.logId,
-      'comment': instance.comment,
-      'domainsafe': instance.domainsafe,
-      'source': instance.source,
-      'sourceVirtualHostname': instance.sourceVirtualHostname,
-      'nameServers': instance.nameServers,
-      'main': instance.main,
-      'wwwInclude': instance.wwwInclude,
-      'virtualNameServer': instance.virtualNameServer,
-      'freeText': instance.freeText,
-      'action': _$NameserverActionConstantsEnumMap[instance.action],
-      'grants': instance.grants,
-      'resourceRecords': instance.resourceRecords,
-      'roid': instance.roid,
-    };
+Map<String, dynamic> _$ZoneToJson(Zone instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('origin', instance.origin);
+  writeNotNull('idn', instance.idn);
+  writeNotNull('soa', instance.soa?.toJson());
+  writeNotNull('dnssec', instance.dnssec);
+  writeNotNull('nameServerGroup', instance.nameServerGroup);
+  writeNotNull('allowTransfer', instance.allowTransfer);
+  writeNotNull('owner', instance.owner?.toJson());
+  writeNotNull('updater', instance.updater?.toJson());
+  writeNotNull('logId', instance.logId);
+  writeNotNull('comment', instance.comment);
+  writeNotNull('domainsafe', instance.domainsafe);
+  writeNotNull('source', instance.source);
+  writeNotNull('sourceVirtualHostname', instance.sourceVirtualHostname);
+  writeNotNull(
+      'nameServers', instance.nameServers?.map((e) => e?.toJson())?.toList());
+  writeNotNull('main', instance.main?.toJson());
+  writeNotNull('wwwInclude', instance.wwwInclude);
+  writeNotNull('virtualNameServer', instance.virtualNameServer);
+  writeNotNull('freeText', instance.freeText);
+  writeNotNull('action', _$NameserverActionConstantsEnumMap[instance.action]);
+  writeNotNull('grants', instance.grants);
+  writeNotNull('resourceRecords',
+      instance.resourceRecords?.map((e) => e?.toJson())?.toList());
+  writeNotNull('roid', instance.roid);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

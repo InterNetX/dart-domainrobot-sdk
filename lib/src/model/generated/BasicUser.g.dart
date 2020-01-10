@@ -13,7 +13,16 @@ BasicUser _$BasicUserFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BasicUserToJson(BasicUser instance) => <String, dynamic>{
-      'context': instance.context,
-      'user': instance.user,
-    };
+Map<String, dynamic> _$BasicUserToJson(BasicUser instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('context', instance.context);
+  writeNotNull('user', instance.user);
+  return val;
+}

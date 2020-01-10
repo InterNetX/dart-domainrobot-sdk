@@ -36,18 +36,28 @@ SEPAMandate _$SEPAMandateFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SEPAMandateToJson(SEPAMandate instance) =>
-    <String, dynamic>{
-      'created': instance.created?.toIso8601String(),
-      'updated': instance.updated?.toIso8601String(),
-      'reference': instance.reference,
-      'confirmSignature': instance.confirmSignature?.toIso8601String(),
-      'confirmIp': instance.confirmIp,
-      'confirmUseragent': instance.confirmUseragent,
-      'confirmChecked': instance.confirmChecked,
-      'expire': instance.expire?.toIso8601String(),
-      'histories': instance.histories,
-      'accountHolder': instance.accountHolder,
-      'iban': instance.iban,
-      'bic': instance.bic,
-    };
+Map<String, dynamic> _$SEPAMandateToJson(SEPAMandate instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('created', instance.created?.toIso8601String());
+  writeNotNull('updated', instance.updated?.toIso8601String());
+  writeNotNull('reference', instance.reference);
+  writeNotNull(
+      'confirmSignature', instance.confirmSignature?.toIso8601String());
+  writeNotNull('confirmIp', instance.confirmIp?.toJson());
+  writeNotNull('confirmUseragent', instance.confirmUseragent);
+  writeNotNull('confirmChecked', instance.confirmChecked);
+  writeNotNull('expire', instance.expire?.toIso8601String());
+  writeNotNull(
+      'histories', instance.histories?.map((e) => e?.toJson())?.toList());
+  writeNotNull('accountHolder', instance.accountHolder);
+  writeNotNull('iban', instance.iban);
+  writeNotNull('bic', instance.bic);
+  return val;
+}

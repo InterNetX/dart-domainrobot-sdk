@@ -17,10 +17,18 @@ ContactBirthExtensions _$ContactBirthExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactBirthExtensionsToJson(
-        ContactBirthExtensions instance) =>
-    <String, dynamic>{
-      'country': instance.country,
-      'day': instance.day?.toIso8601String(),
-      'postalCode': instance.postalCode,
-      'place': instance.place,
-    };
+    ContactBirthExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('country', instance.country);
+  writeNotNull('day', instance.day?.toIso8601String());
+  writeNotNull('postalCode', instance.postalCode);
+  writeNotNull('place', instance.place);
+  return val;
+}

@@ -14,7 +14,15 @@ ContactBankExtensions _$ContactBankExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactBankExtensionsToJson(
-        ContactBankExtensions instance) =>
-    <String, dynamic>{
-      'ftldToken': instance.ftldToken,
-    };
+    ContactBankExtensions instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('ftldToken', instance.ftldToken);
+  return val;
+}

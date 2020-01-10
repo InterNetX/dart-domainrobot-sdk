@@ -22,9 +22,17 @@ DomainServicesUpdate _$DomainServicesUpdateFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$DomainServicesUpdateToJson(
-        DomainServicesUpdate instance) =>
-    <String, dynamic>{
-      'domains': instance.domains,
-      'servicesAdd': instance.servicesAdd,
-      'servicesRem': instance.servicesRem,
-    };
+    DomainServicesUpdate instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('domains', instance.domains?.map((e) => e?.toJson())?.toList());
+  writeNotNull('servicesAdd', instance.servicesAdd?.toJson());
+  writeNotNull('servicesRem', instance.servicesRem?.toJson());
+  return val;
+}

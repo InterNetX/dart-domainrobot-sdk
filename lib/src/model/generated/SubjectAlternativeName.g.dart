@@ -16,9 +16,17 @@ SubjectAlternativeName _$SubjectAlternativeNameFromJson(
 }
 
 Map<String, dynamic> _$SubjectAlternativeNameToJson(
-        SubjectAlternativeName instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'approverEmail': instance.approverEmail,
-      'orderId': instance.orderId,
-    };
+    SubjectAlternativeName instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('approverEmail', instance.approverEmail);
+  writeNotNull('orderId', instance.orderId);
+  return val;
+}

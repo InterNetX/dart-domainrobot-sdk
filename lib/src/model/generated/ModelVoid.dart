@@ -2,17 +2,15 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ModelVoid.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ModelVoid {
-    
   ModelVoid();
-  
 
   @override
   String toString() {
     return 'ModelVoid[]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -23,6 +21,4 @@ class ModelVoid {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ModelVoidToJson(this);
-  
 }
-

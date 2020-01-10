@@ -4,52 +4,47 @@ import 'CreditCardVendor.dart';
 
 part 'Card.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Card {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// The credit card vendor
+
+  /// The credit card vendor
   CreditCardVendor type;
-  
-/// The actual status of the credit card
+
+  /// The actual status of the credit card
   CardStatus status;
-  
-/// The valid from date
+
+  /// The valid from date
   DateTime validFrom;
-  
-/// The valid to date
+
+  /// The valid to date
   DateTime validTo;
-  
-  
-  
+
   Card({
-  	this.created,
-  	this.updated,
-  	this.type,
-  	this.status,
-  	this.validFrom,
-  	this.validTo,
+    this.created,
+    this.updated,
+    this.type,
+    this.status,
+    this.validFrom,
+    this.validTo,
   });
 
   @override
   String toString() {
     return 'Card[created=$created, updated=$updated, type=$type, status=$status, validFrom=$validFrom, validTo=$validTo, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
-  factory Card.fromJson(Map<String, dynamic> json) =>
-      _$CardFromJson(json);
+  factory Card.fromJson(Map<String, dynamic> json) => _$CardFromJson(json);
 
   ///
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$CardToJson(this);
-  
 }
-

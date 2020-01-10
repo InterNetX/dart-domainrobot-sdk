@@ -8,130 +8,128 @@ import 'Soa.dart';
 
 part 'ZoneBasePatchRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ZoneBasePatchRequest {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// Zone name
+
+  /// Zone name
   String origin;
-  
-/// The idn version of the origin.
+
+  /// The idn version of the origin.
   String idn;
-  
-/// Only for ns_action: \"primary\"  and \"complete\"
+
+  /// Only for ns_action: \"primary\"  and \"complete\"
   Soa soa;
-  
-/// Enables dnssec
+
+  /// Enables dnssec
   bool dnssec;
-  
-/// The name of the name server group, if the zone is managed by
+
+  /// The name of the name server group, if the zone is managed by
   String nameServerGroup;
-  
-/// Allow AXFR
+
+  /// Allow AXFR
   bool allowTransfer;
-  
-/// The owner of the object
+
+  /// The owner of the object
   BasicUser owner;
-  
-/// The updating user of the object
+
+  /// The updating user of the object
   BasicUser updater;
-  
-/// The id of the related log-entry.
+
+  /// The id of the related log-entry.
   int logId;
-  
-/// A custom field. Can only be updated via PUT /zone/{name}/{nameserver}/_comment. Requires appropriate ACLs.
+
+  /// A custom field. Can only be updated via PUT /zone/{name}/{nameserver}/_comment. Requires appropriate ACLs.
   String comment;
-  
-/// true if the domain is represented in the domain safe
+
+  /// true if the domain is represented in the domain safe
   bool domainsafe;
-  
-/// Nameserver, the zone is copied from via AXFR (for zone_import)
+
+  /// Nameserver, the zone is copied from via AXFR (for zone_import)
   String source;
-  
-/// System name server to look up the zone to copy
+
+  /// System name server to look up the zone to copy
   String sourceVirtualHostname;
-  
-/// Adds new zone garnts to the zone
+
+  /// Adds new zone garnts to the zone
   List<String> zoneGrantsAdd;
-  
-/// Removes the zone garnts if exists.
+
+  /// Removes the zone garnts if exists.
   List<String> zoneGrantsRem;
-  
-/// List of name servers
+
+  /// List of name servers
   List<NameServer> nameServers;
-  
-/// IP address of the zone (A record)
+
+  /// IP address of the zone (A record)
   MainIp main;
-  
-/// Automatic generation of resource records \"www\"
+
+  /// Automatic generation of resource records \"www\"
   bool wwwInclude;
-  
-/// The first nameserver managed by the system
+
+  /// The first nameserver managed by the system
   String virtualNameServer;
-  
-/// The free text records.
+
+  /// The free text records.
   List<String> freeText;
-  
-/// Additional nameserver check is proceeded
+
+  /// Additional nameserver check is proceeded
   NameserverActionConstants action;
-  
-/// The grants where transfer (axfr) can be done from.
+
+  /// The grants where transfer (axfr) can be done from.
   List<String> grants;
-  
-/// The resource records.
+
+  /// The resource records.
   List<ResourceRecord> resourceRecords;
-  
-/// The resource object identifier of the zone
+
+  /// The resource object identifier of the zone
   int roid;
-  
-/// Adds new zone records to the extistings
+
+  /// Adds new zone records to the extistings
   List<ResourceRecord> resourceRecordsAdd;
-  
-/// Removes the zone records if exists.
+
+  /// Removes the zone records if exists.
   List<ResourceRecord> resourceRecordsRem;
-  
-  
-  
+
   ZoneBasePatchRequest({
-  	this.created,
-  	this.updated,
-  	this.origin,
-  	this.idn,
-  	this.soa,
-  	this.dnssec,
-  	this.nameServerGroup,
-  	this.allowTransfer,
-  	this.owner,
-  	this.updater,
-  	this.logId,
-  	this.comment,
-  	this.domainsafe,
-  	this.source,
-  	this.sourceVirtualHostname,
-  	this.zoneGrantsAdd,
-  	this.zoneGrantsRem,
-  	this.nameServers,
-  	this.main,
-  	this.wwwInclude,
-  	this.virtualNameServer,
-  	this.freeText,
-  	this.action,
-  	this.grants,
-  	this.resourceRecords,
-  	this.roid,
-  	this.resourceRecordsAdd,
-  	this.resourceRecordsRem,
+    this.created,
+    this.updated,
+    this.origin,
+    this.idn,
+    this.soa,
+    this.dnssec,
+    this.nameServerGroup,
+    this.allowTransfer,
+    this.owner,
+    this.updater,
+    this.logId,
+    this.comment,
+    this.domainsafe,
+    this.source,
+    this.sourceVirtualHostname,
+    this.zoneGrantsAdd,
+    this.zoneGrantsRem,
+    this.nameServers,
+    this.main,
+    this.wwwInclude,
+    this.virtualNameServer,
+    this.freeText,
+    this.action,
+    this.grants,
+    this.resourceRecords,
+    this.roid,
+    this.resourceRecordsAdd,
+    this.resourceRecordsRem,
   });
 
   @override
   String toString() {
     return 'ZoneBasePatchRequest[created=$created, updated=$updated, origin=$origin, idn=$idn, soa=$soa, dnssec=$dnssec, nameServerGroup=$nameServerGroup, allowTransfer=$allowTransfer, owner=$owner, updater=$updater, logId=$logId, comment=$comment, domainsafe=$domainsafe, source=$source, sourceVirtualHostname=$sourceVirtualHostname, zoneGrantsAdd=$zoneGrantsAdd, zoneGrantsRem=$zoneGrantsRem, nameServers=$nameServers, main=$main, wwwInclude=$wwwInclude, virtualNameServer=$virtualNameServer, freeText=$freeText, action=$action, grants=$grants, resourceRecords=$resourceRecords, roid=$roid, resourceRecordsAdd=$resourceRecordsAdd, resourceRecordsRem=$resourceRecordsRem, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -142,6 +140,4 @@ class ZoneBasePatchRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ZoneBasePatchRequestToJson(this);
-  
 }
-

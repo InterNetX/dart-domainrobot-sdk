@@ -29,16 +29,28 @@ UserAcl _$UserAclFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$UserAclToJson(UserAcl instance) => <String, dynamic>{
-      'functionCode': instance.functionCode,
-      'children': instance.children,
-      'childrenLocked': instance.childrenLocked,
-      'userLocked': instance.userLocked,
-      'effective': instance.effective,
-      'childrenRem': instance.childrenRem,
-      'childrenAdd': instance.childrenAdd,
-      'restriction': _$ACLRestrictionEnumMap[instance.restriction],
-    };
+Map<String, dynamic> _$UserAclToJson(UserAcl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('functionCode', instance.functionCode);
+  writeNotNull(
+      'children', instance.children?.map((e) => e?.toJson())?.toList());
+  writeNotNull('childrenLocked', instance.childrenLocked);
+  writeNotNull('userLocked', instance.userLocked);
+  writeNotNull('effective', instance.effective);
+  writeNotNull(
+      'childrenRem', instance.childrenRem?.map((e) => e?.toJson())?.toList());
+  writeNotNull(
+      'childrenAdd', instance.childrenAdd?.map((e) => e?.toJson())?.toList());
+  writeNotNull('restriction', _$ACLRestrictionEnumMap[instance.restriction]);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

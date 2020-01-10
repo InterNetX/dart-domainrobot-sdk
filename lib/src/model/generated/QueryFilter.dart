@@ -4,38 +4,36 @@ import 'ModelOperator.dart';
 
 part 'QueryFilter.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class QueryFilter {
   /// Lorem Ipsum
   String key;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   String value;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   ModelOperator operator_;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   ConditionType link;
-  
-/// Lorem Ipsum
+
+  /// Lorem Ipsum
   List<QueryFilter> filters;
-  
-  
-  
+
   QueryFilter({
-  	this.key,
-  	this.value,
-  	this.operator_,
-  	this.link,
-  	this.filters,
+    this.key,
+    this.value,
+    this.operator_,
+    this.link,
+    this.filters,
   });
 
   @override
   String toString() {
     return 'QueryFilter[key=$key, value=$value, operator_=$operator_, link=$link, filters=$filters, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -46,6 +44,4 @@ class QueryFilter {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$QueryFilterToJson(this);
-  
 }
-

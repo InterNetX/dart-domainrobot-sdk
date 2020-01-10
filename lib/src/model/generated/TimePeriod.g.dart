@@ -13,11 +13,19 @@ TimePeriod _$TimePeriodFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TimePeriodToJson(TimePeriod instance) =>
-    <String, dynamic>{
-      'unit': _$TimeUnitConstantsEnumMap[instance.unit],
-      'period': instance.period,
-    };
+Map<String, dynamic> _$TimePeriodToJson(TimePeriod instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('unit', _$TimeUnitConstantsEnumMap[instance.unit]);
+  writeNotNull('period', instance.period);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

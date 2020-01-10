@@ -20,15 +20,25 @@ DomainStudioSourcePremium _$DomainStudioSourcePremiumFromJson(
 }
 
 Map<String, dynamic> _$DomainStudioSourcePremiumToJson(
-        DomainStudioSourcePremium instance) =>
-    <String, dynamic>{
-      'services': instance.services
+    DomainStudioSourcePremium instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'services',
+      instance.services
           ?.map((e) => _$DomainEnvelopeSearchServiceEnumMap[e])
-          ?.toList(),
-      'promoTlds': instance.promoTlds,
-      'topTlds': instance.topTlds,
-      'max': instance.max,
-    };
+          ?.toList());
+  writeNotNull('promoTlds', instance.promoTlds);
+  writeNotNull('topTlds', instance.topTlds);
+  writeNotNull('max', instance.max);
+  return val;
+}
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,
