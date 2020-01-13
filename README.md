@@ -30,7 +30,7 @@ Update pubspec.yaml and add the following line to your dependencies.
 
 ```yaml
 dependencies:
-  dart_domainrobot_sdk: ^0.3.0
+  dart_domainrobot_sdk: ^0.4.0
 ```
 
 ### Import
@@ -69,6 +69,16 @@ Future<domainrobot.Domain> info(String name, {Map<String, String> headers, Map<S
 Future<List<domainrobot.Domain>> list(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
+#### Domain cancelation tasks
+
+```dart
+Future<DomainCancelation> create(DomainCancelation payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> update(DomainCancelation payload, {Map<String, String> headers});
+Future<void> delete(String domain, {Map<String, String> headers});
+Future<DomainCancelation> info(String domain, {Map<String, String> headers});
+Future<List<DomainCancelation>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+```
+
 #### Contact tasks
 
 ```dart
@@ -77,6 +87,18 @@ Future<void> update(Contact payload, {Map<String, String> headers});
 Future<void> delete(int id, {Map<String, String> headers});
 Future<Contact> info(int id, {Map<String, String> headers});
 Future<List<Contact>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+```
+
+#### Zone tasks
+
+```dart
+Future<Zone> create(Zone payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> update(Zone payload, {Map<String, String> headers});
+Future<void> delete(String origin, String virtualNameServer, {Map<String, String> headers});
+Future<Zone> info(String origin, String virtualNameServer, {Map<String, String> headers});
+Future<List<Zone>> list({Query payload, Map<String, String> headers, Map<String, String> queryParameters});
+Future<Zone> import(Zone payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> stream(String origin, ZoneStream payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Certificate tasks
@@ -89,6 +111,7 @@ Future<Job> reissue(int id, {Certificate payload, Map<String, String> headers, M
 Future<Job> delete(int id, {Map<String, String> headers});
 Future<Certificate> info(int id, {Map<String, String> headers});
 Future<Job> renew(int id, {Certificate payload, Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> commentUpdate(int id, String comment, {Map<String, String> headers,Map<String, String> queryParameters});
 ```
 
 #### SslContact tasks
@@ -115,6 +138,13 @@ Future<List<TrustedApplication>> list({Query payload, Map<String, String> header
 
 ```dart
 Future<List<DomainEnvelope>> search(DomainEnvelopeSearchRequest payload,{Map<String, String> headers, Map<String, String> queryParameters});
+```
+
+#### Poll tasks
+
+```dart
+Future<PollMessage> info({Map<String, String> headers});
+Future<void> confirm(int id, {Map<String, String> headers});
 ```
 
 ### Models

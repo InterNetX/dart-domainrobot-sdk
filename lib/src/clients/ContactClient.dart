@@ -14,11 +14,11 @@ class ContactClient extends AbstractDomainRobotClient {
       : super(userName, password, context, baseUrl, version);
 
   ///
-  /// Sends a contactCreate request
+  /// Sends a contact create request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<Contact> contactCreate(Contact payload,
+  Future<Contact> create(Contact payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
@@ -35,29 +35,30 @@ class ContactClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a contactUpdate request
+  /// Sends a contact update request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<void> contactUpdate(Contact payload,
-      {Map<String, String> headers}) async {
+  Future<void> update(Contact payload, {Map<String, String> headers}) async {
+    if (payload.id == null) {
+      throw ArgumentError.notNull('domain');
+    }
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     try {
-      return await HttpUtils.putForJson(
-          '$baseUrl/contact/${payload.id}', payloadAsString,
-          headers: headers);
+      return await HttpUtils.putForJson('$baseUrl/contact/${payload.id}',
+          body: payloadAsString, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
   }
 
   ///
-  /// Sends a contactDelete request
+  /// Sends a contact delete request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<void> contactDelete(int id, {Map<String, String> headers}) async {
+  Future<void> delete(int id, {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     try {
       return await HttpUtils.deleteForJson('$baseUrl/contact/$id',
@@ -68,11 +69,11 @@ class ContactClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a contactInfo request
+  /// Sends a contact info request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<Contact> contactInfo(int id, {Map<String, String> headers}) async {
+  Future<Contact> info(int id, {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     Map<String, dynamic> body;
     try {
@@ -86,11 +87,11 @@ class ContactClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a contactList request
+  /// Sends a contact list request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<List<Contact>> contactList(
+  Future<List<Contact>> list(
       {Query payload,
       Map<String, String> headers,
       Map<String, String> queryParameters}) async {

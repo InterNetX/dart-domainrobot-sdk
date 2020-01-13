@@ -116,9 +116,10 @@ class CertificateClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.putForJson(
-          '$baseUrl/certificate/$id/_reissue', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.putForJson('$baseUrl/certificate/$id/_reissue',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -194,13 +195,40 @@ class CertificateClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.putForJson(
-          '$baseUrl/certificate/$id/_renew', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.putForJson('$baseUrl/certificate/$id/_renew',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body['data'][0];
     return Job.fromJson(data);
+  }
+
+  ///
+  /// Sends a certificate comment update request.
+  ///
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
+  ///
+  /// **Parameter:**
+  /// * [id]: The id of the certificate to update the comment
+  /// * [comment]: The comment
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
+  Future<void> commentUpdate(int id, String comment,
+      {Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
+    var payloadAsString = json.encode(Certificate(comment: comment).toJson());
+    try {
+      await HttpUtils.putForJson('$baseUrl/certificate/$id/_comment',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
+    } catch (e) {
+      AbstractDomainRobotClient.handleException(e);
+    }
   }
 }

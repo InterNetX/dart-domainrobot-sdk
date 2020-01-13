@@ -1,9 +1,13 @@
 import 'package:dart_domainrobot_sdk/src/clients/CertificateClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/ContactClient.dart';
+import 'package:dart_domainrobot_sdk/src/clients/DomainCancelationClient.dart';
 
 import 'package:dart_domainrobot_sdk/src/clients/DomainStudioClient.dart';
+import 'package:dart_domainrobot_sdk/src/clients/PollClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/SslContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TrustedApplicationClient.dart';
+
+import 'clients/ZoneClient.dart';
 
 ///
 /// Provider for the DomainRobot API
@@ -27,6 +31,15 @@ class DomainRobot {
 
   /// The sslcontact service, containing all operations on contacts.
   SslContactClient sslContact;
+
+  /// The domain cancelation service, containing all operations on domain cancelations.
+  DomainCancelationClient domainCancelation;
+
+  /// The zone service, containing all operations on zones.
+  ZoneClient zoneClient;
+
+  /// The poll service, containing all operations on poll messages.
+  PollClient pollClient;
 
   ///
   /// Creates a new instance of the domainrobot provider, that gives access to the json api.
@@ -56,5 +69,9 @@ class DomainRobot {
     trustedApplication =
         TrustedApplicationClient(user, password, context, baseUrl, version);
     sslContact = SslContactClient(user, password, context, baseUrl, version);
+    domainCancelation =
+        DomainCancelationClient(user, password, context, baseUrl, version);
+    zoneClient = ZoneClient(user, password, context, baseUrl, version);
+    pollClient = PollClient(user, password, context, baseUrl, version);
   }
 }

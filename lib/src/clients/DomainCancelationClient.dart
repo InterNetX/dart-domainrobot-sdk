@@ -2,77 +2,56 @@ import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
-import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
-import 'package:dart_domainrobot_sdk/src/model/generated/SslContact.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/DomainCancelation.dart';
+
+import '../../dart_domainrobot_sdk.dart';
 
 ///
-/// Implementation of the contact specific api functions
+/// Implementation of the domain cancelation specific api functions
 ///
-class SslContactClient extends AbstractDomainRobotClient {
-  SslContactClient(String userName, String password, String context,
+class DomainCancelationClient extends AbstractDomainRobotClient {
+  DomainCancelationClient(String userName, String password, String context,
       String baseUrl, String version)
       : super(userName, password, context, baseUrl, version);
 
   ///
-  /// Sends a sslcontact create request.
+  /// Sends a domaincancelation create request.
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  /// **Parameter:**
-  /// * [payload]: The sslcontact to create
-  /// * [headers]: Custom headers for the request
-  /// * [queryParameters]: Query parameter for the request
-  ///
-  Future<SslContact> create(SslContact payload,
+  Future<DomainCancelation> create(DomainCancelation payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson('$baseUrl/sslcontact', payloadAsString,
+      body = await HttpUtils.postForJson(
+          '$baseUrl/domain/${payload.domain}/cancelation', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body['data'][0];
-    return SslContact.fromJson(data);
+    return DomainCancelation.fromJson(data);
   }
 
   ///
-  /// Sends a sslcontact update request.
+  /// Sends a contact update request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  /// **Parameter:**
-  /// * [payload]: The sslcontact to update
-  /// * [headers]: Custom headers for the request
-  /// * [queryParameters]: Query parameter for the request
-  ///
-  Future<void> update(SslContact payload, {Map<String, String> headers}) async {
+  Future<void> update(DomainCancelation payload,
+      {Map<String, String> headers}) async {
+    if (payload.domain == null) {
+      throw ArgumentError.notNull('domain');
+    }
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     try {
-      return await HttpUtils.putForJson('$baseUrl/sslcontact/${payload.id}',
-          body: payloadAsString, headers: headers);
-    } catch (e) {
-      AbstractDomainRobotClient.handleException(e);
-    }
-  }
-
-  ///
-  /// Sends a sslcontact delete request.
-  ///
-  /// Throws an [DomainRobotApiException] if the status code is not 200.
-  ///
-  /// **Parameter:**
-  /// * [id]: The id of the contact
-  /// * [headers]: Custom headers for the request
-  ///
-  Future<void> delete(int id, {Map<String, String> headers}) async {
-    headers = mergeHeaders(headers);
-    try {
-      return await HttpUtils.deleteForJson('$baseUrl/sslcontact/$id',
+      return await HttpUtils.putForJson(
+          '$baseUrl/domain/${payload.domain}/cancelation',
+          body: payloadAsString,
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
@@ -80,38 +59,46 @@ class SslContactClient extends AbstractDomainRobotClient {
   }
 
   ///
-  /// Sends a sslcontact info request.
+  /// Sends a contact delete request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  /// **Parameter:**
-  /// * [id]: The id of the contact
-  /// * [headers]: Custom headers for the request
+  Future<void> delete(String domain, {Map<String, String> headers}) async {
+    headers = mergeHeaders(headers);
+    try {
+      return await HttpUtils.deleteForJson(
+          '$baseUrl/domain/$domain/cancelation',
+          headers: headers);
+    } catch (e) {
+      AbstractDomainRobotClient.handleException(e);
+    }
+  }
+
   ///
-  Future<SslContact> info(int id, {Map<String, String> headers}) async {
+  /// Sends a contact info request
+  ///
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
+  ///
+  Future<DomainCancelation> info(String domain,
+      {Map<String, String> headers}) async {
     headers = mergeHeaders(headers);
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.getForJson('$baseUrl/sslcontact/$id',
+      body = await HttpUtils.getForJson('$baseUrl/domain/$domain/cancelation',
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
     Map<String, dynamic> data = body['data'][0];
-    return SslContact.fromJson(data);
+    return DomainCancelation.fromJson(data);
   }
 
   ///
-  /// Sends a sslcontact list request.
+  /// Sends a domain cancelation list request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  /// **Parameter:**
-  /// * [payload]: The query for the list request
-  /// * [headers]: Custom headers for the request
-  /// * [queryParameters]: Query parameter for the request
-  ///
-  Future<List<SslContact>> list(
+  Future<List<DomainCancelation>> list(
       {Query payload,
       Map<String, String> headers,
       Map<String, String> queryParameters}) async {
@@ -123,15 +110,15 @@ class SslContactClient extends AbstractDomainRobotClient {
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          '$baseUrl/sslcontact/_search', payloadAsString,
+          '$baseUrl/domain/cancelation/_search', payloadAsString,
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
     List data = body['data'];
-    var list = <SslContact>[];
+    var list = <DomainCancelation>[];
     data.forEach((e) {
-      var contact = SslContact.fromJson(e);
+      var contact = DomainCancelation.fromJson(e);
       list.add(contact);
     });
     return list;

@@ -45,9 +45,8 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.putForJson(
-          '$baseUrl/trustedapp/${payload.uuid}', payloadAsString,
-          headers: headers);
+      body = await HttpUtils.putForJson('$baseUrl/trustedapp/${payload.uuid}',
+          body: payloadAsString, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }

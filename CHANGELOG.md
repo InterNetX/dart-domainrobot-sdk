@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0] - 2020-01-13
+
+* Rename DomainRobotProvider to DomainRobot
+* Add new certificate routes
+* Add new poll routes
+* Add new domain cancelation routes
+* Add new zone routes
+
 ## [0.3.0] - 2020-01-13
 
 * Rename DomainRobotProvider to DomainRobot
