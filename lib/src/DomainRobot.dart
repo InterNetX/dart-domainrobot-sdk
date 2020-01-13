@@ -37,13 +37,13 @@ class DomainRobot {
   DomainCancelationClient domainCancelation;
 
   /// The zone service, containing all operations on zones.
-  ZoneClient zoneClient;
+  ZoneClient zone;
 
   /// The poll service, containing all operations on poll messages.
-  PollClient pollClient;
+  PollClient poll;
 
   /// The transferout service, containing all operations on transfer outs.
-  TransferOutClient transferOutClient;
+  TransferOutClient transferOut;
 
   ///
   /// Creates a new instance of the domainrobot provider, that gives access to the json api.
@@ -75,9 +75,8 @@ class DomainRobot {
     sslContact = SslContactClient(user, password, context, baseUrl, version);
     domainCancelation =
         DomainCancelationClient(user, password, context, baseUrl, version);
-    zoneClient = ZoneClient(user, password, context, baseUrl, version);
-    pollClient = PollClient(user, password, context, baseUrl, version);
-    transferOutClient =
-        TransferOutClient(user, password, context, baseUrl, version);
+    zone = ZoneClient(user, password, context, baseUrl, version);
+    poll = PollClient(user, password, context, baseUrl, version);
+    transferOut = TransferOutClient(user, password, context, baseUrl, version);
   }
 }
