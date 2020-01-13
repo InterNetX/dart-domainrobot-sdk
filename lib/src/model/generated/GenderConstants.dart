@@ -1,4 +1,4 @@
-enum GenderConstants { 
-  	  MALE,
-  	  FEMALE,
+enum GenderConstants {
+  MALE,
+  FEMALE,
 }

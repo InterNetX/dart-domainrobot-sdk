@@ -1,8 +1,8 @@
-enum CreditCardVendor { 
-  	  MC,
-  	  VISA,
-  	  AMEX,
-  	  DIC,
-  	  DISC,
-  	  CB,
+enum CreditCardVendor {
+  MC,
+  VISA,
+  AMEX,
+  DIC,
+  DISC,
+  CB,
 }

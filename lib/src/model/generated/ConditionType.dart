@@ -1,4 +1,4 @@
-enum ConditionType { 
-  	  AND,
-  	  OR,
+enum ConditionType {
+  AND,
+  OR,
 }

@@ -1,4 +1,4 @@
-enum ProtocolTypeConstants { 
-  	  TOTP,
-  	  HOTP,
+enum ProtocolTypeConstants {
+  TOTP,
+  HOTP,
 }

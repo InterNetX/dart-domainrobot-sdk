@@ -1,8 +1,8 @@
-enum DomainStudioDomainSource { 
-  	  INITIAL,
-  	  SUGGESTION,
-  	  PREMIUM,
-  	  GEO,
-  	  SIMILAR,
-  	  RECOMMENDED,
+enum DomainStudioDomainSource {
+  INITIAL,
+  SUGGESTION,
+  PREMIUM,
+  GEO,
+  SIMILAR,
+  RECOMMENDED,
 }

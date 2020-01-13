@@ -1,4 +1,4 @@
-enum IdentityStatus { 
-  	  VERIFY,
-  	  SUCCESS,
+enum IdentityStatus {
+  VERIFY,
+  SUCCESS,
 }

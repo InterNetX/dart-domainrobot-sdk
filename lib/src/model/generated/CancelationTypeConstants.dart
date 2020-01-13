@@ -1,5 +1,5 @@
-enum CancelationTypeConstants { 
-  	  DELETE,
-  	  TRANSIT,
-  	  PREACK,
+enum CancelationTypeConstants {
+  DELETE,
+  TRANSIT,
+  PREACK,
 }

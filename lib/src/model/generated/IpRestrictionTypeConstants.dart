@@ -1,5 +1,5 @@
-enum IpRestrictionTypeConstants { 
-  	  CLONE,
-  	  USER,
-  	  CONTEXT,
+enum IpRestrictionTypeConstants {
+  CLONE,
+  USER,
+  CONTEXT,
 }

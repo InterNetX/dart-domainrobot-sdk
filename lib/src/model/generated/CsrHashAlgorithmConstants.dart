@@ -1,5 +1,5 @@
-enum CsrHashAlgorithmConstants { 
-  	  ECC,
-  	  RSA,
-  	  DSA,
+enum CsrHashAlgorithmConstants {
+  ECC,
+  RSA,
+  DSA,
 }

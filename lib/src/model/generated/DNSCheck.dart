@@ -1,6 +1,6 @@
-enum DNSCheck { 
-  	  SOA,
-  	  NS,
-  	  ALL,
-  	  NONE,
+enum DNSCheck {
+  SOA,
+  NS,
+  ALL,
+  NONE,
 }

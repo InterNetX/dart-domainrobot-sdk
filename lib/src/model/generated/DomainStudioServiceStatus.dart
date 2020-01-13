@@ -1,6 +1,6 @@
-enum DomainStudioServiceStatus { 
-  	  RUNNING,
-  	  SUCCESS,
-  	  FAILED,
-  	  TIMEOUT,
+enum DomainStudioServiceStatus {
+  RUNNING,
+  SUCCESS,
+  FAILED,
+  TIMEOUT,
 }

@@ -1,5 +1,5 @@
-enum CertificateType { 
-  	  FQDN,
-  	  MAIL,
-  	  CODE,
+enum CertificateType {
+  FQDN,
+  MAIL,
+  CODE,
 }

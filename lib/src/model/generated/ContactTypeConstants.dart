@@ -1,5 +1,5 @@
-enum ContactTypeConstants { 
-  	  PERSON,
-  	  ORG,
-  	  ROLE,
+enum ContactTypeConstants {
+  PERSON,
+  ORG,
+  ROLE,
 }

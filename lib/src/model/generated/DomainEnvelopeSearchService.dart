@@ -1,5 +1,5 @@
-enum DomainEnvelopeSearchService { 
-  	  WHOIS,
-  	  PRICE,
-  	  ESTIMATION,
+enum DomainEnvelopeSearchService {
+  WHOIS,
+  PRICE,
+  ESTIMATION,
 }
