@@ -5,6 +5,7 @@ import 'package:dart_domainrobot_sdk/src/clients/DomainCancelationClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainStudioClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/PollClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/SslContactClient.dart';
+import 'package:dart_domainrobot_sdk/src/clients/TransferOutClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TrustedApplicationClient.dart';
 
 import 'clients/ZoneClient.dart';
@@ -41,6 +42,9 @@ class DomainRobot {
   /// The poll service, containing all operations on poll messages.
   PollClient pollClient;
 
+  /// The transferout service, containing all operations on transfer outs.
+  TransferOutClient transferOutClient;
+
   ///
   /// Creates a new instance of the domainrobot provider, that gives access to the json api.
   ///
@@ -73,5 +77,7 @@ class DomainRobot {
         DomainCancelationClient(user, password, context, baseUrl, version);
     zoneClient = ZoneClient(user, password, context, baseUrl, version);
     pollClient = PollClient(user, password, context, baseUrl, version);
+    transferOutClient =
+        TransferOutClient(user, password, context, baseUrl, version);
   }
 }
