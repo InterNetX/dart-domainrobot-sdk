@@ -26,8 +26,10 @@ class ZoneClient extends AbstractDomainRobotClient {
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson('$baseUrl/zone', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/zone',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -42,10 +44,10 @@ class ZoneClient extends AbstractDomainRobotClient {
   ///
   Future<void> update(Zone payload, {Map<String, String> headers}) async {
     if (payload.origin == null) {
-      throw ArgumentError.notNull('origin');
+      throw ArgumentError.notNull('payload.origin');
     }
     if (payload.virtualNameServer == null) {
-      throw ArgumentError.notNull('virtualNameServer');
+      throw ArgumentError.notNull('payload.virtualNameServer');
     }
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
@@ -112,9 +114,10 @@ class ZoneClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson(
-          '$baseUrl/zone/_search', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/zone/_search',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -136,10 +139,10 @@ class ZoneClient extends AbstractDomainRobotClient {
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     if (payload.origin == null) {
-      throw ArgumentError.notNull('origin');
+      throw ArgumentError.notNull('payload.origin');
     }
     if (payload.virtualNameServer == null) {
-      throw ArgumentError.notNull('virtualNameServer');
+      throw ArgumentError.notNull('payload.virtualNameServer');
     }
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
@@ -147,7 +150,7 @@ class ZoneClient extends AbstractDomainRobotClient {
     try {
       body = await HttpUtils.postForJson(
           '$baseUrl/zone/${payload.origin}/${payload.virtualNameServer}/_import',
-          payloadAsString,
+          body: payloadAsString,
           queryParameters: queryParameters,
           headers: headers);
     } catch (e) {
@@ -168,9 +171,10 @@ class ZoneClient extends AbstractDomainRobotClient {
     headers = mergeHeaders(headers);
     var payloadAsString = json.encode(payload.toJson());
     try {
-      await HttpUtils.postForJson(
-          '$baseUrl/zone/$origin/_stream', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      await HttpUtils.postForJson('$baseUrl/zone/$origin/_stream',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }

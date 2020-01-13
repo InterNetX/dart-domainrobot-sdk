@@ -1,8 +1,12 @@
 # Changelog
 
+## [0.5.0] - 2020-01-13
+
+* Add new transfer out routes
+* Add new domain routes
+
 ## [0.4.0] - 2020-01-13
 
-* Rename DomainRobotProvider to DomainRobot
 * Add new certificate routes
 * Add new poll routes
 * Add new domain cancelation routes

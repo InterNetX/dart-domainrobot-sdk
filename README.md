@@ -67,6 +67,14 @@ Future<Job> create(domainrobot.Domain payload, {Map<String, String> headers, Map
 Future<Job> update(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
 Future<domainrobot.Domain> info(String name, {Map<String, String> headers, Map<String, String> queryParameters});
 Future<List<domainrobot.Domain>> list(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<domainrobot.Domain> createAuthinfo1(String domain, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> deleteAuthinfo1(String name, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> createAuthinfo2(String domain, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> renew(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> transfer(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<void> updateStatus(domainrobot.Domain payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<List<DomainRestore>> restoreList(Query payload, {Map<String, String> headers, Map<String, String> queryParameters});
+Future<Job> restore(DomainRestore payload, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 #### Domain cancelation tasks
@@ -145,6 +153,13 @@ Future<List<DomainEnvelope>> search(DomainEnvelopeSearchRequest payload,{Map<Str
 ```dart
 Future<PollMessage> info({Map<String, String> headers});
 Future<void> confirm(int id, {Map<String, String> headers});
+```
+
+#### Transferout tasks
+
+```dart
+Future<List<TransferOut>> list({Query payload,Map<String, String> headers, Map<String, String> queryParameters});
+Future<Contact> answer(String domain, TransferAnswer answer, {Map<String, String> headers, Map<String, String> queryParameters});
 ```
 
 ### Models

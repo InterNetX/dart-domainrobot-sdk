@@ -30,8 +30,10 @@ class SslContactClient extends AbstractDomainRobotClient {
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson('$baseUrl/sslcontact', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/sslcontact',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -122,9 +124,10 @@ class SslContactClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson(
-          '$baseUrl/sslcontact/_search', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/sslcontact/_search',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }

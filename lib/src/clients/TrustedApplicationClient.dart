@@ -25,8 +25,10 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
     var payloadAsString = json.encode(payload.toJson());
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson('$baseUrl/trustedapp', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/trustedapp',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -104,9 +106,10 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson(
-          '$baseUrl/trustedapp/_search', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/trustedapp/_search',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }

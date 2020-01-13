@@ -27,8 +27,10 @@ class DomainCancelationClient extends AbstractDomainRobotClient {
     Map<String, dynamic> body;
     try {
       body = await HttpUtils.postForJson(
-          '$baseUrl/domain/${payload.domain}/cancelation', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+          '$baseUrl/domain/${payload.domain}/cancelation',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
@@ -109,9 +111,10 @@ class DomainCancelationClient extends AbstractDomainRobotClient {
     }
     Map<String, dynamic> body;
     try {
-      body = await HttpUtils.postForJson(
-          '$baseUrl/domain/cancelation/_search', payloadAsString,
-          queryParameters: queryParameters, headers: headers);
+      body = await HttpUtils.postForJson('$baseUrl/domain/cancelation/_search',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
