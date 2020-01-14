@@ -20,7 +20,7 @@ A dart package for easy integration of the **Domainrobot API** powered by [Inter
 
 As this sdk is written in pure [Dart](https://dart.dev), it can be used on all [platforms](https://dart.dev/platforms) on which dart is currently running. This includes the use of frameworks like [Flutter](https://flutter.dev), [Angular Dart](https://angulardart.dev) and many more. This package can also be used for command line tools or rest services compiled with [dart2native](https://dart.dev/tools/dart2native).
 
-Important: This package is under development and more functionality of the **Domainrobot API** will be covered in the future. Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
+**Note:** Feel free to contribute by creating pull requests or file an issue for bugs, questions and feature requests.
 
 ## Install And Import
 
@@ -45,7 +45,7 @@ import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 
 ### Provider
 
-The package contains a [DomainRobotProvider](/lib/src/DomainRobotProvider.dart) that is the main access to the api. Instantiate the provider with your api credentials and the matching baseUrl of the api.
+The package contains a [DomainRobot](/lib/src/DomainRobot.dart) class that is the main access to the api. Instantiate the class with your api credentials and the matching baseUrl of the api.
 
 * Productive System: <https://api.autodns.com/v1>
 * Demo System: <https://api.demo.autodns.com/v1>
@@ -189,7 +189,7 @@ For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file
 
 MIT License
 
-Copyright (c) 2019 InterNetX GmbH
+Copyright (c) 2020 InterNetX GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

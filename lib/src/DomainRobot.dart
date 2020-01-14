@@ -16,7 +16,7 @@ import 'clients/ZoneClient.dart';
 class DomainRobot {
   static const String TAG = 'DomainRobot';
 
-  String version = '0.3.0';
+  String version = '0.5.0';
 
   /// The certificate service, containing all operations on certificates.
   CertificateClient certificate;
