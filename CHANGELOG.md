@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.1] - 2020-01-14
+
+* Update documentation
+
 ## [0.5.0] - 2020-01-13
 
 * Add new transfer out routes
