@@ -16,15 +16,7 @@ IpRestrictions _$IpRestrictionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$IpRestrictionsToJson(IpRestrictions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('acls', instance.acls?.map((e) => e?.toJson())?.toList());
-  return val;
-}
+Map<String, dynamic> _$IpRestrictionsToJson(IpRestrictions instance) =>
+    <String, dynamic>{
+      'acls': instance.acls,
+    };

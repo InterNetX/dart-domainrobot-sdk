@@ -13,19 +13,11 @@ ContactRoExtensions _$ContactRoExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactRoExtensionsToJson(ContactRoExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'personType', _$RoPersonTypeConstantsEnumMap[instance.personType]);
-  return val;
-}
+Map<String, dynamic> _$ContactRoExtensionsToJson(
+        ContactRoExtensions instance) =>
+    <String, dynamic>{
+      'personType': _$RoPersonTypeConstantsEnumMap[instance.personType],
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

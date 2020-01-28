@@ -20,22 +20,14 @@ DomainEnvelope _$DomainEnvelopeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainEnvelopeToJson(DomainEnvelope instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('domain', instance.domain);
-  writeNotNull('idn', instance.idn);
-  writeNotNull('source', _$DomainStudioDomainSourceEnumMap[instance.source]);
-  writeNotNull('services', instance.services?.toJson());
-  writeNotNull('debugTime', instance.debugTime);
-  return val;
-}
+Map<String, dynamic> _$DomainEnvelopeToJson(DomainEnvelope instance) =>
+    <String, dynamic>{
+      'domain': instance.domain,
+      'idn': instance.idn,
+      'source': _$DomainStudioDomainSourceEnumMap[instance.source],
+      'services': instance.services,
+      'debugTime': instance.debugTime,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,
@@ -76,4 +68,5 @@ const _$DomainStudioDomainSourceEnumMap = {
   DomainStudioDomainSource.GEO: 'GEO',
   DomainStudioDomainSource.SIMILAR: 'SIMILAR',
   DomainStudioDomainSource.RECOMMENDED: 'RECOMMENDED',
+  DomainStudioDomainSource.CUSTOM: 'CUSTOM',
 };

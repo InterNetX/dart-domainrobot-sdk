@@ -1,7 +1,7 @@
-enum ClearAccountPeriod {
-  DAY,
-  MONTH,
-  BILL,
-  WEEK,
-  NONE,
+enum ClearAccountPeriod { 
+  	  DAY,
+  	  MONTH,
+  	  BILL,
+  	  WEEK,
+  	  NONE,
 }

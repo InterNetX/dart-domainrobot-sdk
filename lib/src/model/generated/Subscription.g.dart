@@ -47,32 +47,24 @@ Subscription _$SubscriptionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SubscriptionToJson(Subscription instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('status', _$BillingStatusEnumMap[instance.status]);
-  writeNotNull('object', instance.object);
-  writeNotNull('description', instance.description);
-  writeNotNull('period', instance.period?.toJson());
-  writeNotNull('articleTypeLabel', instance.articleTypeLabel);
-  writeNotNull('articleLabel', instance.articleLabel);
-  writeNotNull('item', instance.item?.map((e) => e?.toJson())?.toList());
-  writeNotNull('limits', instance.limits?.map((e) => e?.toJson())?.toList());
-  writeNotNull('acls', instance.acls?.map((e) => e?.toJson())?.toList());
-  writeNotNull('variant', instance.variant);
-  writeNotNull('businessCase', instance.businessCase);
-  return val;
-}
+Map<String, dynamic> _$SubscriptionToJson(Subscription instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'status': _$BillingStatusEnumMap[instance.status],
+      'object': instance.object,
+      'description': instance.description,
+      'period': instance.period,
+      'articleTypeLabel': instance.articleTypeLabel,
+      'articleLabel': instance.articleLabel,
+      'item': instance.item,
+      'limits': instance.limits,
+      'acls': instance.acls,
+      'variant': instance.variant,
+      'businessCase': instance.businessCase,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

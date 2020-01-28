@@ -18,21 +18,13 @@ WhoisServiceData _$WhoisServiceDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$WhoisServiceDataToJson(WhoisServiceData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('debugTime', instance.debugTime);
-  writeNotNull('status', _$DomainStudioServiceStatusEnumMap[instance.status]);
-  writeNotNull('message', instance.message);
-  writeNotNull('data', instance.data?.toJson());
-  return val;
-}
+Map<String, dynamic> _$WhoisServiceDataToJson(WhoisServiceData instance) =>
+    <String, dynamic>{
+      'debugTime': instance.debugTime,
+      'status': _$DomainStudioServiceStatusEnumMap[instance.status],
+      'message': instance.message,
+      'data': instance.data,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

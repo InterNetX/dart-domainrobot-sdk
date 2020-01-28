@@ -1,7 +1,7 @@
-enum ProtectionConstants {
-  HIGH,
-  MEDIUM,
-  LOW,
-  OFF,
-  CUSTOM,
+enum ProtectionConstants { 
+  	  HIGH,
+  	  MEDIUM,
+  	  LOW,
+  	  OFF,
+  	  CUSTOM,
 }

@@ -1,6 +1,6 @@
-enum PriorityConstants {
-  DEFAULT,
-  OFFER,
-  PROTECTED,
-  PROMO,
+enum PriorityConstants { 
+  	  DEFAULT,
+  	  OFFER,
+  	  PROTECTED,
+  	  PROMO,
 }

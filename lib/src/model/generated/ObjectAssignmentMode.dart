@@ -1,0 +1,4 @@
+enum ObjectAssignmentMode { 
+  	  ASSIGN,
+  	  DELETE,
+}

@@ -5,6 +5,7 @@ import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
 import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 import 'package:dart_domainrobot_sdk/src/model/generated/Zone.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/ZoneStream.dart';
 
 ///
 /// Implementation of the zone specific api functions

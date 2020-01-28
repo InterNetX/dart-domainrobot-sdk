@@ -15,21 +15,13 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$UserProfileToJson(UserProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('flag', _$UserProfileFlagEnumMap[instance.flag]);
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  writeNotNull('readonly', instance.readonly);
-  return val;
-}
+Map<String, dynamic> _$UserProfileToJson(UserProfile instance) =>
+    <String, dynamic>{
+      'flag': _$UserProfileFlagEnumMap[instance.flag],
+      'key': instance.key,
+      'value': instance.value,
+      'readonly': instance.readonly,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

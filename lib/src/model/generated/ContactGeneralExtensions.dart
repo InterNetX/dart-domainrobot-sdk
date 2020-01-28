@@ -6,52 +6,54 @@ import 'GenderConstants.dart';
 
 part 'ContactGeneralExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactGeneralExtensions {
   /// The birth extensions.
   ContactBirthExtensions birth;
-
-  /// The trademark extensions.
+  
+/// The trademark extensions.
   ContactTrademarkExtensions trademark;
-
-  /// The identification extensions.
+  
+/// The identification extensions.
   ContactIdentificationExtensions identification;
-
-  /// The language.
+  
+/// The language.
   String language;
-
-  /// The company number.
+  
+/// The company number.
   String companyNumber;
-
-  /// The gender.
+  
+/// The gender.
   GenderConstants gender;
-
-  /// The vatnumber.
+  
+/// The vatnumber.
   String vatNumber;
-
-  /// The citizenship.
+  
+/// The citizenship.
   String citizenship;
-
-  /// The mobile phonenumber.
+  
+/// The mobile phonenumber.
   String mobilePhone;
-
+  
+  
+  
   ContactGeneralExtensions({
-    this.birth,
-    this.trademark,
-    this.identification,
-    this.language,
-    this.companyNumber,
-    this.gender,
-    this.vatNumber,
-    this.citizenship,
-    this.mobilePhone,
+  	this.birth,
+  	this.trademark,
+  	this.identification,
+  	this.language,
+  	this.companyNumber,
+  	this.gender,
+  	this.vatNumber,
+  	this.citizenship,
+  	this.mobilePhone,
   });
 
   @override
   String toString() {
     return 'ContactGeneralExtensions[birth=$birth, trademark=$trademark, identification=$identification, language=$language, companyNumber=$companyNumber, gender=$gender, vatNumber=$vatNumber, citizenship=$citizenship, mobilePhone=$mobilePhone, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -62,4 +64,6 @@ class ContactGeneralExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactGeneralExtensionsToJson(this);
+  
 }
+

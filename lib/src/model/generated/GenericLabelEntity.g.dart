@@ -20,19 +20,11 @@ GenericLabelEntity _$GenericLabelEntityFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenericLabelEntityToJson(GenericLabelEntity instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('label', instance.label);
-  writeNotNull('name', instance.name);
-  writeNotNull('packageLabel', instance.packageLabel);
-  return val;
-}
+Map<String, dynamic> _$GenericLabelEntityToJson(GenericLabelEntity instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'label': instance.label,
+      'name': instance.name,
+      'packageLabel': instance.packageLabel,
+    };

@@ -2,32 +2,34 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'Application.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class Application {
   /// The created date.
   DateTime created;
-
-  /// The updated date.
+  
+/// The updated date.
   DateTime updated;
-
-  /// The name of the application.
+  
+/// The name of the application.
   String name;
-
-  /// The function codes for the application.
+  
+/// The function codes for the application.
   List<String> functionCodes;
-
+  
+  
+  
   Application({
-    this.created,
-    this.updated,
-    this.name,
-    this.functionCodes,
+  	this.created,
+  	this.updated,
+  	this.name,
+  	this.functionCodes,
   });
 
   @override
   String toString() {
     return 'Application[created=$created, updated=$updated, name=$name, functionCodes=$functionCodes, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -38,4 +40,6 @@ class Application {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ApplicationToJson(this);
+  
 }
+

@@ -1,6 +1,7 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/PollMessage.dart';
 
 ///
 /// Implementation of the zone specific api functions

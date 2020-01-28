@@ -2,32 +2,34 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ResponseObject.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ResponseObject {
   /// The type of the object.
   String type;
-
-  /// The primary key of the object.
+  
+/// The primary key of the object.
   String value;
-
-  /// The amound of objects found in list tasks.
+  
+/// The amound of objects found in list tasks.
   int summary;
-
-  /// The value of the object.
+  
+/// The value of the object.
   Object data;
-
+  
+  
+  
   ResponseObject({
-    this.type,
-    this.value,
-    this.summary,
-    this.data,
+  	this.type,
+  	this.value,
+  	this.summary,
+  	this.data,
   });
 
   @override
   String toString() {
     return 'ResponseObject[type=$type, value=$value, summary=$summary, data=$data, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -38,4 +40,6 @@ class ResponseObject {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ResponseObjectToJson(this);
+  
 }
+

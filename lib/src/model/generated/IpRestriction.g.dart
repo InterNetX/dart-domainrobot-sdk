@@ -20,21 +20,13 @@ IpRestriction _$IpRestrictionFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$IpRestrictionToJson(IpRestriction instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('type', _$IpRestrictionTypeConstantsEnumMap[instance.type]);
-  writeNotNull('address', instance.address);
-  return val;
-}
+Map<String, dynamic> _$IpRestrictionToJson(IpRestriction instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'type': _$IpRestrictionTypeConstantsEnumMap[instance.type],
+      'address': instance.address,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

@@ -1,4 +1,4 @@
-enum PriceTypeConstants {
-  GROSS,
-  NET,
+enum PriceTypeConstants { 
+  	  GROSS,
+  	  NET,
 }

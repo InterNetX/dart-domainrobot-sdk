@@ -14,20 +14,12 @@ QueryOrder _$QueryOrderFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$QueryOrderToJson(QueryOrder instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('ins', instance.ins);
-  writeNotNull('type', _$OrderTypeEnumMap[instance.type]);
-  return val;
-}
+Map<String, dynamic> _$QueryOrderToJson(QueryOrder instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'ins': instance.ins,
+      'type': _$OrderTypeEnumMap[instance.type],
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

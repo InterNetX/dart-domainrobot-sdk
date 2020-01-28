@@ -18,16 +18,9 @@ BulkZonePostRequest _$BulkZonePostRequestFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$BulkZonePostRequestToJson(BulkZonePostRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
-  writeNotNull('template', instance.template?.toJson());
-  return val;
-}
+Map<String, dynamic> _$BulkZonePostRequestToJson(
+        BulkZonePostRequest instance) =>
+    <String, dynamic>{
+      'objects': instance.objects,
+      'template': instance.template,
+    };

@@ -18,23 +18,13 @@ DomainStudioSourceInitial _$DomainStudioSourceInitialFromJson(
 }
 
 Map<String, dynamic> _$DomainStudioSourceInitialToJson(
-    DomainStudioSourceInitial instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'services',
-      instance.services
+        DomainStudioSourceInitial instance) =>
+    <String, dynamic>{
+      'services': instance.services
           ?.map((e) => _$DomainEnvelopeSearchServiceEnumMap[e])
-          ?.toList());
-  writeNotNull('tlds', instance.tlds);
-  return val;
-}
+          ?.toList(),
+      'tlds': instance.tlds,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

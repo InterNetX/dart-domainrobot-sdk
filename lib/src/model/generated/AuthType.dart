@@ -1,5 +1,5 @@
-enum AuthType {
-  PASSWORD,
-  PASSWORD_TOKEN,
-  ALIAS,
+enum AuthType { 
+  	  PASSWORD,
+  	  PASSWORD_TOKEN,
+  	  ALIAS,
 }

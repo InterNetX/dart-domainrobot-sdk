@@ -39,28 +39,18 @@ DomainMonitoring _$DomainMonitoringFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DomainMonitoringToJson(DomainMonitoring instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('name', instance.name);
-  writeNotNull('idn', instance.idn);
-  writeNotNull('notificationMobiles',
-      instance.notificationMobiles?.map((e) => e?.toJson())?.toList());
-  writeNotNull('ocval', instance.ocval);
-  writeNotNull('cancelation', instance.cancelation);
-  writeNotNull('removed', instance.removed);
-  writeNotNull('monitoringSetups',
-      instance.monitoringSetups?.map((e) => e?.toJson())?.toList());
-  writeNotNull('notificationEmails', instance.notificationEmails);
-  return val;
-}
+Map<String, dynamic> _$DomainMonitoringToJson(DomainMonitoring instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'name': instance.name,
+      'idn': instance.idn,
+      'notificationMobiles': instance.notificationMobiles,
+      'ocval': instance.ocval,
+      'cancelation': instance.cancelation,
+      'removed': instance.removed,
+      'monitoringSetups': instance.monitoringSetups,
+      'notificationEmails': instance.notificationEmails,
+    };

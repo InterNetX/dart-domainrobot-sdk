@@ -13,18 +13,11 @@ ContactUkExtensions _$ContactUkExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactUkExtensionsToJson(ContactUkExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('entityType', _$UkTypeConstantsEnumMap[instance.entityType]);
-  return val;
-}
+Map<String, dynamic> _$ContactUkExtensionsToJson(
+        ContactUkExtensions instance) =>
+    <String, dynamic>{
+      'entityType': _$UkTypeConstantsEnumMap[instance.entityType],
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

@@ -13,16 +13,7 @@ NicMember _$NicMemberFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NicMemberToJson(NicMember instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('label', instance.label);
-  writeNotNull('name', instance.name);
-  return val;
-}
+Map<String, dynamic> _$NicMemberToJson(NicMember instance) => <String, dynamic>{
+      'label': instance.label,
+      'name': instance.name,
+    };

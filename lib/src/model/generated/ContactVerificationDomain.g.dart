@@ -26,23 +26,15 @@ ContactVerificationDomain _$ContactVerificationDomainFromJson(
 }
 
 Map<String, dynamic> _$ContactVerificationDomainToJson(
-    ContactVerificationDomain instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('name', instance.name);
-  writeNotNull('idn', instance.idn);
-  writeNotNull('status', _$GenericStatusConstantsEnumMap[instance.status]);
-  writeNotNull('deactivation', instance.deactivation?.toIso8601String());
-  return val;
-}
+        ContactVerificationDomain instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'name': instance.name,
+      'idn': instance.idn,
+      'status': _$GenericStatusConstantsEnumMap[instance.status],
+      'deactivation': instance.deactivation?.toIso8601String(),
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

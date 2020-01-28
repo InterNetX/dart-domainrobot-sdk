@@ -20,18 +20,10 @@ Application _$ApplicationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ApplicationToJson(Application instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('name', instance.name);
-  writeNotNull('functionCodes', instance.functionCodes);
-  return val;
-}
+Map<String, dynamic> _$ApplicationToJson(Application instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'name': instance.name,
+      'functionCodes': instance.functionCodes,
+    };

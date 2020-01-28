@@ -4,36 +4,38 @@ import 'StatusType.dart';
 
 part 'Message.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class Message {
   /// The text.
   String text;
-
-  /// The messages.
+  
+/// The messages.
   List<Message> messages;
-
-  /// The objects.
+  
+/// The objects.
   List<GenericObject> objects;
-
-  /// The message code.
+  
+/// The message code.
   String code;
-
-  /// The status of the message code.
+  
+/// The status of the message code.
   StatusType status;
-
+  
+  
+  
   Message({
-    this.text,
-    this.messages,
-    this.objects,
-    this.code,
-    this.status,
+  	this.text,
+  	this.messages,
+  	this.objects,
+  	this.code,
+  	this.status,
   });
 
   @override
   String toString() {
     return 'Message[text=$text, messages=$messages, objects=$objects, code=$code, status=$status, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -44,4 +46,6 @@ class Message {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$MessageToJson(this);
+  
 }
+

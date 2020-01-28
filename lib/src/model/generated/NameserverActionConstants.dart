@@ -1,8 +1,8 @@
-enum NameserverActionConstants {
-  PRIMARY,
-  SECONDARY,
-  COMPLETE,
-  HIDDEN,
-  NONE,
-  AUTO,
+enum NameserverActionConstants { 
+  	  PRIMARY,
+  	  SECONDARY,
+  	  COMPLETE,
+  	  HIDDEN,
+  	  NONE,
+  	  AUTO,
 }

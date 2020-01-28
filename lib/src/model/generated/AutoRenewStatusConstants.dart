@@ -1,5 +1,5 @@
-enum AutoRenewStatusConstants {
-  TRUE,
-  FALSE,
-  ONCE,
+enum AutoRenewStatusConstants { 
+  	  TRUE,
+  	  FALSE,
+  	  ONCE,
 }

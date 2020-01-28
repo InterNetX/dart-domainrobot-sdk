@@ -40,26 +40,18 @@ TrustedApplication _$TrustedApplicationFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TrustedApplicationToJson(TrustedApplication instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('user', instance.user?.toJson());
-  writeNotNull('uuid', instance.uuid);
-  writeNotNull('password', instance.password);
-  writeNotNull('application', instance.application?.toJson());
-  writeNotNull('functions', instance.functions?.toJson());
-  writeNotNull('restrictions', instance.restrictions?.toJson());
-  writeNotNull('device', instance.device);
-  writeNotNull('comment', instance.comment);
-  return val;
-}
+Map<String, dynamic> _$TrustedApplicationToJson(TrustedApplication instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'user': instance.user,
+      'uuid': instance.uuid,
+      'password': instance.password,
+      'application': instance.application,
+      'functions': instance.functions,
+      'restrictions': instance.restrictions,
+      'device': instance.device,
+      'comment': instance.comment,
+    };

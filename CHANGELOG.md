@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6.0] - 2020-01-28
+
+* Update models
+
 ## [0.5.1] - 2020-01-14
 
 * Update documentation

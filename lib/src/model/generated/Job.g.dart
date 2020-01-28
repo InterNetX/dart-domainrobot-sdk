@@ -30,34 +30,25 @@ Job _$JobFromJson(Map<String, dynamic> json) {
             ? null
             : WorkflowEvent.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    subType: json['subType'] as String,
     action: json['action'] as String,
+    subType: json['subType'] as String,
     id: json['id'] as int,
   );
 }
 
-Map<String, dynamic> _$JobToJson(Job instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('status', _$JobStatusConstantsEnumMap[instance.status]);
-  writeNotNull('subStatus', instance.subStatus);
-  writeNotNull('execution', instance.execution?.toIso8601String());
-  writeNotNull('events', instance.events?.map((e) => e?.toJson())?.toList());
-  writeNotNull('subType', instance.subType);
-  writeNotNull('action', instance.action);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$JobToJson(Job instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'status': _$JobStatusConstantsEnumMap[instance.status],
+      'subStatus': instance.subStatus,
+      'execution': instance.execution?.toIso8601String(),
+      'events': instance.events,
+      'action': instance.action,
+      'subType': instance.subType,
+      'id': instance.id,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

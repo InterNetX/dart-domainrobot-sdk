@@ -17,20 +17,12 @@ AddressClaim _$AddressClaimFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AddressClaimToJson(AddressClaim instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('formatted', instance.formatted);
-  writeNotNull('streetAddress', instance.streetAddress);
-  writeNotNull('locality', instance.locality);
-  writeNotNull('region', instance.region);
-  writeNotNull('postalCode', instance.postalCode);
-  writeNotNull('country', instance.country);
-  return val;
-}
+Map<String, dynamic> _$AddressClaimToJson(AddressClaim instance) =>
+    <String, dynamic>{
+      'formatted': instance.formatted,
+      'streetAddress': instance.streetAddress,
+      'locality': instance.locality,
+      'region': instance.region,
+      'postalCode': instance.postalCode,
+      'country': instance.country,
+    };

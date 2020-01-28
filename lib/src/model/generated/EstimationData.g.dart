@@ -13,16 +13,8 @@ EstimationData _$EstimationDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$EstimationDataToJson(EstimationData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('currency', instance.currency);
-  writeNotNull('amount', instance.amount);
-  return val;
-}
+Map<String, dynamic> _$EstimationDataToJson(EstimationData instance) =>
+    <String, dynamic>{
+      'currency': instance.currency,
+      'amount': instance.amount,
+    };

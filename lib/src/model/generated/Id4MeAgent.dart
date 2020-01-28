@@ -6,56 +6,58 @@ import 'VhostCertificate.dart';
 
 part 'Id4MeAgent.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class Id4MeAgent {
   /// The created date.
   DateTime created;
-
-  /// The updated date.
+  
+/// The updated date.
   DateTime updated;
-
-  /// The owner of the object.
+  
+/// The owner of the object.
   BasicUser owner;
-
-  /// The updater of the object.
+  
+/// The updater of the object.
   BasicUser updater;
-
-  /// External reference
+  
+/// External reference
   String externalReference;
-
-  /// Virtual host with certificate data
+  
+/// Virtual host with certificate data
   VhostCertificate certificate;
-
-  /// Layout properties
+  
+/// Layout properties
   Configuration layoutAddon;
-
-  /// Fully qualified domain name
+  
+/// Fully qualified domain name
   String name;
-
-  /// Agent status
+  
+/// Agent status
   Id4MeAgentStatus status;
-
-  /// List of dns text records
+  
+/// List of dns text records
   List<String> records;
-
+  
+  
+  
   Id4MeAgent({
-    this.created,
-    this.updated,
-    this.owner,
-    this.updater,
-    this.externalReference,
-    this.certificate,
-    this.layoutAddon,
-    this.name,
-    this.status,
-    this.records,
+  	this.created,
+  	this.updated,
+  	this.owner,
+  	this.updater,
+  	this.externalReference,
+  	this.certificate,
+  	this.layoutAddon,
+  	this.name,
+  	this.status,
+  	this.records,
   });
 
   @override
   String toString() {
     return 'Id4MeAgent[created=$created, updated=$updated, owner=$owner, updater=$updater, externalReference=$externalReference, certificate=$certificate, layoutAddon=$layoutAddon, name=$name, status=$status, records=$records, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -66,4 +68,6 @@ class Id4MeAgent {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$Id4MeAgentToJson(this);
+  
 }
+

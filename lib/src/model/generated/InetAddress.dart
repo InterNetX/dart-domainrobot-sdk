@@ -2,15 +2,17 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'InetAddress.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class InetAddress {
+    
   InetAddress();
+  
 
   @override
   String toString() {
     return 'InetAddress[]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -21,4 +23,6 @@ class InetAddress {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$InetAddressToJson(this);
+  
 }
+

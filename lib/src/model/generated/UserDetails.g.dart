@@ -17,20 +17,12 @@ UserDetails _$UserDetailsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$UserDetailsToJson(UserDetails instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('organization', instance.organization);
-  writeNotNull('passwordResetMobile', instance.passwordResetMobile);
-  writeNotNull('passwordResetVerifyEmail', instance.passwordResetVerifyEmail);
-  writeNotNull('passwordResetEmail', instance.passwordResetEmail);
-  writeNotNull('fname', instance.fname);
-  writeNotNull('lname', instance.lname);
-  return val;
-}
+Map<String, dynamic> _$UserDetailsToJson(UserDetails instance) =>
+    <String, dynamic>{
+      'organization': instance.organization,
+      'passwordResetMobile': instance.passwordResetMobile,
+      'passwordResetVerifyEmail': instance.passwordResetVerifyEmail,
+      'passwordResetEmail': instance.passwordResetEmail,
+      'fname': instance.fname,
+      'lname': instance.lname,
+    };

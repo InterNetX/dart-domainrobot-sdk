@@ -18,23 +18,13 @@ DomainStudioSourceGeo _$DomainStudioSourceGeoFromJson(
 }
 
 Map<String, dynamic> _$DomainStudioSourceGeoToJson(
-    DomainStudioSourceGeo instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'services',
-      instance.services
+        DomainStudioSourceGeo instance) =>
+    <String, dynamic>{
+      'services': instance.services
           ?.map((e) => _$DomainEnvelopeSearchServiceEnumMap[e])
-          ?.toList());
-  writeNotNull('max', instance.max);
-  return val;
-}
+          ?.toList(),
+      'max': instance.max,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

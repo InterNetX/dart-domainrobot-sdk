@@ -25,23 +25,14 @@ Card _$CardFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CardToJson(Card instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('type', _$CreditCardVendorEnumMap[instance.type]);
-  writeNotNull('status', _$CardStatusEnumMap[instance.status]);
-  writeNotNull('validFrom', instance.validFrom?.toIso8601String());
-  writeNotNull('validTo', instance.validTo?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'type': _$CreditCardVendorEnumMap[instance.type],
+      'status': _$CardStatusEnumMap[instance.status],
+      'validFrom': instance.validFrom?.toIso8601String(),
+      'validTo': instance.validTo?.toIso8601String(),
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

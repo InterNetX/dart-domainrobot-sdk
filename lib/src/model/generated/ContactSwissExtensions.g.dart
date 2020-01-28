@@ -15,16 +15,8 @@ ContactSwissExtensions _$ContactSwissExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactSwissExtensionsToJson(
-    ContactSwissExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('enterpriseId', instance.enterpriseId);
-  writeNotNull('intededUse', instance.intededUse);
-  return val;
-}
+        ContactSwissExtensions instance) =>
+    <String, dynamic>{
+      'enterpriseId': instance.enterpriseId,
+      'intededUse': instance.intededUse,
+    };

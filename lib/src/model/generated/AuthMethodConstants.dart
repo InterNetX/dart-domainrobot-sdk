@@ -1,6 +1,6 @@
-enum AuthMethodConstants {
-  DNS,
-  EMAIL,
-  FILE,
-  ORG,
+enum AuthMethodConstants { 
+  	  DNS,
+  	  EMAIL,
+  	  FILE,
+  	  ORG,
 }

@@ -22,19 +22,11 @@ CustomerContract _$CustomerContractFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CustomerContractToJson(CustomerContract instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('contract', instance.contract?.toJson());
-  writeNotNull('notice', instance.notice);
-  writeNotNull('ticketNumber', instance.ticketNumber);
-  return val;
-}
+Map<String, dynamic> _$CustomerContractToJson(CustomerContract instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'contract': instance.contract,
+      'notice': instance.notice,
+      'ticketNumber': instance.ticketNumber,
+    };

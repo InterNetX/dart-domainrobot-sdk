@@ -2,24 +2,26 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'NicMember.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class NicMember {
   /// The label
   String label;
-
-  /// The name
+  
+/// The name
   String name;
-
+  
+  
+  
   NicMember({
-    this.label,
-    this.name,
+  	this.label,
+  	this.name,
   });
 
   @override
   String toString() {
     return 'NicMember[label=$label, name=$name, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -30,4 +32,6 @@ class NicMember {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$NicMemberToJson(this);
+  
 }
+

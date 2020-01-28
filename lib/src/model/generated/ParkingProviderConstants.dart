@@ -1,5 +1,5 @@
-enum ParkingProviderConstants {
-  SEDO,
-  NAMEDRIVE,
-  PARKINGCREW,
+enum ParkingProviderConstants { 
+  	  SEDO,
+  	  NAMEDRIVE,
+  	  PARKINGCREW,
 }

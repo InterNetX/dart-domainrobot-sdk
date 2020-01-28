@@ -36,31 +36,23 @@ SslContact _$SslContactFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SslContactToJson(SslContact instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('fname', instance.fname);
-  writeNotNull('lname', instance.lname);
-  writeNotNull('phone', instance.phone);
-  writeNotNull('fax', instance.fax);
-  writeNotNull('email', instance.email);
-  writeNotNull('title', instance.title);
-  writeNotNull('organization', instance.organization);
-  writeNotNull('address', instance.address);
-  writeNotNull('pcode', instance.pcode);
-  writeNotNull('city', instance.city);
-  writeNotNull('country', instance.country);
-  writeNotNull('state', instance.state);
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$SslContactToJson(SslContact instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'fname': instance.fname,
+      'lname': instance.lname,
+      'phone': instance.phone,
+      'fax': instance.fax,
+      'email': instance.email,
+      'title': instance.title,
+      'organization': instance.organization,
+      'address': instance.address,
+      'pcode': instance.pcode,
+      'city': instance.city,
+      'country': instance.country,
+      'state': instance.state,
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'id': instance.id,
+    };

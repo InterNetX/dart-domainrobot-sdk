@@ -51,38 +51,29 @@ ExchangedPrice _$ExchangedPriceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ExchangedPriceToJson(ExchangedPrice instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('amount', instance.amount);
-  writeNotNull('type', _$PriceTypeConstantsEnumMap[instance.type]);
-  writeNotNull('currency', instance.currency);
-  writeNotNull('priority', _$PriorityConstantsEnumMap[instance.priority]);
-  writeNotNull('customer', instance.customer?.toJson());
-  writeNotNull('period', instance.period?.toJson());
-  writeNotNull('discountable', instance.discountable);
-  writeNotNull('logId', instance.logId);
-  writeNotNull('refund', instance.refund);
-  writeNotNull('priceConditions',
-      instance.priceConditions?.map((e) => e?.toJson())?.toList());
-  writeNotNull('comment', instance.comment);
-  writeNotNull('normalPrice', instance.normalPrice?.toJson());
-  writeNotNull('valid', instance.valid?.toIso8601String());
-  writeNotNull('vatRate', instance.vatRate);
-  writeNotNull('vatAmount', instance.vatAmount);
-  writeNotNull('rate', instance.rate);
-  return val;
-}
+Map<String, dynamic> _$ExchangedPriceToJson(ExchangedPrice instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'amount': instance.amount,
+      'type': _$PriceTypeConstantsEnumMap[instance.type],
+      'currency': instance.currency,
+      'priority': _$PriorityConstantsEnumMap[instance.priority],
+      'customer': instance.customer,
+      'period': instance.period,
+      'discountable': instance.discountable,
+      'logId': instance.logId,
+      'refund': instance.refund,
+      'priceConditions': instance.priceConditions,
+      'comment': instance.comment,
+      'normalPrice': instance.normalPrice,
+      'valid': instance.valid?.toIso8601String(),
+      'vatRate': instance.vatRate,
+      'vatAmount': instance.vatAmount,
+      'rate': instance.rate,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

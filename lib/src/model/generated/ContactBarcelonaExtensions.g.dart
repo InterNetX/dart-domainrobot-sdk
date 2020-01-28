@@ -14,15 +14,7 @@ ContactBarcelonaExtensions _$ContactBarcelonaExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactBarcelonaExtensionsToJson(
-    ContactBarcelonaExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('intededUse', instance.intededUse);
-  return val;
-}
+        ContactBarcelonaExtensions instance) =>
+    <String, dynamic>{
+      'intededUse': instance.intededUse,
+    };

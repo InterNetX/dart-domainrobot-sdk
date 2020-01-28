@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/dart_domainrobot_sdk.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/TransferAnswer.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/TransferOut.dart';
 
 ///
 /// Implementation of the zone specific api functions
@@ -49,11 +52,10 @@ class TransferOutClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
-  Future<Contact> answer(String domain, TransferAnswer answer,
+  Future<void> answer(String domain, TransferAnswer answer,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
-    Map<String, dynamic> body;
 
     var transformedAnswer = '';
     if (answer == TransferAnswer.TRANSFER_OUT_ACK) {
@@ -62,14 +64,12 @@ class TransferOutClient extends AbstractDomainRobotClient {
       transformedAnswer = 'nack';
     }
     try {
-      body = await HttpUtils.putForJson(
+      await HttpUtils.putForJson(
           '$baseUrl/transferout/$domain/$transformedAnswer',
           queryParameters: queryParameters,
           headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
-    Map<String, dynamic> data = body['data'][0];
-    return Contact.fromJson(data);
   }
 }

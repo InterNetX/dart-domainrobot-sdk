@@ -72,6 +72,7 @@ Certificate _$CertificateFromJson(Map<String, dynamic> json) {
     password: json['password'] as String,
     firstname: json['firstname'] as String,
     lastname: json['lastname'] as String,
+    technicalContactEmail: json['technicalContactEmail'] as String,
     organizationUnitName: json['organizationUnitName'] as String,
     authentication: json['authentication'] == null
         ? null
@@ -87,64 +88,48 @@ Certificate _$CertificateFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CertificateToJson(Certificate instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('extension', instance.extension?.toJson());
-  writeNotNull('id', instance.id);
-  writeNotNull('partnerOrderId', instance.partnerOrderId);
-  writeNotNull('orderId', instance.orderId);
-  writeNotNull('adminContact', instance.adminContact?.toJson());
-  writeNotNull('technicalContact', instance.technicalContact?.toJson());
-  writeNotNull('name', instance.name);
-  writeNotNull('lifetime', instance.lifetime?.toJson());
-  writeNotNull(
-      'software', _$ServerSoftwareTypeConstantsEnumMap[instance.software]);
-  writeNotNull('comment', instance.comment);
-  writeNotNull('csr', instance.csr);
-  writeNotNull('server', instance.server);
-  writeNotNull('serialNumber', instance.serialNumber);
-  writeNotNull('product', instance.product);
-  writeNotNull(
-      'codeSigningType', _$CodeSigningTypeEnumMap[instance.codeSigningType]);
-  writeNotNull(
-      'certificateType', _$CertificateTypeEnumMap[instance.certificateType]);
-  writeNotNull(
-      'signatureHashAlgorithm',
-      _$SignatureHashAlgorithmConstantsEnumMap[
-          instance.signatureHashAlgorithm]);
-  writeNotNull('expire', instance.expire?.toIso8601String());
-  writeNotNull('subjectAlternativeNames',
-      instance.subjectAlternativeNames?.map((e) => e?.toJson())?.toList());
-  writeNotNull(
-      'histories', instance.histories?.map((e) => e?.toJson())?.toList());
-  writeNotNull('certificationAuthority',
-      instance.certificationAuthority?.map((e) => e?.toJson())?.toList());
-  writeNotNull('password', instance.password);
-  writeNotNull('firstname', instance.firstname);
-  writeNotNull('lastname', instance.lastname);
-  writeNotNull('organizationUnitName', instance.organizationUnitName);
-  writeNotNull('authentication', instance.authentication?.toJson());
-  writeNotNull('certificateTransparency', instance.certificateTransparency);
-  writeNotNull(
-      'certificateTransparencyPrivacy',
-      _$CertificateTransparencyPrivacyConstantsEnumMap[
-          instance.certificateTransparencyPrivacy]);
-  writeNotNull('domain', instance.domain);
-  writeNotNull('hasCsr', instance.hasCsr);
-  writeNotNull('idn', instance.idn);
-  return val;
-}
+Map<String, dynamic> _$CertificateToJson(Certificate instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'extension': instance.extension,
+      'id': instance.id,
+      'partnerOrderId': instance.partnerOrderId,
+      'orderId': instance.orderId,
+      'adminContact': instance.adminContact,
+      'technicalContact': instance.technicalContact,
+      'name': instance.name,
+      'lifetime': instance.lifetime,
+      'software': _$ServerSoftwareTypeConstantsEnumMap[instance.software],
+      'comment': instance.comment,
+      'csr': instance.csr,
+      'server': instance.server,
+      'serialNumber': instance.serialNumber,
+      'product': instance.product,
+      'codeSigningType': _$CodeSigningTypeEnumMap[instance.codeSigningType],
+      'certificateType': _$CertificateTypeEnumMap[instance.certificateType],
+      'signatureHashAlgorithm': _$SignatureHashAlgorithmConstantsEnumMap[
+          instance.signatureHashAlgorithm],
+      'expire': instance.expire?.toIso8601String(),
+      'subjectAlternativeNames': instance.subjectAlternativeNames,
+      'histories': instance.histories,
+      'certificationAuthority': instance.certificationAuthority,
+      'password': instance.password,
+      'firstname': instance.firstname,
+      'lastname': instance.lastname,
+      'technicalContactEmail': instance.technicalContactEmail,
+      'organizationUnitName': instance.organizationUnitName,
+      'authentication': instance.authentication,
+      'certificateTransparency': instance.certificateTransparency,
+      'certificateTransparencyPrivacy':
+          _$CertificateTransparencyPrivacyConstantsEnumMap[
+              instance.certificateTransparencyPrivacy],
+      'domain': instance.domain,
+      'hasCsr': instance.hasCsr,
+      'idn': instance.idn,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

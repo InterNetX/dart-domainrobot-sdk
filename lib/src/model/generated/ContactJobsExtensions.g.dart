@@ -18,19 +18,11 @@ ContactJobsExtensions _$ContactJobsExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactJobsExtensionsToJson(
-    ContactJobsExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('adminType', instance.adminType);
-  writeNotNull('contactTitle', instance.contactTitle);
-  writeNotNull('hrMember', instance.hrMember);
-  writeNotNull('industryClass', instance.industryClass);
-  writeNotNull('website', instance.website);
-  return val;
-}
+        ContactJobsExtensions instance) =>
+    <String, dynamic>{
+      'adminType': instance.adminType,
+      'contactTitle': instance.contactTitle,
+      'hrMember': instance.hrMember,
+      'industryClass': instance.industryClass,
+      'website': instance.website,
+    };

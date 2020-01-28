@@ -25,24 +25,15 @@ Document _$DocumentFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$DocumentToJson(Document instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('comment', instance.comment);
-  writeNotNull('type', instance.type);
-  writeNotNull('mimeType', instance.mimeType);
-  writeNotNull('data', instance.data);
-  writeNotNull('size', instance.size);
-  writeNotNull('name', instance.name);
-  writeNotNull('link', instance.link);
-  return val;
-}
+Map<String, dynamic> _$DocumentToJson(Document instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'id': instance.id,
+      'comment': instance.comment,
+      'type': instance.type,
+      'mimeType': instance.mimeType,
+      'data': instance.data,
+      'size': instance.size,
+      'name': instance.name,
+      'link': instance.link,
+    };

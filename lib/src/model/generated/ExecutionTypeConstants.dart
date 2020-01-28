@@ -1,5 +1,5 @@
-enum ExecutionTypeConstants {
-  DATE,
-  EXPIRE,
-  NOW,
+enum ExecutionTypeConstants { 
+  	  DATE,
+  	  EXPIRE,
+  	  NOW,
 }

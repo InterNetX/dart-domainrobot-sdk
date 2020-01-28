@@ -50,11 +50,19 @@ export 'generated/BulkDomainPatchRequest.dart';
 
 export 'generated/BulkDomainPostRequest.dart';
 
+export 'generated/BulkDomainPreregDeleteRequest.dart';
+
+export 'generated/BulkDomainPreregPatchRequest.dart';
+
+export 'generated/BulkDomainPreregPostRequest.dart';
+
 export 'generated/BulkMailProxyDeleteRequest.dart';
 
 export 'generated/BulkMailProxyPatchRequest.dart';
 
 export 'generated/BulkMailProxyPostRequest.dart';
+
+export 'generated/BulkObjectUserAssignmentPatchRequest.dart';
 
 export 'generated/BulkRedirectDeleteRequest.dart';
 
@@ -168,6 +176,8 @@ export 'generated/ContactVerificationMessage.dart';
 
 export 'generated/ContactXxxExtensions.dart';
 
+export 'generated/ContentTypeConstants.dart';
+
 export 'generated/CreditCardVendor.dart';
 
 export 'generated/CryptoFormatConstants.dart';
@@ -177,6 +187,8 @@ export 'generated/CsrHashAlgorithmConstants.dart';
 export 'generated/Currency.dart';
 
 export 'generated/CurrencyRate.dart';
+
+export 'generated/Custom.dart';
 
 export 'generated/Customer.dart';
 
@@ -189,6 +201,8 @@ export 'generated/DNSSec.dart';
 export 'generated/DNSSecJob.dart';
 
 export 'generated/Document.dart';
+
+export 'generated/DocumentTypeConstants.dart';
 
 export 'generated/Domain.dart';
 
@@ -210,6 +224,12 @@ export 'generated/DomainMonitoringSetup.dart';
 
 export 'generated/DomainParkingExtensions.dart';
 
+export 'generated/DomainPrereg.dart';
+
+export 'generated/DomainPreregAddon.dart';
+
+export 'generated/DomainPreregStatusConstants.dart';
+
 export 'generated/DomainRestore.dart';
 
 export 'generated/DomainServices.dart';
@@ -223,6 +243,8 @@ export 'generated/DomainStudioDomainStatus.dart';
 export 'generated/DomainStudioService.dart';
 
 export 'generated/DomainStudioServiceStatus.dart';
+
+export 'generated/DomainStudioSourceCustom.dart';
 
 export 'generated/DomainStudioSourceGeo.dart';
 
@@ -282,6 +304,8 @@ export 'generated/IpRestrictionTypeConstants.dart';
 
 export 'generated/IpRestrictions.dart';
 
+export 'generated/ItEntityTypeConstants.dart';
+
 export 'generated/Job.dart';
 
 export 'generated/JobStatusConstants.dart';
@@ -306,6 +330,8 @@ export 'generated/JsonResponseDataDomainCancelation.dart';
 
 export 'generated/JsonResponseDataDomainEnvelope.dart';
 
+export 'generated/JsonResponseDataDomainPrereg.dart';
+
 export 'generated/JsonResponseDataDomainRestore.dart';
 
 export 'generated/JsonResponseDataHandleVerification.dart';
@@ -324,7 +350,11 @@ export 'generated/JsonResponseDataListJsonResponseDataDomain.dart';
 
 export 'generated/JsonResponseDataListJsonResponseDataDomainCancelation.dart';
 
+export 'generated/JsonResponseDataListJsonResponseDataDomainPrereg.dart';
+
 export 'generated/JsonResponseDataListJsonResponseDataMailProxy.dart';
+
+export 'generated/JsonResponseDataListJsonResponseDataObjectUserAssignment.dart';
 
 export 'generated/JsonResponseDataListJsonResponseDataRedirect.dart';
 
@@ -335,6 +365,8 @@ export 'generated/JsonResponseDataMailProxy.dart';
 export 'generated/JsonResponseDataOTPAuth.dart';
 
 export 'generated/JsonResponseDataObjectJob.dart';
+
+export 'generated/JsonResponseDataObjectUserAssignment.dart';
 
 export 'generated/JsonResponseDataPeriodicBilling.dart';
 
@@ -368,6 +400,8 @@ export 'generated/MainIp.dart';
 
 export 'generated/Message.dart';
 
+export 'generated/MessageTypeConstants.dart';
+
 export 'generated/ModelOperator.dart';
 
 export 'generated/ModelVoid.dart';
@@ -382,15 +416,25 @@ export 'generated/NameServer.dart';
 
 export 'generated/NameserverActionConstants.dart';
 
+export 'generated/NewPassword.dart';
+
 export 'generated/NicMember.dart';
+
+export 'generated/NiccomLog.dart';
+
+export 'generated/NiccomSourceConstants.dart';
 
 export 'generated/NotifyMessage.dart';
 
 export 'generated/OTPAuth.dart';
 
+export 'generated/ObjectAssignmentMode.dart';
+
 export 'generated/ObjectJob.dart';
 
 export 'generated/ObjectStatus.dart';
+
+export 'generated/ObjectUserAssignment.dart';
 
 export 'generated/OrderType.dart';
 
@@ -405,6 +449,8 @@ export 'generated/Phone.dart';
 export 'generated/PhysicalNameServerGroup.dart';
 
 export 'generated/PollMessage.dart';
+
+export 'generated/PreregConfig.dart';
 
 export 'generated/PriceData.dart';
 
@@ -436,7 +482,11 @@ export 'generated/RedirectModeConstants.dart';
 
 export 'generated/RedirectTypeConstants.dart';
 
+export 'generated/RegistrationTypeConstants.dart';
+
 export 'generated/RegistryStatusConstants.dart';
+
+export 'generated/RenewStatusConstants.dart';
 
 export 'generated/ResourceRecord.dart';
 
@@ -471,6 +521,22 @@ export 'generated/Subscription.dart';
 export 'generated/TimePeriod.dart';
 
 export 'generated/TimeUnitConstants.dart';
+
+export 'generated/TmchContact.dart';
+
+export 'generated/TmchMark.dart';
+
+export 'generated/TmchMarkAddon.dart';
+
+export 'generated/TmchMarkComment.dart';
+
+export 'generated/TmchMarkDocument.dart';
+
+export 'generated/TmchMarkHolderConstants.dart';
+
+export 'generated/TmchMarkStatusConstants.dart';
+
+export 'generated/TmchMarkTypeConstants.dart';
 
 export 'generated/Transfer.dart';
 

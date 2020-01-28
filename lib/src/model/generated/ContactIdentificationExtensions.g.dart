@@ -21,18 +21,10 @@ ContactIdentificationExtensions _$ContactIdentificationExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactIdentificationExtensionsToJson(
-    ContactIdentificationExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('number', instance.number);
-  writeNotNull('authority', instance.authority);
-  writeNotNull('dateOfIssue', instance.dateOfIssue?.toIso8601String());
-  writeNotNull('validTill', instance.validTill?.toIso8601String());
-  return val;
-}
+        ContactIdentificationExtensions instance) =>
+    <String, dynamic>{
+      'number': instance.number,
+      'authority': instance.authority,
+      'dateOfIssue': instance.dateOfIssue?.toIso8601String(),
+      'validTill': instance.validTill?.toIso8601String(),
+    };

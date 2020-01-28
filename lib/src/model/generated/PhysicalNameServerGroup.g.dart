@@ -23,20 +23,12 @@ PhysicalNameServerGroup _$PhysicalNameServerGroupFromJson(
 }
 
 Map<String, dynamic> _$PhysicalNameServerGroupToJson(
-    PhysicalNameServerGroup instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('name', instance.name);
-  writeNotNull('articleLabel', instance.articleLabel);
-  writeNotNull('dnssec', instance.dnssec);
-  writeNotNull('statistic', instance.statistic);
-  return val;
-}
+        PhysicalNameServerGroup instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'name': instance.name,
+      'articleLabel': instance.articleLabel,
+      'dnssec': instance.dnssec,
+      'statistic': instance.statistic,
+    };

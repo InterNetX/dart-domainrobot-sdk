@@ -1,8 +1,8 @@
-enum ContactReferenceType {
-  ALL,
-  OWNERC,
-  ADMINC,
-  TECHC,
-  ZONEC,
-  BILLINGC,
+enum ContactReferenceType { 
+  	  ALL,
+  	  OWNERC,
+  	  ADMINC,
+  	  TECHC,
+  	  ZONEC,
+  	  BILLINGC,
 }

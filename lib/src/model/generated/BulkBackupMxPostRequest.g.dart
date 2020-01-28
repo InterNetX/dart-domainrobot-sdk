@@ -20,16 +20,8 @@ BulkBackupMxPostRequest _$BulkBackupMxPostRequestFromJson(
 }
 
 Map<String, dynamic> _$BulkBackupMxPostRequestToJson(
-    BulkBackupMxPostRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
-  writeNotNull('template', instance.template?.toJson());
-  return val;
-}
+        BulkBackupMxPostRequest instance) =>
+    <String, dynamic>{
+      'objects': instance.objects,
+      'template': instance.template,
+    };

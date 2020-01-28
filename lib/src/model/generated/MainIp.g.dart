@@ -13,16 +13,7 @@ MainIp _$MainIpFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MainIpToJson(MainIp instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('address', instance.address);
-  writeNotNull('ttl', instance.ttl);
-  return val;
-}
+Map<String, dynamic> _$MainIpToJson(MainIp instance) => <String, dynamic>{
+      'address': instance.address,
+      'ttl': instance.ttl,
+    };

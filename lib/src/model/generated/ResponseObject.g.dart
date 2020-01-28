@@ -15,18 +15,10 @@ ResponseObject _$ResponseObjectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ResponseObjectToJson(ResponseObject instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', instance.type);
-  writeNotNull('value', instance.value);
-  writeNotNull('summary', instance.summary);
-  writeNotNull('data', instance.data);
-  return val;
-}
+Map<String, dynamic> _$ResponseObjectToJson(ResponseObject instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'value': instance.value,
+      'summary': instance.summary,
+      'data': instance.data,
+    };

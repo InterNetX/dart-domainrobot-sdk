@@ -76,34 +76,26 @@ ContactExtensions _$ContactExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactExtensionsToJson(ContactExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('aero', instance.aero?.toJson());
-  writeNotNull('au', instance.au?.toJson());
-  writeNotNull('cat', instance.cat?.toJson());
-  writeNotNull('jobs', instance.jobs?.toJson());
-  writeNotNull('it', instance.it?.toJson());
-  writeNotNull('jp', instance.jp?.toJson());
-  writeNotNull('xxx', instance.xxx?.toJson());
-  writeNotNull('hk', instance.hk?.toJson());
-  writeNotNull('bank', instance.bank?.toJson());
-  writeNotNull('swiss', instance.swiss?.toJson());
-  writeNotNull('ru', instance.ru?.toJson());
-  writeNotNull('uk', instance.uk?.toJson());
-  writeNotNull('ca', instance.ca?.toJson());
-  writeNotNull('ro', instance.ro?.toJson());
-  writeNotNull('barcelona', instance.barcelona?.toJson());
-  writeNotNull('general', instance.general?.toJson());
-  writeNotNull('nz', instance.nz?.toJson());
-  writeNotNull('sport', instance.sport?.toJson());
-  writeNotNull('luxe', instance.luxe?.toJson());
-  writeNotNull('madrid', instance.madrid?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ContactExtensionsToJson(ContactExtensions instance) =>
+    <String, dynamic>{
+      'aero': instance.aero,
+      'au': instance.au,
+      'cat': instance.cat,
+      'jobs': instance.jobs,
+      'it': instance.it,
+      'jp': instance.jp,
+      'xxx': instance.xxx,
+      'hk': instance.hk,
+      'bank': instance.bank,
+      'swiss': instance.swiss,
+      'ru': instance.ru,
+      'uk': instance.uk,
+      'ca': instance.ca,
+      'ro': instance.ro,
+      'barcelona': instance.barcelona,
+      'general': instance.general,
+      'nz': instance.nz,
+      'sport': instance.sport,
+      'luxe': instance.luxe,
+      'madrid': instance.madrid,
+    };

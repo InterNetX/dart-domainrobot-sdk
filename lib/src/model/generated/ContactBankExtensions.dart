@@ -2,20 +2,22 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactBankExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactBankExtensions {
   /// The FTLD token.
   String ftldToken;
-
+  
+  
+  
   ContactBankExtensions({
-    this.ftldToken,
+  	this.ftldToken,
   });
 
   @override
   String toString() {
     return 'ContactBankExtensions[ftldToken=$ftldToken, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +28,6 @@ class ContactBankExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactBankExtensionsToJson(this);
+  
 }
+

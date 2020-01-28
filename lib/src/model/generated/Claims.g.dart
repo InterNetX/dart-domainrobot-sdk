@@ -42,36 +42,27 @@ Claims _$ClaimsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ClaimsToJson(Claims instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('givenName', instance.givenName);
-  writeNotNull('familyName', instance.familyName);
-  writeNotNull('middleName', instance.middleName);
-  writeNotNull('nickname', instance.nickname);
-  writeNotNull('preferredUsername', instance.preferredUsername);
-  writeNotNull('profile', instance.profile?.toJson());
-  writeNotNull('picture', instance.picture?.toJson());
-  writeNotNull('website', instance.website?.toJson());
-  writeNotNull('email', instance.email);
-  writeNotNull('emailVerified', instance.emailVerified);
-  writeNotNull('gender', _$GenderConstantsEnumMap[instance.gender]);
-  writeNotNull('birthdate', instance.birthdate?.toIso8601String());
-  writeNotNull('zoneinfo', instance.zoneinfo);
-  writeNotNull('locale', instance.locale);
-  writeNotNull('phoneNumber', instance.phoneNumber?.toJson());
-  writeNotNull('phoneNumberVerified', instance.phoneNumberVerified);
-  writeNotNull('address', instance.address?.toJson());
-  writeNotNull('organization', instance.organization);
-  return val;
-}
+Map<String, dynamic> _$ClaimsToJson(Claims instance) => <String, dynamic>{
+      'name': instance.name,
+      'givenName': instance.givenName,
+      'familyName': instance.familyName,
+      'middleName': instance.middleName,
+      'nickname': instance.nickname,
+      'preferredUsername': instance.preferredUsername,
+      'profile': instance.profile,
+      'picture': instance.picture,
+      'website': instance.website,
+      'email': instance.email,
+      'emailVerified': instance.emailVerified,
+      'gender': _$GenderConstantsEnumMap[instance.gender],
+      'birthdate': instance.birthdate?.toIso8601String(),
+      'zoneinfo': instance.zoneinfo,
+      'locale': instance.locale,
+      'phoneNumber': instance.phoneNumber,
+      'phoneNumberVerified': instance.phoneNumberVerified,
+      'address': instance.address,
+      'organization': instance.organization,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

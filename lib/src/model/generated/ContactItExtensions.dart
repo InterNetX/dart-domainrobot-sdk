@@ -1,21 +1,24 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'ItEntityTypeConstants.dart';
 
 part 'ContactItExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactItExtensions {
   /// The number of the matching entity.
-  int entityType;
-
+  ItEntityTypeConstants entityType;
+  
+  
+  
   ContactItExtensions({
-    this.entityType,
+  	this.entityType,
   });
 
   @override
   String toString() {
     return 'ContactItExtensions[entityType=$entityType, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +29,6 @@ class ContactItExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactItExtensionsToJson(this);
+  
 }
+

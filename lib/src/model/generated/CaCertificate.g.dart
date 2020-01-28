@@ -19,18 +19,10 @@ CaCertificate _$CaCertificateFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CaCertificateToJson(CaCertificate instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('caType', instance.caType);
-  writeNotNull('caCertificate', instance.caCertificate);
-  return val;
-}
+Map<String, dynamic> _$CaCertificateToJson(CaCertificate instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'caType': instance.caType,
+      'caCertificate': instance.caCertificate,
+    };

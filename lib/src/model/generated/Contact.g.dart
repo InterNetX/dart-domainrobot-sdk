@@ -56,47 +56,36 @@ Contact _$ContactFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactToJson(Contact instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('id', instance.id);
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('alias', instance.alias);
-  writeNotNull('type', _$ContactTypeConstantsEnumMap[instance.type]);
-  writeNotNull('organization', instance.organization);
-  writeNotNull('title', instance.title);
-  writeNotNull('city', instance.city);
-  writeNotNull('country', instance.country);
-  writeNotNull('state', instance.state);
-  writeNotNull('email', instance.email);
-  writeNotNull(
-      'protection', _$ContactProtectionConstantsEnumMap[instance.protection]);
-  writeNotNull('sip', instance.sip);
-  writeNotNull('remarks', instance.remarks);
-  writeNotNull('domainsafe', instance.domainsafe);
-  writeNotNull('confirmOwnerConsent', instance.confirmOwnerConsent);
-  writeNotNull('comment', instance.comment);
-  writeNotNull(
-      'verification', _$GenericStatusConstantsEnumMap[instance.verification]);
-  writeNotNull('fname', instance.fname);
-  writeNotNull('lname', instance.lname);
-  writeNotNull('address', instance.address);
-  writeNotNull('pcode', instance.pcode);
-  writeNotNull('phone', instance.phone);
-  writeNotNull('fax', instance.fax);
-  writeNotNull('nicRef', instance.nicRef?.map((e) => e?.toJson())?.toList());
-  writeNotNull('extensions', instance.extensions?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ContactToJson(Contact instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'id': instance.id,
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'alias': instance.alias,
+      'type': _$ContactTypeConstantsEnumMap[instance.type],
+      'organization': instance.organization,
+      'title': instance.title,
+      'city': instance.city,
+      'country': instance.country,
+      'state': instance.state,
+      'email': instance.email,
+      'protection': _$ContactProtectionConstantsEnumMap[instance.protection],
+      'sip': instance.sip,
+      'remarks': instance.remarks,
+      'domainsafe': instance.domainsafe,
+      'confirmOwnerConsent': instance.confirmOwnerConsent,
+      'comment': instance.comment,
+      'verification': _$GenericStatusConstantsEnumMap[instance.verification],
+      'fname': instance.fname,
+      'lname': instance.lname,
+      'address': instance.address,
+      'pcode': instance.pcode,
+      'phone': instance.phone,
+      'fax': instance.fax,
+      'nicRef': instance.nicRef,
+      'extensions': instance.extensions,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

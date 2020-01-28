@@ -2,20 +2,22 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactBarcelonaExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactBarcelonaExtensions {
   /// The statement of intended use for the domain name.
   String intededUse;
-
+  
+  
+  
   ContactBarcelonaExtensions({
-    this.intededUse,
+  	this.intededUse,
   });
 
   @override
   String toString() {
     return 'ContactBarcelonaExtensions[intededUse=$intededUse, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +28,6 @@ class ContactBarcelonaExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactBarcelonaExtensionsToJson(this);
+  
 }
+

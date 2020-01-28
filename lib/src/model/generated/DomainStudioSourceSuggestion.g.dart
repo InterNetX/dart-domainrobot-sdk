@@ -24,29 +24,19 @@ DomainStudioSourceSuggestion _$DomainStudioSourceSuggestionFromJson(
 }
 
 Map<String, dynamic> _$DomainStudioSourceSuggestionToJson(
-    DomainStudioSourceSuggestion instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      'services',
-      instance.services
+        DomainStudioSourceSuggestion instance) =>
+    <String, dynamic>{
+      'services': instance.services
           ?.map((e) => _$DomainEnvelopeSearchServiceEnumMap[e])
-          ?.toList());
-  writeNotNull('language', instance.language);
-  writeNotNull('max', instance.max);
-  writeNotNull('maxSldLength', instance.maxSldLength);
-  writeNotNull('useDash', instance.useDash);
-  writeNotNull('useNumber', instance.useNumber);
-  writeNotNull('useIdn', instance.useIdn);
-  writeNotNull('tlds', instance.tlds);
-  return val;
-}
+          ?.toList(),
+      'language': instance.language,
+      'max': instance.max,
+      'maxSldLength': instance.maxSldLength,
+      'useDash': instance.useDash,
+      'useNumber': instance.useNumber,
+      'useIdn': instance.useIdn,
+      'tlds': instance.tlds,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

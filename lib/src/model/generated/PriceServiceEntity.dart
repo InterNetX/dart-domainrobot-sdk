@@ -3,24 +3,26 @@ import 'ServiceEntity.dart';
 
 part 'PriceServiceEntity.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class PriceServiceEntity {
   /// Lorem Ipum
   Map<String, Object> configuration;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   ServiceEntity condition;
-
+  
+  
+  
   PriceServiceEntity({
-    this.configuration,
-    this.condition,
+  	this.configuration,
+  	this.condition,
   });
 
   @override
   String toString() {
     return 'PriceServiceEntity[configuration=$configuration, condition=$condition, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -31,4 +33,6 @@ class PriceServiceEntity {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$PriceServiceEntityToJson(this);
+  
 }
+

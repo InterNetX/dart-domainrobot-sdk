@@ -13,18 +13,10 @@ WhoisStatus _$WhoisStatusFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$WhoisStatusToJson(WhoisStatus instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('status', _$DomainStudioDomainStatusEnumMap[instance.status]);
-  return val;
-}
+Map<String, dynamic> _$WhoisStatusToJson(WhoisStatus instance) =>
+    <String, dynamic>{
+      'status': _$DomainStudioDomainStatusEnumMap[instance.status],
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

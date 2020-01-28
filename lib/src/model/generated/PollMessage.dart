@@ -7,56 +7,58 @@ import 'WorkflowSpool.dart';
 
 part 'PollMessage.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class PollMessage {
   /// The message id.
   int id;
-
-  /// The owner of the message.
+  
+/// The owner of the message.
   BasicUser owner;
-
-  /// The job data. Available if the message is a job message
+  
+/// The job data. Available if the message is a job message
   WorkflowSpool job;
-
-  /// The notification data. Available if the message is a notification message
+  
+/// The notification data. Available if the message is a notification message
   NotifyMessage notify;
-
-  /// The server transaction id.
+  
+/// The server transaction id.
   String stid;
-
-  /// the custom transaction id.
+  
+/// the custom transaction id.
   String ctid;
-
-  /// The general localized messages.
+  
+/// The general localized messages.
   List<Message> messages;
-
-  /// Optional message flags.
+  
+/// Optional message flags.
   String flags;
-
-  /// The created date.
+  
+/// The created date.
   DateTime created;
-
-  /// The object of the job or notify.
+  
+/// The object of the job or notify.
   ResponseObject object;
-
+  
+  
+  
   PollMessage({
-    this.id,
-    this.owner,
-    this.job,
-    this.notify,
-    this.stid,
-    this.ctid,
-    this.messages,
-    this.flags,
-    this.created,
-    this.object,
+  	this.id,
+  	this.owner,
+  	this.job,
+  	this.notify,
+  	this.stid,
+  	this.ctid,
+  	this.messages,
+  	this.flags,
+  	this.created,
+  	this.object,
   });
 
   @override
   String toString() {
     return 'PollMessage[id=$id, owner=$owner, job=$job, notify=$notify, stid=$stid, ctid=$ctid, messages=$messages, flags=$flags, created=$created, object=$object, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -67,4 +69,6 @@ class PollMessage {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$PollMessageToJson(this);
+  
 }
+

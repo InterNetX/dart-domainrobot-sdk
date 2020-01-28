@@ -1,7 +1,7 @@
-enum UserProfileFlag {
-  OPTIONAL,
-  FIX,
-  RECURSE,
-  HIDDEN,
-  PARENT_FIX,
+enum UserProfileFlag { 
+  	  OPTIONAL,
+  	  FIX,
+  	  RECURSE,
+  	  HIDDEN,
+  	  PARENT_FIX,
 }

@@ -32,22 +32,14 @@ VirtualNameServer _$VirtualNameServerFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$VirtualNameServerToJson(VirtualNameServer instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('active', instance.active);
-  writeNotNull('name', instance.name?.toJson());
-  writeNotNull('mainAddress', instance.mainAddress?.toJson());
-  writeNotNull('ipAddresses', instance.ipAddresses);
-  return val;
-}
+Map<String, dynamic> _$VirtualNameServerToJson(VirtualNameServer instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'active': instance.active,
+      'name': instance.name,
+      'mainAddress': instance.mainAddress,
+      'ipAddresses': instance.ipAddresses,
+    };

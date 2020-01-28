@@ -19,22 +19,14 @@ QueryFilter _$QueryFilterFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$QueryFilterToJson(QueryFilter instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('key', instance.key);
-  writeNotNull('value', instance.value);
-  writeNotNull('operator_', _$ModelOperatorEnumMap[instance.operator_]);
-  writeNotNull('link', _$ConditionTypeEnumMap[instance.link]);
-  writeNotNull('filters', instance.filters?.map((e) => e?.toJson())?.toList());
-  return val;
-}
+Map<String, dynamic> _$QueryFilterToJson(QueryFilter instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'value': instance.value,
+      'operator_': _$ModelOperatorEnumMap[instance.operator_],
+      'link': _$ConditionTypeEnumMap[instance.link],
+      'filters': instance.filters,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

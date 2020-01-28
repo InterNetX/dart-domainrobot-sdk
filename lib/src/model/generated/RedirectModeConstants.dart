@@ -1,7 +1,7 @@
-enum RedirectModeConstants {
-  CATCHALL,
-  FRAME,
-  HTTP,
-  SINGLE,
-  HTTPS,
+enum RedirectModeConstants { 
+  	  CATCHALL,
+  	  FRAME,
+  	  HTTP,
+  	  SINGLE,
+  	  HTTPS,
 }

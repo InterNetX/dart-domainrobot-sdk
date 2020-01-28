@@ -2,24 +2,26 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'WorkflowEvent.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class WorkflowEvent {
   /// Lorem Ipsum
   int vertex;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String type;
-
+  
+  
+  
   WorkflowEvent({
-    this.vertex,
-    this.type,
+  	this.vertex,
+  	this.type,
   });
 
   @override
   String toString() {
     return 'WorkflowEvent[vertex=$vertex, type=$type, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -30,4 +32,6 @@ class WorkflowEvent {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$WorkflowEventToJson(this);
+  
 }
+

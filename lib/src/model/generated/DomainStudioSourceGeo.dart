@@ -3,24 +3,26 @@ import 'DomainEnvelopeSearchService.dart';
 
 part 'DomainStudioSourceGeo.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class DomainStudioSourceGeo {
   /// The services to fetch extra data from for this source
   List<DomainEnvelopeSearchService> services;
-
-  /// The maximum amount of fetched geo domains.
+  
+/// The maximum amount of fetched geo domains.
   int max;
-
+  
+  
+  
   DomainStudioSourceGeo({
-    this.services,
-    this.max,
+  	this.services,
+  	this.max,
   });
 
   @override
   String toString() {
     return 'DomainStudioSourceGeo[services=$services, max=$max, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -31,4 +33,6 @@ class DomainStudioSourceGeo {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainStudioSourceGeoToJson(this);
+  
 }
+

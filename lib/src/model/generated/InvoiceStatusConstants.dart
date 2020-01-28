@@ -1,11 +1,11 @@
-enum InvoiceStatusConstants {
-  CREATED,
-  SIGNED,
-  SENT,
-  RESEND,
-  FINISHED,
-  LIVECONFIRMED,
-  LIVEPENDING,
-  POSTPENDING,
-  POSTCONFIRMED,
+enum InvoiceStatusConstants { 
+  	  CREATED,
+  	  SIGNED,
+  	  SENT,
+  	  RESEND,
+  	  FINISHED,
+  	  LIVECONFIRMED,
+  	  LIVEPENDING,
+  	  POSTPENDING,
+  	  POSTCONFIRMED,
 }

@@ -31,23 +31,21 @@ DomainStudioSources _$DomainStudioSourcesFromJson(Map<String, dynamic> json) {
         ? null
         : DomainStudioSourceSimilar.fromJson(
             json['recommended'] as Map<String, dynamic>),
+    custom: json['custom'] == null
+        ? null
+        : DomainStudioSourceCustom.fromJson(
+            json['custom'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$DomainStudioSourcesToJson(DomainStudioSources instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('initial', instance.initial?.toJson());
-  writeNotNull('suggestion', instance.suggestion?.toJson());
-  writeNotNull('premium', instance.premium?.toJson());
-  writeNotNull('geo', instance.geo?.toJson());
-  writeNotNull('similar', instance.similar?.toJson());
-  writeNotNull('recommended', instance.recommended?.toJson());
-  return val;
-}
+Map<String, dynamic> _$DomainStudioSourcesToJson(
+        DomainStudioSources instance) =>
+    <String, dynamic>{
+      'initial': instance.initial,
+      'suggestion': instance.suggestion,
+      'premium': instance.premium,
+      'geo': instance.geo,
+      'similar': instance.similar,
+      'recommended': instance.recommended,
+      'custom': instance.custom,
+    };

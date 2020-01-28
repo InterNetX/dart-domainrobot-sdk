@@ -22,28 +22,21 @@ ContactAuExtensions _$ContactAuExtensionsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ContactAuExtensionsToJson(ContactAuExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('eligibilityId', instance.eligibilityId);
-  writeNotNull('eligibilityIdType',
-      _$AuEligibilityIdTypeConstantsEnumMap[instance.eligibilityIdType]);
-  writeNotNull('eligibilityName', instance.eligibilityName);
-  writeNotNull('eligibilityType',
-      _$AuEligibilityTypeConstantsEnumMap[instance.eligibilityType]);
-  writeNotNull('policyReason', instance.policyReason);
-  writeNotNull('registrantId', instance.registrantId);
-  writeNotNull('registrantIdType',
-      _$AuRegistrantIdTypeConstantsEnumMap[instance.registrantIdType]);
-  writeNotNull('registrantName', instance.registrantName);
-  return val;
-}
+Map<String, dynamic> _$ContactAuExtensionsToJson(
+        ContactAuExtensions instance) =>
+    <String, dynamic>{
+      'eligibilityId': instance.eligibilityId,
+      'eligibilityIdType':
+          _$AuEligibilityIdTypeConstantsEnumMap[instance.eligibilityIdType],
+      'eligibilityName': instance.eligibilityName,
+      'eligibilityType':
+          _$AuEligibilityTypeConstantsEnumMap[instance.eligibilityType],
+      'policyReason': instance.policyReason,
+      'registrantId': instance.registrantId,
+      'registrantIdType':
+          _$AuRegistrantIdTypeConstantsEnumMap[instance.registrantIdType],
+      'registrantName': instance.registrantName,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

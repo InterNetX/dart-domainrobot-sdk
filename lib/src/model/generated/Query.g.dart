@@ -22,17 +22,8 @@ Query _$QueryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$QueryToJson(Query instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('filters', instance.filters?.map((e) => e?.toJson())?.toList());
-  writeNotNull('view', instance.view?.toJson());
-  writeNotNull('orders', instance.orders?.map((e) => e?.toJson())?.toList());
-  return val;
-}
+Map<String, dynamic> _$QueryToJson(Query instance) => <String, dynamic>{
+      'filters': instance.filters,
+      'view': instance.view,
+      'orders': instance.orders,
+    };

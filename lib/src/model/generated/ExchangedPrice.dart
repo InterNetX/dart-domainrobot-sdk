@@ -8,96 +8,98 @@ import 'TimePeriod.dart';
 
 part 'ExchangedPrice.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ExchangedPrice {
   /// The created date.
   DateTime created;
-
-  /// The updated date.
+  
+/// The updated date.
   DateTime updated;
-
-  /// The owner of the object.
+  
+/// The owner of the object.
   BasicUser owner;
-
-  /// The updating user of the object.
+  
+/// The updating user of the object.
   BasicUser updater;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   double amount;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   PriceTypeConstants type;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String currency;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   PriorityConstants priority;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   Customer customer;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   TimePeriod period;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   bool discountable;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   int logId;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   int refund;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   List<PriceServiceEntity> priceConditions;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   String comment;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   ExchangedPrice normalPrice;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   DateTime valid;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   double vatRate;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   double vatAmount;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   double rate;
-
+  
+  
+  
   ExchangedPrice({
-    this.created,
-    this.updated,
-    this.owner,
-    this.updater,
-    this.amount,
-    this.type,
-    this.currency,
-    this.priority,
-    this.customer,
-    this.period,
-    this.discountable,
-    this.logId,
-    this.refund,
-    this.priceConditions,
-    this.comment,
-    this.normalPrice,
-    this.valid,
-    this.vatRate,
-    this.vatAmount,
-    this.rate,
+  	this.created,
+  	this.updated,
+  	this.owner,
+  	this.updater,
+  	this.amount,
+  	this.type,
+  	this.currency,
+  	this.priority,
+  	this.customer,
+  	this.period,
+  	this.discountable,
+  	this.logId,
+  	this.refund,
+  	this.priceConditions,
+  	this.comment,
+  	this.normalPrice,
+  	this.valid,
+  	this.vatRate,
+  	this.vatAmount,
+  	this.rate,
   });
 
   @override
   String toString() {
     return 'ExchangedPrice[created=$created, updated=$updated, owner=$owner, updater=$updater, amount=$amount, type=$type, currency=$currency, priority=$priority, customer=$customer, period=$period, discountable=$discountable, logId=$logId, refund=$refund, priceConditions=$priceConditions, comment=$comment, normalPrice=$normalPrice, valid=$valid, vatRate=$vatRate, vatAmount=$vatAmount, rate=$rate, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -108,4 +110,6 @@ class ExchangedPrice {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ExchangedPriceToJson(this);
+  
 }
+

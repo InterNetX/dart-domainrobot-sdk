@@ -5,32 +5,34 @@ import 'Query.dart';
 
 part 'BulkDomainPatchRequest.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class BulkDomainPatchRequest {
   /// The objects to process
   List<Domain> objects;
-
-  /// The template for objects to process
+  
+/// The template for objects to process
   Domain template;
-
-  /// The query to fetch the object instead of defined list
+  
+/// The query to fetch the object instead of defined list
   Query query;
-
-  /// The modifer to apply on the objects
+  
+/// The modifer to apply on the objects
   List<Modifier> modifiers;
-
+  
+  
+  
   BulkDomainPatchRequest({
-    this.objects,
-    this.template,
-    this.query,
-    this.modifiers,
+  	this.objects,
+  	this.template,
+  	this.query,
+  	this.modifiers,
   });
 
   @override
   String toString() {
     return 'BulkDomainPatchRequest[objects=$objects, template=$template, query=$query, modifiers=$modifiers, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -41,4 +43,6 @@ class BulkDomainPatchRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkDomainPatchRequestToJson(this);
+  
 }
+

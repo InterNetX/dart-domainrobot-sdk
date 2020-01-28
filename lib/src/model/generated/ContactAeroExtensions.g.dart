@@ -15,16 +15,8 @@ ContactAeroExtensions _$ContactAeroExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactAeroExtensionsToJson(
-    ContactAeroExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('ensAuthId', instance.ensAuthId);
-  writeNotNull('ensKey', instance.ensKey);
-  return val;
-}
+        ContactAeroExtensions instance) =>
+    <String, dynamic>{
+      'ensAuthId': instance.ensAuthId,
+      'ensKey': instance.ensKey,
+    };

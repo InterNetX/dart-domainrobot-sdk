@@ -31,26 +31,16 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$AccountToJson(Account instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('customer', instance.customer?.toJson());
-  writeNotNull('currentAccountBalance', instance.currentAccountBalance);
-  writeNotNull('runningTotal', instance.runningTotal);
-  writeNotNull('creditLimit', instance.creditLimit);
-  writeNotNull('currency', instance.currency);
-  writeNotNull(
-      'minRunningTotalNotification', instance.minRunningTotalNotification);
-  writeNotNull('minRunningTotalNotificationEmail',
-      instance.minRunningTotalNotificationEmail);
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('view', instance.view?.toJson());
-  return val;
-}
+Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{
+      'customer': instance.customer,
+      'currentAccountBalance': instance.currentAccountBalance,
+      'runningTotal': instance.runningTotal,
+      'creditLimit': instance.creditLimit,
+      'currency': instance.currency,
+      'minRunningTotalNotification': instance.minRunningTotalNotification,
+      'minRunningTotalNotificationEmail':
+          instance.minRunningTotalNotificationEmail,
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'view': instance.view,
+    };

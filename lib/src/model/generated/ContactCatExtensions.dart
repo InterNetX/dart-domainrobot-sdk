@@ -2,20 +2,22 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactCatExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactCatExtensions {
   /// The statement of intended use for the domain name.
   String intendedUse;
-
+  
+  
+  
   ContactCatExtensions({
-    this.intendedUse,
+  	this.intendedUse,
   });
 
   @override
   String toString() {
     return 'ContactCatExtensions[intendedUse=$intendedUse, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +28,6 @@ class ContactCatExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactCatExtensionsToJson(this);
+  
 }
+

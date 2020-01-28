@@ -1,0 +1,4 @@
+enum ContentTypeConstants { 
+  	  PDF,
+  	  JPG,
+}

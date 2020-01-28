@@ -3,20 +3,22 @@ import 'RoPersonTypeConstants.dart';
 
 part 'ContactRoExtensions.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ContactRoExtensions {
   /// The entity person type.
   RoPersonTypeConstants personType;
-
+  
+  
+  
   ContactRoExtensions({
-    this.personType,
+  	this.personType,
   });
 
   @override
   String toString() {
     return 'ContactRoExtensions[personType=$personType, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -27,4 +29,6 @@ class ContactRoExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactRoExtensionsToJson(this);
+  
 }
+

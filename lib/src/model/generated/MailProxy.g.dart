@@ -45,34 +45,25 @@ MailProxy _$MailProxyFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MailProxyToJson(MailProxy instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('domain', instance.domain);
-  writeNotNull('idn', instance.idn);
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('target', instance.target);
-  writeNotNull('admin', instance.admin);
-  writeNotNull('protection', _$ProtectionConstantsEnumMap[instance.protection]);
-  writeNotNull('greylisting', instance.greylisting);
-  writeNotNull('virus', instance.virus);
-  writeNotNull('bannedFiles', instance.bannedFiles);
-  writeNotNull('header', instance.header);
-  writeNotNull('spam', instance.spam?.toJson());
-  writeNotNull('whitelist', instance.whitelist?.toJson());
-  writeNotNull('blacklist', instance.blacklist?.toJson());
-  writeNotNull('excludelist', instance.excludelist?.toJson());
-  return val;
-}
+Map<String, dynamic> _$MailProxyToJson(MailProxy instance) => <String, dynamic>{
+      'domain': instance.domain,
+      'idn': instance.idn,
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'target': instance.target,
+      'admin': instance.admin,
+      'protection': _$ProtectionConstantsEnumMap[instance.protection],
+      'greylisting': instance.greylisting,
+      'virus': instance.virus,
+      'bannedFiles': instance.bannedFiles,
+      'header': instance.header,
+      'spam': instance.spam,
+      'whitelist': instance.whitelist,
+      'blacklist': instance.blacklist,
+      'excludelist': instance.excludelist,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

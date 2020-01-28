@@ -11,22 +11,14 @@ ObjectJob _$ObjectJobFromJson(Map<String, dynamic> json) {
     job: json['job'] == null
         ? null
         : Job.fromJson(json['job'] as Map<String, dynamic>),
-    object: json['object'] == null
-        ? null
-        : ResponseObject.fromJson(json['object'] as Map<String, dynamic>),
+    object: (json['object'] as List)
+        ?.map((e) =>
+            e == null ? null : NiccomLog.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
-Map<String, dynamic> _$ObjectJobToJson(ObjectJob instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('job', instance.job?.toJson());
-  writeNotNull('object', instance.object?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ObjectJobToJson(ObjectJob instance) => <String, dynamic>{
+      'job': instance.job,
+      'object': instance.object,
+    };

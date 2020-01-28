@@ -51,49 +51,42 @@ User _$UserFromJson(Map<String, dynamic> json) {
             ? null
             : TrustedApplication.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    restrictions: json['restrictions'] == null
+        ? null
+        : IpRestrictions.fromJson(json['restrictions'] as Map<String, dynamic>),
     user: json['user'] as String,
     language: json['language'] as String,
     parent: json['parent'] == null
         ? null
         : User.fromJson(json['parent'] as Map<String, dynamic>),
+    directCustomer: json['directCustomer'] as bool,
   );
 }
 
-Map<String, dynamic> _$UserToJson(User instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('context', instance.context);
-  writeNotNull('password', instance.password);
-  writeNotNull('defaultEmail', instance.defaultEmail);
-  writeNotNull('status', instance.status);
-  writeNotNull('substatus', instance.substatus);
-  writeNotNull('authType', _$AuthTypeEnumMap[instance.authType]);
-  writeNotNull('details', instance.details?.toJson());
-  writeNotNull('lock', _$UserLockEnumMap[instance.lock]);
-  writeNotNull('acls', instance.acls?.toJson());
-  writeNotNull('profiles', instance.profiles?.toJson());
-  writeNotNull(
-      'ancestors', instance.ancestors?.map((e) => e?.toJson())?.toList());
-  writeNotNull('customer', instance.customer?.toJson());
-  writeNotNull('nameServerGroups',
-      instance.nameServerGroups?.map((e) => e?.toJson())?.toList());
-  writeNotNull('subscriptions',
-      instance.subscriptions?.map((e) => e?.toJson())?.toList());
-  writeNotNull(
-      'applications', instance.applications?.map((e) => e?.toJson())?.toList());
-  writeNotNull('user', instance.user);
-  writeNotNull('language', instance.language);
-  writeNotNull('parent', instance.parent?.toJson());
-  return val;
-}
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'context': instance.context,
+      'password': instance.password,
+      'defaultEmail': instance.defaultEmail,
+      'status': instance.status,
+      'substatus': instance.substatus,
+      'authType': _$AuthTypeEnumMap[instance.authType],
+      'details': instance.details,
+      'lock': _$UserLockEnumMap[instance.lock],
+      'acls': instance.acls,
+      'profiles': instance.profiles,
+      'ancestors': instance.ancestors,
+      'customer': instance.customer,
+      'nameServerGroups': instance.nameServerGroups,
+      'subscriptions': instance.subscriptions,
+      'applications': instance.applications,
+      'restrictions': instance.restrictions,
+      'user': instance.user,
+      'language': instance.language,
+      'parent': instance.parent,
+      'directCustomer': instance.directCustomer,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

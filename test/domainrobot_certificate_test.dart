@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:basic_utils/basic_utils.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Certificate.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/TimeUnitConstants.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'package:test/test.dart';

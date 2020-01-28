@@ -1,5 +1,5 @@
-enum PaymentConstants {
-  PRE,
-  POST,
-  LIVE,
+enum PaymentConstants { 
+  	  PRE,
+  	  POST,
+  	  LIVE,
 }

@@ -15,16 +15,8 @@ CertificateHistory _$CertificateHistoryFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CertificateHistoryToJson(CertificateHistory instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('serialNumber', instance.serialNumber);
-  writeNotNull('revoked', instance.revoked?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$CertificateHistoryToJson(CertificateHistory instance) =>
+    <String, dynamic>{
+      'serialNumber': instance.serialNumber,
+      'revoked': instance.revoked?.toIso8601String(),
+    };

@@ -27,19 +27,10 @@ BulkDomainPatchRequest _$BulkDomainPatchRequestFromJson(
 }
 
 Map<String, dynamic> _$BulkDomainPatchRequestToJson(
-    BulkDomainPatchRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
-  writeNotNull('template', instance.template?.toJson());
-  writeNotNull('query', instance.query?.toJson());
-  writeNotNull(
-      'modifiers', instance.modifiers?.map((e) => e?.toJson())?.toList());
-  return val;
-}
+        BulkDomainPatchRequest instance) =>
+    <String, dynamic>{
+      'objects': instance.objects,
+      'template': instance.template,
+      'query': instance.query,
+      'modifiers': instance.modifiers,
+    };

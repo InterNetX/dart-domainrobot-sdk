@@ -2,28 +2,30 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'DomainMonitoringSetup.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class DomainMonitoringSetup {
   /// The created date.
   DateTime created;
-
-  /// The updated date.
+  
+/// The updated date.
   DateTime updated;
-
-  /// The data
+  
+/// The data
   String data;
-
+  
+  
+  
   DomainMonitoringSetup({
-    this.created,
-    this.updated,
-    this.data,
+  	this.created,
+  	this.updated,
+  	this.data,
   });
 
   @override
   String toString() {
     return 'DomainMonitoringSetup[created=$created, updated=$updated, data=$data, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -34,4 +36,6 @@ class DomainMonitoringSetup {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainMonitoringSetupToJson(this);
+  
 }
+

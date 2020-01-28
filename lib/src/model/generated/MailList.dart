@@ -2,20 +2,22 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'MailList.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class MailList {
   /// A list of email addresses
   List<String> emails;
-
+  
+  
+  
   MailList({
-    this.emails,
+  	this.emails,
   });
 
   @override
   String toString() {
     return 'MailList[emails=$emails, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +28,6 @@ class MailList {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$MailListToJson(this);
+  
 }
+

@@ -1,5 +1,5 @@
-enum CardStatus {
-  LOST,
-  EXPIRED,
-  ACTIVE,
+enum CardStatus { 
+  	  LOST,
+  	  EXPIRED,
+  	  ACTIVE,
 }

@@ -3,24 +3,26 @@ import 'TimeUnitConstants.dart';
 
 part 'TimePeriod.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class TimePeriod {
   /// The unit of the period
   TimeUnitConstants unit;
-
-  /// The period value
+  
+/// The period value
   int period;
-
+  
+  
+  
   TimePeriod({
-    this.unit,
-    this.period,
+  	this.unit,
+  	this.period,
   });
 
   @override
   String toString() {
     return 'TimePeriod[unit=$unit, period=$period, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -31,4 +33,6 @@ class TimePeriod {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$TimePeriodToJson(this);
+  
 }
+

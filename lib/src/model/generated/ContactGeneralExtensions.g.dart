@@ -31,26 +31,18 @@ ContactGeneralExtensions _$ContactGeneralExtensionsFromJson(
 }
 
 Map<String, dynamic> _$ContactGeneralExtensionsToJson(
-    ContactGeneralExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('birth', instance.birth?.toJson());
-  writeNotNull('trademark', instance.trademark?.toJson());
-  writeNotNull('identification', instance.identification?.toJson());
-  writeNotNull('language', instance.language);
-  writeNotNull('companyNumber', instance.companyNumber);
-  writeNotNull('gender', _$GenderConstantsEnumMap[instance.gender]);
-  writeNotNull('vatNumber', instance.vatNumber);
-  writeNotNull('citizenship', instance.citizenship);
-  writeNotNull('mobilePhone', instance.mobilePhone);
-  return val;
-}
+        ContactGeneralExtensions instance) =>
+    <String, dynamic>{
+      'birth': instance.birth,
+      'trademark': instance.trademark,
+      'identification': instance.identification,
+      'language': instance.language,
+      'companyNumber': instance.companyNumber,
+      'gender': _$GenderConstantsEnumMap[instance.gender],
+      'vatNumber': instance.vatNumber,
+      'citizenship': instance.citizenship,
+      'mobilePhone': instance.mobilePhone,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

@@ -36,24 +36,14 @@ VirtualNameServerGroup _$VirtualNameServerGroupFromJson(
 }
 
 Map<String, dynamic> _$VirtualNameServerGroupToJson(
-    VirtualNameServerGroup instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull('name', instance.name);
-  writeNotNull('useDefaultIps', instance.useDefaultIps);
-  writeNotNull(
-      'nameServers', instance.nameServers?.map((e) => e?.toJson())?.toList());
-  writeNotNull(
-      'systemNameServerGroup', instance.systemNameServerGroup?.toJson());
-  return val;
-}
+        VirtualNameServerGroup instance) =>
+    <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'name': instance.name,
+      'useDefaultIps': instance.useDefaultIps,
+      'nameServers': instance.nameServers,
+      'systemNameServerGroup': instance.systemNameServerGroup,
+    };

@@ -14,16 +14,8 @@ ContactXxxExtensions _$ContactXxxExtensionsFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$ContactXxxExtensionsToJson(
-    ContactXxxExtensions instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('membershipID', instance.membershipID);
-  writeNotNull('nonResolverDomain', instance.nonResolverDomain);
-  return val;
-}
+        ContactXxxExtensions instance) =>
+    <String, dynamic>{
+      'membershipID': instance.membershipID,
+      'nonResolverDomain': instance.nonResolverDomain,
+    };

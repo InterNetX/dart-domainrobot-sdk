@@ -3,19 +3,22 @@ import 'UserProfile.dart';
 
 part 'UserProfileViews.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class UserProfileViews {
+  
   List<UserProfile> profiles;
-
+  
+  
+  
   UserProfileViews({
-    this.profiles,
+  	this.profiles,
   });
 
   @override
   String toString() {
     return 'UserProfileViews[profiles=$profiles, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -26,4 +29,6 @@ class UserProfileViews {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$UserProfileViewsToJson(this);
+  
 }
+

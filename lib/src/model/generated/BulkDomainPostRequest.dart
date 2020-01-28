@@ -3,24 +3,26 @@ import 'Domain.dart';
 
 part 'BulkDomainPostRequest.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class BulkDomainPostRequest {
   /// The objects to process
   List<Domain> objects;
-
-  /// The template for objects to process
+  
+/// The template for objects to process
   Domain template;
-
+  
+  
+  
   BulkDomainPostRequest({
-    this.objects,
-    this.template,
+  	this.objects,
+  	this.template,
   });
 
   @override
   String toString() {
     return 'BulkDomainPostRequest[objects=$objects, template=$template, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -31,4 +33,6 @@ class BulkDomainPostRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkDomainPostRequestToJson(this);
+  
 }
+

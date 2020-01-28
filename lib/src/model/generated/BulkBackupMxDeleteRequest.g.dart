@@ -20,16 +20,8 @@ BulkBackupMxDeleteRequest _$BulkBackupMxDeleteRequestFromJson(
 }
 
 Map<String, dynamic> _$BulkBackupMxDeleteRequestToJson(
-    BulkBackupMxDeleteRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('objects', instance.objects?.map((e) => e?.toJson())?.toList());
-  writeNotNull('query', instance.query?.toJson());
-  return val;
-}
+        BulkBackupMxDeleteRequest instance) =>
+    <String, dynamic>{
+      'objects': instance.objects,
+      'query': instance.query,
+    };

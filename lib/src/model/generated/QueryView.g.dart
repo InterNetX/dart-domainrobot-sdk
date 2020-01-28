@@ -16,19 +16,10 @@ QueryView _$QueryViewFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$QueryViewToJson(QueryView instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('limit', instance.limit);
-  writeNotNull('offset', instance.offset);
-  writeNotNull('children', instance.children);
-  writeNotNull('from', instance.from?.toIso8601String());
-  writeNotNull('to', instance.to?.toIso8601String());
-  return val;
-}
+Map<String, dynamic> _$QueryViewToJson(QueryView instance) => <String, dynamic>{
+      'limit': instance.limit,
+      'offset': instance.offset,
+      'children': instance.children,
+      'from': instance.from?.toIso8601String(),
+      'to': instance.to?.toIso8601String(),
+    };

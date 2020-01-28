@@ -16,19 +16,11 @@ SpamPolicy _$SpamPolicyFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SpamPolicyToJson(SpamPolicy instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('modifySubject', instance.modifySubject);
-  writeNotNull('tagHeader', instance.tagHeader);
-  writeNotNull('spam', instance.spam);
-  writeNotNull('kill', instance.kill);
-  writeNotNull('quarantineDigestInterval', instance.quarantineDigestInterval);
-  return val;
-}
+Map<String, dynamic> _$SpamPolicyToJson(SpamPolicy instance) =>
+    <String, dynamic>{
+      'modifySubject': instance.modifySubject,
+      'tagHeader': instance.tagHeader,
+      'spam': instance.spam,
+      'kill': instance.kill,
+      'quarantineDigestInterval': instance.quarantineDigestInterval,
+    };

@@ -1,7 +1,7 @@
-enum AccountingDocumentTypeConstants {
-  INVOICE,
-  CREDIT,
-  REFUND,
-  CANCELED,
-  CHARGE,
+enum AccountingDocumentTypeConstants { 
+  	  INVOICE,
+  	  CREDIT,
+  	  REFUND,
+  	  CANCELED,
+  	  CHARGE,
 }

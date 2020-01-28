@@ -1,7 +1,7 @@
-enum StatusType {
-  SUCCESS,
-  ERROR,
-  NOTIFY,
-  NOTICE,
-  NICCOM_NOTIFY,
+enum StatusType { 
+  	  SUCCESS,
+  	  ERROR,
+  	  NOTIFY,
+  	  NOTICE,
+  	  NICCOM_NOTIFY,
 }

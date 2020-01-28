@@ -3,28 +3,30 @@ import 'OrderType.dart';
 
 part 'QueryOrder.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class QueryOrder {
-  /// Lorem Ipsum
+  
   String key;
+  
 
-  /// Lorem Ipsum
   List<String> ins;
+  
 
-  /// Lorem Ipsum
   OrderType type;
-
+  
+  
+  
   QueryOrder({
-    this.key,
-    this.ins,
-    this.type,
+  	this.key,
+  	this.ins,
+  	this.type,
   });
 
   @override
   String toString() {
     return 'QueryOrder[key=$key, ins=$ins, type=$type, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -35,4 +37,6 @@ class QueryOrder {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$QueryOrderToJson(this);
+  
 }
+

@@ -5,28 +5,30 @@ import 'WhoisServiceData.dart';
 
 part 'DomainStudioService.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class DomainStudioService {
   /// The data for the whois service
   WhoisServiceData whois;
-
-  /// The data for the price service
+  
+/// The data for the price service
   PriceServiceData price;
-
-  /// The data for the estimation service
+  
+/// The data for the estimation service
   EstimationServiceData estimation;
-
+  
+  
+  
   DomainStudioService({
-    this.whois,
-    this.price,
-    this.estimation,
+  	this.whois,
+  	this.price,
+  	this.estimation,
   });
 
   @override
   String toString() {
     return 'DomainStudioService[whois=$whois, price=$price, estimation=$estimation, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -37,4 +39,6 @@ class DomainStudioService {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainStudioServiceToJson(this);
+  
 }
+

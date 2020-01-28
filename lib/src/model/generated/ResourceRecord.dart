@@ -2,37 +2,42 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ResourceRecord.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class ResourceRecord {
   /// The name of the record.
   String name;
-
-  /// TTL of the record (Optionally if not set then Default SOA TTL is used)
+  
+/// TTL of the record (Optionally if not set then Default SOA TTL is used)
   int ttl;
-
-  /// The type of the record, e.g. A
+  
+/// The type of the record, e.g. A
   String type;
-
-  /// The value of the record.
+  
+/// The value of the record.
   String value;
-
-  /// Preference of the record, need for some record types e.g. MX
+  
+/// Preference of the record, need for some record types e.g. MX
   int pref;
   //enum prefEnum {  };
-
+/// The bind notation of the record. Only used by the zone stream task!
+  String raw;
+  
+  
+  
   ResourceRecord({
-    this.name,
-    this.ttl,
-    this.type,
-    this.value,
-    this.pref,
+  	this.name,
+  	this.ttl,
+  	this.type,
+  	this.value,
+  	this.pref,
+  	this.raw,
   });
 
   @override
   String toString() {
-    return 'ResourceRecord[name=$name, ttl=$ttl, type=$type, value=$value, pref=$pref, ]';
+    return 'ResourceRecord[name=$name, ttl=$ttl, type=$type, value=$value, pref=$pref, raw=$raw, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -43,4 +48,6 @@ class ResourceRecord {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ResourceRecordToJson(this);
+  
 }
+

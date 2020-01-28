@@ -1,4 +1,4 @@
-enum RedirectTypeConstants {
-  DOMAIN,
-  EMAIL,
+enum RedirectTypeConstants { 
+  	  DOMAIN,
+  	  EMAIL,
 }

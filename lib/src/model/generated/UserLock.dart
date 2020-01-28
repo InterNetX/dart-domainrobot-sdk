@@ -1,6 +1,6 @@
-enum UserLock {
-  NONE,
-  CUSTOMER,
-  EXPIRED,
-  USER,
+enum UserLock { 
+  	  NONE,
+  	  CUSTOMER,
+  	  EXPIRED,
+  	  USER,
 }

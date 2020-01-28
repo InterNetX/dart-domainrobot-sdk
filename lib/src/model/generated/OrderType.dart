@@ -1,4 +1,4 @@
-enum OrderType {
-  DESC,
-  ASC,
+enum OrderType { 
+  	  DESC,
+  	  ASC,
 }

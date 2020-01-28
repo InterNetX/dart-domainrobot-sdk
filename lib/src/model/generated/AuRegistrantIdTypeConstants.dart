@@ -1,5 +1,5 @@
-enum AuRegistrantIdTypeConstants {
-  ACN,
-  ABN,
-  OTHER,
+enum AuRegistrantIdTypeConstants { 
+  	  ACN,
+  	  ABN,
+  	  OTHER,
 }

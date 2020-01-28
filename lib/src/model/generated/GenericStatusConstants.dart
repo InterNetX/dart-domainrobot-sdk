@@ -1,6 +1,6 @@
-enum GenericStatusConstants {
-  PENDING,
-  SUCCESS,
-  FAILED,
-  NOT_SET,
+enum GenericStatusConstants { 
+  	  PENDING,
+  	  SUCCESS,
+  	  FAILED,
+  	  NOT_SET,
 }

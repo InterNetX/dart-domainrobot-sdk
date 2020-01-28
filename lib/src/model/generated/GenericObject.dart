@@ -2,24 +2,26 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'GenericObject.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class GenericObject {
   /// The type of the object.
   String type;
-
-  /// The value of the object.
+  
+/// The value of the object.
   String value;
-
+  
+  
+  
   GenericObject({
-    this.type,
-    this.value,
+  	this.type,
+  	this.value,
   });
 
   @override
   String toString() {
     return 'GenericObject[type=$type, value=$value, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -30,4 +32,6 @@ class GenericObject {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$GenericObjectToJson(this);
+  
 }
+

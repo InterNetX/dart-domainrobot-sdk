@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart';
 import 'package:dart_domainrobot_sdk/src/model/generated/DomainCancelation.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 
 import '../../dart_domainrobot_sdk.dart';
 

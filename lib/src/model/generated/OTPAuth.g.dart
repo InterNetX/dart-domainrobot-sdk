@@ -34,29 +34,19 @@ OTPAuth _$OTPAuthFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$OTPAuthToJson(OTPAuth instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('created', instance.created?.toIso8601String());
-  writeNotNull('updated', instance.updated?.toIso8601String());
-  writeNotNull('owner', instance.owner?.toJson());
-  writeNotNull('updater', instance.updater?.toJson());
-  writeNotNull(
-      'protocolType', _$ProtocolTypeConstantsEnumMap[instance.protocolType]);
-  writeNotNull('algorithm', _$CryptoFormatConstantsEnumMap[instance.algorithm]);
-  writeNotNull('timeout', instance.timeout);
-  writeNotNull('digits', instance.digits);
-  writeNotNull('secret', instance.secret);
-  writeNotNull('tokens', instance.tokens);
-  writeNotNull('qrCode', instance.qrCode?.toJson());
-  return val;
-}
+Map<String, dynamic> _$OTPAuthToJson(OTPAuth instance) => <String, dynamic>{
+      'created': instance.created?.toIso8601String(),
+      'updated': instance.updated?.toIso8601String(),
+      'owner': instance.owner,
+      'updater': instance.updater,
+      'protocolType': _$ProtocolTypeConstantsEnumMap[instance.protocolType],
+      'algorithm': _$CryptoFormatConstantsEnumMap[instance.algorithm],
+      'timeout': instance.timeout,
+      'digits': instance.digits,
+      'secret': instance.secret,
+      'tokens': instance.tokens,
+      'qrCode': instance.qrCode,
+    };
 
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,

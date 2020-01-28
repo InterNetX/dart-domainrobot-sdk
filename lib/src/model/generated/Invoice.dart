@@ -8,104 +8,106 @@ import 'PaymentConstants.dart';
 
 part 'Invoice.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class Invoice {
   /// The created date.
   DateTime created;
-
-  /// The updated date.
+  
+/// The updated date.
   DateTime updated;
-
-  /// The owner of the object.
+  
+/// The owner of the object.
   BasicUser owner;
-
-  /// The updater of the object.
+  
+/// The updater of the object.
   BasicUser updater;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   int id;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String number;
-
-  /// Lorem Ipum
+  
+/// Lorem Ipum
   Customer customer;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   PaymentConstants payment;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String paymentMode;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String paymentTransaction;
-
-  /// The sub type of the invoice, e.g. domain invoice or server invoice
+  
+/// The sub type of the invoice, e.g. domain invoice or server invoice
   String subType;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String sepaMandateReference;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   DateTime sepaMandateCollection;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   double amount;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   double vatAmount;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   InvoiceStatusConstants status;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   AccountingDocumentTypeConstants type;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   bool failed;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String currency;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   DateTime paid;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   Document document;
-
-  /// Lorem Ipsum
+  
+/// Lorem Ipsum
   String comment;
-
+  
+  
+  
   Invoice({
-    this.created,
-    this.updated,
-    this.owner,
-    this.updater,
-    this.id,
-    this.number,
-    this.customer,
-    this.payment,
-    this.paymentMode,
-    this.paymentTransaction,
-    this.subType,
-    this.sepaMandateReference,
-    this.sepaMandateCollection,
-    this.amount,
-    this.vatAmount,
-    this.status,
-    this.type,
-    this.failed,
-    this.currency,
-    this.paid,
-    this.document,
-    this.comment,
+  	this.created,
+  	this.updated,
+  	this.owner,
+  	this.updater,
+  	this.id,
+  	this.number,
+  	this.customer,
+  	this.payment,
+  	this.paymentMode,
+  	this.paymentTransaction,
+  	this.subType,
+  	this.sepaMandateReference,
+  	this.sepaMandateCollection,
+  	this.amount,
+  	this.vatAmount,
+  	this.status,
+  	this.type,
+  	this.failed,
+  	this.currency,
+  	this.paid,
+  	this.document,
+  	this.comment,
   });
 
   @override
   String toString() {
     return 'Invoice[created=$created, updated=$updated, owner=$owner, updater=$updater, id=$id, number=$number, customer=$customer, payment=$payment, paymentMode=$paymentMode, paymentTransaction=$paymentTransaction, subType=$subType, sepaMandateReference=$sepaMandateReference, sepaMandateCollection=$sepaMandateCollection, amount=$amount, vatAmount=$vatAmount, status=$status, type=$type, failed=$failed, currency=$currency, paid=$paid, document=$document, comment=$comment, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -116,4 +118,6 @@ class Invoice {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$InvoiceToJson(this);
+  
 }
+

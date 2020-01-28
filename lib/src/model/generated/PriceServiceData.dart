@@ -4,32 +4,34 @@ import 'PriceData.dart';
 
 part 'PriceServiceData.g.dart';
 
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class PriceServiceData {
   /// The debug time
   int debugTime;
-
-  /// The status
+  
+/// The status
   DomainStudioServiceStatus status;
-
-  /// A message with more information, if the status is FAILED.
+  
+/// A message with more information, if the status is FAILED.
   String message;
-
-  /// The subject products
+  
+/// The subject products
   PriceData data;
-
+  
+  
+  
   PriceServiceData({
-    this.debugTime,
-    this.status,
-    this.message,
-    this.data,
+  	this.debugTime,
+  	this.status,
+  	this.message,
+  	this.data,
   });
 
   @override
   String toString() {
     return 'PriceServiceData[debugTime=$debugTime, status=$status, message=$message, data=$data, ]';
   }
-
+  
   ///
   /// Json to Location object
   ///
@@ -40,4 +42,6 @@ class PriceServiceData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$PriceServiceDataToJson(this);
+  
 }
+

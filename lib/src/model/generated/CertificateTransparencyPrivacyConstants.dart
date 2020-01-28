@@ -1,4 +1,4 @@
-enum CertificateTransparencyPrivacyConstants {
-  PUBLIC,
-  REDACTED,
+enum CertificateTransparencyPrivacyConstants { 
+  	  PUBLIC,
+  	  REDACTED,
 }

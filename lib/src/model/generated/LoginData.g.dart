@@ -15,18 +15,9 @@ LoginData _$LoginDataFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LoginDataToJson(LoginData instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('context', instance.context);
-  writeNotNull('password', instance.password);
-  writeNotNull('token', instance.token);
-  writeNotNull('user', instance.user);
-  return val;
-}
+Map<String, dynamic> _$LoginDataToJson(LoginData instance) => <String, dynamic>{
+      'context': instance.context,
+      'password': instance.password,
+      'token': instance.token,
+      'user': instance.user,
+    };

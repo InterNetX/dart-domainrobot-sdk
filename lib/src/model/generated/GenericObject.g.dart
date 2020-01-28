@@ -13,16 +13,8 @@ GenericObject _$GenericObjectFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GenericObjectToJson(GenericObject instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', instance.type);
-  writeNotNull('value', instance.value);
-  return val;
-}
+Map<String, dynamic> _$GenericObjectToJson(GenericObject instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'value': instance.value,
+    };

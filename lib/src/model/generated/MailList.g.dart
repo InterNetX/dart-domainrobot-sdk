@@ -12,15 +12,6 @@ MailList _$MailListFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MailListToJson(MailList instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('emails', instance.emails);
-  return val;
-}
+Map<String, dynamic> _$MailListToJson(MailList instance) => <String, dynamic>{
+      'emails': instance.emails,
+    };
