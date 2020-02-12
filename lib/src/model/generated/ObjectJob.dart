@@ -4,26 +4,24 @@ import 'NiccomLog.dart';
 
 part 'ObjectJob.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ObjectJob {
   /// The related job.
   Job job;
-  
-/// The object of the job or notify.
+
+  /// The object of the job or notify.
   List<NiccomLog> object;
-  
-  
-  
+
   ObjectJob({
-  	this.job,
-  	this.object,
+    this.job,
+    this.object,
   });
 
   @override
   String toString() {
     return 'ObjectJob[job=$job, object=$object, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +32,4 @@ class ObjectJob {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ObjectJobToJson(this);
-  
 }
-

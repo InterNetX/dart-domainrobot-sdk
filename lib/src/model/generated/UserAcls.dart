@@ -4,26 +4,24 @@ import 'UserAcl.dart';
 
 part 'UserAcls.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class UserAcls {
   /// The user which has been effected
   BasicUser user;
-  
-/// The acls of the user.
+
+  /// The acls of the user.
   List<UserAcl> acls;
-  
-  
-  
+
   UserAcls({
-  	this.user,
-  	this.acls,
+    this.user,
+    this.acls,
   });
 
   @override
   String toString() {
     return 'UserAcls[user=$user, acls=$acls, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +32,4 @@ class UserAcls {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$UserAclsToJson(this);
-  
 }
-

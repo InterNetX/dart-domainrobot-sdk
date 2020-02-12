@@ -3,30 +3,28 @@ import 'ModifierConstants.dart';
 
 part 'Modifier.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Modifier {
   /// The search pattern
   String search;
-  
-/// The replacement value
+
+  /// The replacement value
   String replace;
-  
-/// The modifiers type, e.g. NAME_SERVER
+
+  /// The modifiers type, e.g. NAME_SERVER
   ModifierConstants type;
-  
-  
-  
+
   Modifier({
-  	this.search,
-  	this.replace,
-  	this.type,
+    this.search,
+    this.replace,
+    this.type,
   });
 
   @override
   String toString() {
     return 'Modifier[search=$search, replace=$replace, type=$type, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -37,6 +35,4 @@ class Modifier {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ModifierToJson(this);
-  
 }
-

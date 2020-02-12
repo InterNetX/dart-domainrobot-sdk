@@ -4,42 +4,40 @@ import 'ObjectAssignmentMode.dart';
 
 part 'ObjectUserAssignment.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ObjectUserAssignment {
   /// The type of the object.
   String type;
-  
-/// The owner of the object.
+
+  /// The owner of the object.
   BasicUser owner;
-  
-/// The object name.
+
+  /// The object name.
   String name;
-  
-/// The cancelation mode.
+
+  /// The cancelation mode.
   ObjectAssignmentMode cancelation;
-  
-/// The source owner.
+
+  /// The source owner.
   BasicUser source;
-  
-/// The target owner.
+
+  /// The target owner.
   BasicUser target;
-  
-  
-  
+
   ObjectUserAssignment({
-  	this.type,
-  	this.owner,
-  	this.name,
-  	this.cancelation,
-  	this.source,
-  	this.target,
+    this.type,
+    this.owner,
+    this.name,
+    this.cancelation,
+    this.source,
+    this.target,
   });
 
   @override
   String toString() {
     return 'ObjectUserAssignment[type=$type, owner=$owner, name=$name, cancelation=$cancelation, source=$source, target=$target, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -50,6 +48,4 @@ class ObjectUserAssignment {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ObjectUserAssignmentToJson(this);
-  
 }
-

@@ -3,46 +3,44 @@ import 'AuthMethodConstants.dart';
 
 part 'CertAuthentication.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class CertAuthentication {
   /// The domain name the authentication data belongs to.
   String name;
-  
-/// The authentication method.
+
+  /// The authentication method.
   AuthMethodConstants method;
-  
-/// The dns entry for dns based authentication.
+
+  /// The dns entry for dns based authentication.
   String dns;
-  
-/// The filename for file based authentication.
+
+  /// The filename for file based authentication.
   String fileName;
-  
-/// The content for file based authentication.
+
+  /// The content for file based authentication.
   String fileContent;
-  
-/// The approver addresses for email based authentication.
+
+  /// The approver addresses for email based authentication.
   List<String> approverEmails;
-  
-/// Activates automatic provisioning of the zone for dns based authentication.
+
+  /// Activates automatic provisioning of the zone for dns based authentication.
   bool provisioning;
-  
-  
-  
+
   CertAuthentication({
-  	this.name,
-  	this.method,
-  	this.dns,
-  	this.fileName,
-  	this.fileContent,
-  	this.approverEmails,
-  	this.provisioning,
+    this.name,
+    this.method,
+    this.dns,
+    this.fileName,
+    this.fileContent,
+    this.approverEmails,
+    this.provisioning,
   });
 
   @override
   String toString() {
     return 'CertAuthentication[name=$name, method=$method, dns=$dns, fileName=$fileName, fileContent=$fileContent, approverEmails=$approverEmails, provisioning=$provisioning, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -53,6 +51,4 @@ class CertAuthentication {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$CertAuthenticationToJson(this);
-  
 }
-

@@ -4,26 +4,24 @@ import 'Query.dart';
 
 part 'BulkMailProxyDeleteRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkMailProxyDeleteRequest {
   /// The objects to process
   List<MailProxy> objects;
-  
-/// The query to fetch the object instead of defined list
+
+  /// The query to fetch the object instead of defined list
   Query query;
-  
-  
-  
+
   BulkMailProxyDeleteRequest({
-  	this.objects,
-  	this.query,
+    this.objects,
+    this.query,
   });
 
   @override
   String toString() {
     return 'BulkMailProxyDeleteRequest[objects=$objects, query=$query, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +32,4 @@ class BulkMailProxyDeleteRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkMailProxyDeleteRequestToJson(this);
-  
 }
-

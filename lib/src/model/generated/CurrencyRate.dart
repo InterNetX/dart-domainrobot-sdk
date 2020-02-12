@@ -2,26 +2,24 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'CurrencyRate.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class CurrencyRate {
   /// The currency of the exchange
   String currency;
-  
-/// the rate of the exchange
+
+  /// the rate of the exchange
   double rate;
-  
-  
-  
+
   CurrencyRate({
-  	this.currency,
-  	this.rate,
+    this.currency,
+    this.rate,
   });
 
   @override
   String toString() {
     return 'CurrencyRate[currency=$currency, rate=$rate, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -32,6 +30,4 @@ class CurrencyRate {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$CurrencyRateToJson(this);
-  
 }
-

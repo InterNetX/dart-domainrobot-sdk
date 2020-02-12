@@ -6,86 +6,84 @@ import 'SpamPolicy.dart';
 
 part 'MailProxy.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class MailProxy {
   /// The domain of the mail exchange to backup
   String domain;
-  
-/// The idn version of the domain.
+
+  /// The idn version of the domain.
   String idn;
-  
-/// The date of the creation
+
+  /// The date of the creation
   DateTime created;
-  
-/// The date of the last updated
+
+  /// The date of the last updated
   DateTime updated;
-  
-/// The owner of the entry
+
+  /// The owner of the entry
   BasicUser owner;
-  
-/// The last updater of the entry
+
+  /// The last updater of the entry
   BasicUser updater;
-  
-/// The hostname of the target mailserver
+
+  /// The hostname of the target mailserver
   String target;
-  
-/// email address of the administrator
+
+  /// email address of the administrator
   String admin;
-  
-/// The protection level
+
+  /// The protection level
   ProtectionConstants protection;
-  
-/// The grey listing policy
+
+  /// The grey listing policy
   bool greylisting;
-  
-/// The virus options to use
+
+  /// The virus options to use
   String virus;
   //enum virusEnum {  DISABLED,  QUARANTINE,  DISCARD,  ACCEPT,  };
-/// The banned files options to use
+  /// The banned files options to use
   String bannedFiles;
   //enum bannedFilesEnum {  DISABLED,  QUARANTINE,  DISCARD,  ACCEPT,  };
-/// The mail header options to use
+  /// The mail header options to use
   String header;
   //enum headerEnum {  DISABLED,  QUARANTINE,  DISCARD,  ACCEPT,  };
-/// The spam policy options
+  /// The spam policy options
   SpamPolicy spam;
-  
-/// The white listed email addresses
+
+  /// The white listed email addresses
   MailList whitelist;
-  
-/// The black listed email addresses
+
+  /// The black listed email addresses
   MailList blacklist;
-  
-/// The exculded listed email addresses
+
+  /// The exculded listed email addresses
   MailList excludelist;
-  
-  
-  
+
   MailProxy({
-  	this.domain,
-  	this.idn,
-  	this.created,
-  	this.updated,
-  	this.owner,
-  	this.updater,
-  	this.target,
-  	this.admin,
-  	this.protection,
-  	this.greylisting,
-  	this.virus,
-  	this.bannedFiles,
-  	this.header,
-  	this.spam,
-  	this.whitelist,
-  	this.blacklist,
-  	this.excludelist,
+    this.domain,
+    this.idn,
+    this.created,
+    this.updated,
+    this.owner,
+    this.updater,
+    this.target,
+    this.admin,
+    this.protection,
+    this.greylisting,
+    this.virus,
+    this.bannedFiles,
+    this.header,
+    this.spam,
+    this.whitelist,
+    this.blacklist,
+    this.excludelist,
   });
 
   @override
   String toString() {
     return 'MailProxy[domain=$domain, idn=$idn, created=$created, updated=$updated, owner=$owner, updater=$updater, target=$target, admin=$admin, protection=$protection, greylisting=$greylisting, virus=$virus, bannedFiles=$bannedFiles, header=$header, spam=$spam, whitelist=$whitelist, blacklist=$blacklist, excludelist=$excludelist, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -96,6 +94,4 @@ class MailProxy {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$MailProxyToJson(this);
-  
 }
-

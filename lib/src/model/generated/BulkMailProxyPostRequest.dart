@@ -3,26 +3,24 @@ import 'MailProxy.dart';
 
 part 'BulkMailProxyPostRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkMailProxyPostRequest {
   /// The objects to process
   List<MailProxy> objects;
-  
-/// The template for objects to process
+
+  /// The template for objects to process
   MailProxy template;
-  
-  
-  
+
   BulkMailProxyPostRequest({
-  	this.objects,
-  	this.template,
+    this.objects,
+    this.template,
   });
 
   @override
   String toString() {
     return 'BulkMailProxyPostRequest[objects=$objects, template=$template, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -33,6 +31,4 @@ class BulkMailProxyPostRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkMailProxyPostRequestToJson(this);
-  
 }
-

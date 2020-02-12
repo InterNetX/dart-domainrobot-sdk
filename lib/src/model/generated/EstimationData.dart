@@ -2,26 +2,24 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'EstimationData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class EstimationData {
   /// The currency
   String currency;
-  
-/// The amount
+
+  /// The amount
   double amount;
-  
-  
-  
+
   EstimationData({
-  	this.currency,
-  	this.amount,
+    this.currency,
+    this.amount,
   });
 
   @override
   String toString() {
     return 'EstimationData[currency=$currency, amount=$amount, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -32,6 +30,4 @@ class EstimationData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$EstimationDataToJson(this);
-  
 }
-

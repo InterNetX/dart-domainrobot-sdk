@@ -3,26 +3,24 @@ import 'Redirect.dart';
 
 part 'BulkRedirectPostRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkRedirectPostRequest {
   /// The objects to process
   List<Redirect> objects;
-  
-/// The template for objects to process
+
+  /// The template for objects to process
   Redirect template;
-  
-  
-  
+
   BulkRedirectPostRequest({
-  	this.objects,
-  	this.template,
+    this.objects,
+    this.template,
   });
 
   @override
   String toString() {
     return 'BulkRedirectPostRequest[objects=$objects, template=$template, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -33,6 +31,4 @@ class BulkRedirectPostRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkRedirectPostRequestToJson(this);
-  
 }
-

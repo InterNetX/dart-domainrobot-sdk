@@ -2,30 +2,28 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'NameServer.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class NameServer {
   /// Host name of the nameserver.
   String name;
-  
-/// The time to live.
+
+  /// The time to live.
   int ttl;
-  
-/// The ip addresses.
+
+  /// The ip addresses.
   List<String> ipAddresses;
-  
-  
-  
+
   NameServer({
-  	this.name,
-  	this.ttl,
-  	this.ipAddresses,
+    this.name,
+    this.ttl,
+    this.ipAddresses,
   });
 
   @override
   String toString() {
     return 'NameServer[name=$name, ttl=$ttl, ipAddresses=$ipAddresses, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -36,6 +34,4 @@ class NameServer {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$NameServerToJson(this);
-  
 }
-

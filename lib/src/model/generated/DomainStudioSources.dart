@@ -8,46 +8,44 @@ import 'DomainStudioSourceSuggestion.dart';
 
 part 'DomainStudioSources.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DomainStudioSources {
   /// The configuration for the initial source
   DomainStudioSourceInitial initial;
-  
-/// The configuration for the suggestion source
+
+  /// The configuration for the suggestion source
   DomainStudioSourceSuggestion suggestion;
-  
-/// The configuration for the premium source
+
+  /// The configuration for the premium source
   DomainStudioSourcePremium premium;
-  
-/// The configuration for the geo source
+
+  /// The configuration for the geo source
   DomainStudioSourceGeo geo;
-  
-/// The configuration for the similar source
+
+  /// The configuration for the similar source
   DomainStudioSourceSimilar similar;
-  
-/// The configuration for the recommended source
+
+  /// The configuration for the recommended source
   DomainStudioSourceSimilar recommended;
-  
-/// The configuration for the custom source
+
+  /// The configuration for the custom source
   DomainStudioSourceCustom custom;
-  
-  
-  
+
   DomainStudioSources({
-  	this.initial,
-  	this.suggestion,
-  	this.premium,
-  	this.geo,
-  	this.similar,
-  	this.recommended,
-  	this.custom,
+    this.initial,
+    this.suggestion,
+    this.premium,
+    this.geo,
+    this.similar,
+    this.recommended,
+    this.custom,
   });
 
   @override
   String toString() {
     return 'DomainStudioSources[initial=$initial, suggestion=$suggestion, premium=$premium, geo=$geo, similar=$similar, recommended=$recommended, custom=$custom, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -58,6 +56,4 @@ class DomainStudioSources {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainStudioSourcesToJson(this);
-  
 }
-

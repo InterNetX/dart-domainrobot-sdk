@@ -5,38 +5,36 @@ import 'ObjectStatus.dart';
 
 part 'ContactReference.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactReference {
   /// The nic
   NicMember nic;
-  
-/// The status
+
+  /// The status
   ObjectStatus status;
-  
-/// The contact reference type
+
+  /// The contact reference type
   ContactReferenceType type;
-  
-/// The role as contact reference type
+
+  /// The role as contact reference type
   ContactReferenceType role;
-  
-/// The nic reference
+
+  /// The nic reference
   String name;
-  
-  
-  
+
   ContactReference({
-  	this.nic,
-  	this.status,
-  	this.type,
-  	this.role,
-  	this.name,
+    this.nic,
+    this.status,
+    this.type,
+    this.role,
+    this.name,
   });
 
   @override
   String toString() {
     return 'ContactReference[nic=$nic, status=$status, type=$type, role=$role, name=$name, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -47,6 +45,4 @@ class ContactReference {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactReferenceToJson(this);
-  
 }
-

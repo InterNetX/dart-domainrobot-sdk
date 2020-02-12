@@ -2,42 +2,40 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ContactTrademarkExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactTrademarkExtensions {
   /// The name.
   String name;
-  
-/// The number.
+
+  /// The number.
   String number;
-  
-/// The country.
+
+  /// The country.
   String country;
-  
-/// The registration date.
+
+  /// The registration date.
   DateTime regdate;
-  
-/// The application date.
+
+  /// The application date.
   DateTime appdate;
-  
-/// The office.
+
+  /// The office.
   String office;
-  
-  
-  
+
   ContactTrademarkExtensions({
-  	this.name,
-  	this.number,
-  	this.country,
-  	this.regdate,
-  	this.appdate,
-  	this.office,
+    this.name,
+    this.number,
+    this.country,
+    this.regdate,
+    this.appdate,
+    this.office,
   });
 
   @override
   String toString() {
     return 'ContactTrademarkExtensions[name=$name, number=$number, country=$country, regdate=$regdate, appdate=$appdate, office=$office, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -48,6 +46,4 @@ class ContactTrademarkExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactTrademarkExtensionsToJson(this);
-  
 }
-

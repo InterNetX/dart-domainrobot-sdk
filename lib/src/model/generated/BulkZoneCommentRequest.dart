@@ -4,30 +4,28 @@ import 'Zone.dart';
 
 part 'BulkZoneCommentRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkZoneCommentRequest {
   /// The objects to process
   List<Zone> objects;
-  
-/// The template for objects to process
+
+  /// The template for objects to process
   Zone template;
-  
-/// The query to fetch the object instead of defined list
+
+  /// The query to fetch the object instead of defined list
   Query query;
-  
-  
-  
+
   BulkZoneCommentRequest({
-  	this.objects,
-  	this.template,
-  	this.query,
+    this.objects,
+    this.template,
+    this.query,
   });
 
   @override
   String toString() {
     return 'BulkZoneCommentRequest[objects=$objects, template=$template, query=$query, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -38,6 +36,4 @@ class BulkZoneCommentRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkZoneCommentRequestToJson(this);
-  
 }
-

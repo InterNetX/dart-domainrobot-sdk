@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.6.2] - 2020-02-12
+
+* Improve error handling with status code 500
+* Improve models
+
 ## [0.6.1] - 2020-02-12
 
 * Improve error handling with status code 500

@@ -4,26 +4,22 @@ import 'DomainTmchClaimNoticeExtensions.dart';
 
 part 'DomainExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DomainExtensions {
-  
   DomainParkingExtensions parkingExtensions;
-  
 
   DomainTmchClaimNoticeExtensions tmchClaimsNoticeExtensions;
-  
-  
-  
+
   DomainExtensions({
-  	this.parkingExtensions,
-  	this.tmchClaimsNoticeExtensions,
+    this.parkingExtensions,
+    this.tmchClaimsNoticeExtensions,
   });
 
   @override
   String toString() {
     return 'DomainExtensions[parkingExtensions=$parkingExtensions, tmchClaimsNoticeExtensions=$tmchClaimsNoticeExtensions, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +30,4 @@ class DomainExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainExtensionsToJson(this);
-  
 }
-

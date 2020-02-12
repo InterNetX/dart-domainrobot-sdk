@@ -4,26 +4,24 @@ import 'Query.dart';
 
 part 'BulkDomainPreregDeleteRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkDomainPreregDeleteRequest {
   /// The objects to process
   List<DomainPrereg> objects;
-  
-/// The query to fetch the object instead of defined list
+
+  /// The query to fetch the object instead of defined list
   Query query;
-  
-  
-  
+
   BulkDomainPreregDeleteRequest({
-  	this.objects,
-  	this.query,
+    this.objects,
+    this.query,
   });
 
   @override
   String toString() {
     return 'BulkDomainPreregDeleteRequest[objects=$objects, query=$query, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +32,4 @@ class BulkDomainPreregDeleteRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkDomainPreregDeleteRequestToJson(this);
-  
 }
-

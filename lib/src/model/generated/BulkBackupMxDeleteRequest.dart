@@ -4,26 +4,24 @@ import 'Query.dart';
 
 part 'BulkBackupMxDeleteRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkBackupMxDeleteRequest {
   /// The objects to process
   List<BackupMx> objects;
-  
-/// The query to fetch the object instead of defined list
+
+  /// The query to fetch the object instead of defined list
   Query query;
-  
-  
-  
+
   BulkBackupMxDeleteRequest({
-  	this.objects,
-  	this.query,
+    this.objects,
+    this.query,
   });
 
   @override
   String toString() {
     return 'BulkBackupMxDeleteRequest[objects=$objects, query=$query, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -34,6 +32,4 @@ class BulkBackupMxDeleteRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkBackupMxDeleteRequestToJson(this);
-  
 }
-

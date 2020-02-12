@@ -4,98 +4,96 @@ import 'TransferAnswer.dart';
 
 part 'TransferOut.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class TransferOut {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// The owner of the object.
+
+  /// The owner of the object.
   BasicUser owner;
-  
-/// The updating user of the object.
+
+  /// The updating user of the object.
   BasicUser updater;
-  
-/// The domain name.
+
+  /// The domain name.
   String domain;
-  
-/// The gaining registrar.
+
+  /// The gaining registrar.
   String gainingRegistrar;
-  
-/// The loosing registrar.
+
+  /// The loosing registrar.
   String loosingRegistrar;
-  
-/// The start date.
+
+  /// The start date.
   DateTime start;
-  
-/// The reminder date.
+
+  /// The reminder date.
   DateTime reminder;
-  
-/// The auto ack date.
+
+  /// The auto ack date.
   DateTime autoAck;
-  
-/// The auto nack date.
+
+  /// The auto nack date.
   DateTime autoNack;
-  
-/// The end date.
+
+  /// The end date.
   DateTime end;
-  
-/// Autoanswer active.
+
+  /// Autoanswer active.
   bool autoAnswer;
-  
-/// The recipient.
+
+  /// The recipient.
   String recipient;
-  
-/// The mailserver.
+
+  /// The mailserver.
   String mailserver;
-  
-/// The delivered mailserver.
+
+  /// The delivered mailserver.
   String deliveredMailserver;
-  
-/// The delivered date.
+
+  /// The delivered date.
   DateTime delivered;
-  
-/// The ctid.
+
+  /// The ctid.
   String transaction;
-  
-/// The type of the transfer.
+
+  /// The type of the transfer.
   TransferAnswer type;
-  
-/// The reason.
+
+  /// The reason.
   int nackReason;
-  
-  
-  
+
   TransferOut({
-  	this.created,
-  	this.updated,
-  	this.owner,
-  	this.updater,
-  	this.domain,
-  	this.gainingRegistrar,
-  	this.loosingRegistrar,
-  	this.start,
-  	this.reminder,
-  	this.autoAck,
-  	this.autoNack,
-  	this.end,
-  	this.autoAnswer,
-  	this.recipient,
-  	this.mailserver,
-  	this.deliveredMailserver,
-  	this.delivered,
-  	this.transaction,
-  	this.type,
-  	this.nackReason,
+    this.created,
+    this.updated,
+    this.owner,
+    this.updater,
+    this.domain,
+    this.gainingRegistrar,
+    this.loosingRegistrar,
+    this.start,
+    this.reminder,
+    this.autoAck,
+    this.autoNack,
+    this.end,
+    this.autoAnswer,
+    this.recipient,
+    this.mailserver,
+    this.deliveredMailserver,
+    this.delivered,
+    this.transaction,
+    this.type,
+    this.nackReason,
   });
 
   @override
   String toString() {
     return 'TransferOut[created=$created, updated=$updated, owner=$owner, updater=$updater, domain=$domain, gainingRegistrar=$gainingRegistrar, loosingRegistrar=$loosingRegistrar, start=$start, reminder=$reminder, autoAck=$autoAck, autoNack=$autoNack, end=$end, autoAnswer=$autoAnswer, recipient=$recipient, mailserver=$mailserver, deliveredMailserver=$deliveredMailserver, delivered=$delivered, transaction=$transaction, type=$type, nackReason=$nackReason, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -106,6 +104,4 @@ class TransferOut {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$TransferOutToJson(this);
-  
 }
-

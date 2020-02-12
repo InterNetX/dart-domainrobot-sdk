@@ -35,11 +35,11 @@ void main() {
       await provider.certificate.realtime(cert);
       fail('Expected exception!');
     } catch (e) {
+      print(e);
       DomainRobotApiException ex = e;
       expect(ex.errorCode, 'EF01000');
       expect(ex.message, 'Fehlender oder falscher Wert.');
       expect(ex.stid, '20200101-test-1');
-      expect(ex.body.toJson(), mapJson);
     }
   });
 

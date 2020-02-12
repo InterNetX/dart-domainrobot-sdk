@@ -3,22 +3,20 @@ import 'ItEntityTypeConstants.dart';
 
 part 'ContactItExtensions.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class ContactItExtensions {
   /// The number of the matching entity.
   ItEntityTypeConstants entityType;
-  
-  
-  
+
   ContactItExtensions({
-  	this.entityType,
+    this.entityType,
   });
 
   @override
   String toString() {
     return 'ContactItExtensions[entityType=$entityType, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -29,6 +27,4 @@ class ContactItExtensions {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$ContactItExtensionsToJson(this);
-  
 }
-

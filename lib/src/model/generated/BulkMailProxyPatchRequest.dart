@@ -4,30 +4,28 @@ import 'Query.dart';
 
 part 'BulkMailProxyPatchRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkMailProxyPatchRequest {
   /// The objects to process
   List<MailProxy> objects;
-  
-/// The template for objects to process
+
+  /// The template for objects to process
   MailProxy template;
-  
-/// The query to fetch the object instead of defined list
+
+  /// The query to fetch the object instead of defined list
   Query query;
-  
-  
-  
+
   BulkMailProxyPatchRequest({
-  	this.objects,
-  	this.template,
-  	this.query,
+    this.objects,
+    this.template,
+    this.query,
   });
 
   @override
   String toString() {
     return 'BulkMailProxyPatchRequest[objects=$objects, template=$template, query=$query, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -38,6 +36,4 @@ class BulkMailProxyPatchRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkMailProxyPatchRequestToJson(this);
-  
 }
-

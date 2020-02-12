@@ -3,22 +3,20 @@ import 'SimplePrice.dart';
 
 part 'PriceData.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class PriceData {
   /// The subject products
   List<SimplePrice> prices;
-  
-  
-  
+
   PriceData({
-  	this.prices,
+    this.prices,
   });
 
   @override
   String toString() {
     return 'PriceData[prices=$prices, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -29,6 +27,4 @@ class PriceData {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$PriceDataToJson(this);
-  
 }
-

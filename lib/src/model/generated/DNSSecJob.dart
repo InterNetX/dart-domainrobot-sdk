@@ -2,17 +2,15 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'DNSSecJob.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DNSSecJob {
-    
   DNSSecJob();
-  
 
   @override
   String toString() {
     return 'DNSSecJob[]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -23,6 +21,4 @@ class DNSSecJob {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DNSSecJobToJson(this);
-  
 }
-

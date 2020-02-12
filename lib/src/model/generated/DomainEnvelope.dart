@@ -4,38 +4,36 @@ import 'DomainStudioService.dart';
 
 part 'DomainEnvelope.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class DomainEnvelope {
   /// The domain
   String domain;
-  
-/// The unicode domain name
+
+  /// The unicode domain name
   String idn;
-  
-/// Source
+
+  /// Source
   DomainStudioDomainSource source;
-  
-/// Source
+
+  /// Source
   DomainStudioService services;
-  
-/// Defines if the user already owns this domain.
+
+  /// Defines if the user already owns this domain.
   bool debugTime;
-  
-  
-  
+
   DomainEnvelope({
-  	this.domain,
-  	this.idn,
-  	this.source,
-  	this.services,
-  	this.debugTime,
+    this.domain,
+    this.idn,
+    this.source,
+    this.services,
+    this.debugTime,
   });
 
   @override
   String toString() {
     return 'DomainEnvelope[domain=$domain, idn=$idn, source=$source, services=$services, debugTime=$debugTime, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -46,6 +44,4 @@ class DomainEnvelope {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$DomainEnvelopeToJson(this);
-  
 }
-

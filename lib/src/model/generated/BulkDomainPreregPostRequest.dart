@@ -3,26 +3,24 @@ import 'DomainPrereg.dart';
 
 part 'BulkDomainPreregPostRequest.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class BulkDomainPreregPostRequest {
   /// The objects to process
   List<DomainPrereg> objects;
-  
-/// The template for objects to process
+
+  /// The template for objects to process
   DomainPrereg template;
-  
-  
-  
+
   BulkDomainPreregPostRequest({
-  	this.objects,
-  	this.template,
+    this.objects,
+    this.template,
   });
 
   @override
   String toString() {
     return 'BulkDomainPreregPostRequest[objects=$objects, template=$template, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -33,6 +31,4 @@ class BulkDomainPreregPostRequest {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$BulkDomainPreregPostRequestToJson(this);
-  
 }
-

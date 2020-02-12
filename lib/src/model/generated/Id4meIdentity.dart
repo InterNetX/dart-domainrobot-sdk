@@ -7,82 +7,80 @@ import 'IdentityStatus.dart';
 
 part 'Id4meIdentity.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class Id4meIdentity {
   /// The created date.
   DateTime created;
-  
-/// The updated date.
+
+  /// The updated date.
   DateTime updated;
-  
-/// The owner of the object.
+
+  /// The owner of the object.
   BasicUser owner;
-  
-/// The updater of the object.
+
+  /// The updater of the object.
   BasicUser updater;
-  
-/// The ID4ME agent
+
+  /// The ID4ME agent
   Id4MeAgent agent;
-  
-/// Expiration of verification
+
+  /// Expiration of verification
   DateTime verifyExpire;
-  
-/// Additional information
+
+  /// Additional information
   Configuration addons;
-  
-/// The generated magic link
+
+  /// The generated magic link
   String magicLink;
-  
-/// The initial claims
+
+  /// The initial claims
   Claims claims;
-  
-/// Enables showing claims.
+
+  /// Enables showing claims.
   bool showClaims;
-  
-/// Url to redirect to passwort reset
+
+  /// Url to redirect to passwort reset
   String resetUrl;
-  
-/// time when reset url expire
+
+  /// time when reset url expire
   DateTime resetUrlExpire;
-  
-/// Fully qualified domain name
+
+  /// Fully qualified domain name
   String name;
-  
-/// status
+
+  /// status
   IdentityStatus status;
-  
-/// The language.
+
+  /// The language.
   String language;
-  
-/// DNS text records
+
+  /// DNS text records
   List<String> record;
-  
-  
-  
+
   Id4meIdentity({
-  	this.created,
-  	this.updated,
-  	this.owner,
-  	this.updater,
-  	this.agent,
-  	this.verifyExpire,
-  	this.addons,
-  	this.magicLink,
-  	this.claims,
-  	this.showClaims,
-  	this.resetUrl,
-  	this.resetUrlExpire,
-  	this.name,
-  	this.status,
-  	this.language,
-  	this.record,
+    this.created,
+    this.updated,
+    this.owner,
+    this.updater,
+    this.agent,
+    this.verifyExpire,
+    this.addons,
+    this.magicLink,
+    this.claims,
+    this.showClaims,
+    this.resetUrl,
+    this.resetUrlExpire,
+    this.name,
+    this.status,
+    this.language,
+    this.record,
   });
 
   @override
   String toString() {
     return 'Id4meIdentity[created=$created, updated=$updated, owner=$owner, updater=$updater, agent=$agent, verifyExpire=$verifyExpire, addons=$addons, magicLink=$magicLink, claims=$claims, showClaims=$showClaims, resetUrl=$resetUrl, resetUrlExpire=$resetUrlExpire, name=$name, status=$status, language=$language, record=$record, ]';
   }
-  
+
   ///
   /// Json to Location object
   ///
@@ -93,6 +91,4 @@ class Id4meIdentity {
   /// Location object to json
   ///
   Map<String, dynamic> toJson() => _$Id4meIdentityToJson(this);
-  
 }
-
