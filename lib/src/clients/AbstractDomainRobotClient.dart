@@ -33,8 +33,13 @@ abstract class AbstractDomainRobotClient {
   ///
   static void handleException(Exception e) {
     HttpResponseException ex = e;
-    Map<String, dynamic> data = json.decode(ex.body);
-    var response = JsonResponseData.fromJson(data);
+    var response;
+    try {
+      Map<String, dynamic> data = json.decode(ex.body);
+      response = JsonResponseData.fromJson(data);
+    } catch (e) {
+      response = ex.body;
+    }
     throw DomainRobotApiException(response.messages.elementAt(0).text,
         response.messages.elementAt(0).code,
         stid: response.stid, body: response, headers: ex.headers);
