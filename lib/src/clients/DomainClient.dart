@@ -143,7 +143,7 @@ class DomainClient extends AbstractDomainRobotClient {
       Map<String, String> queryParameters}) async {
     headers = mergeHeaders(headers);
     try {
-      await HttpUtils.getForJson('$baseUrl/domain/$name/_authinfo1',
+      await HttpUtils.deleteForJson('$baseUrl/domain/$name/_authinfo1',
           queryParameters: queryParameters, headers: headers);
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
