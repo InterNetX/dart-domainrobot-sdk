@@ -93,6 +93,36 @@ class ContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * country
+  /// * pcode
+  /// * city
+  /// * type
+  /// * title
+  /// * lname
+  /// * alias
+  /// * state
+  /// * id
+  /// * sip
+  /// * fax
+  /// * verification
+  /// * email
+  /// * fname
+  /// * address
+  /// * created
+  /// * phone
+  /// * organization
+  /// * domainsafe
+  /// * comment
+  /// * updated
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
   Future<List<Contact>> list(
       {Query payload,
       Map<String, String> headers,

@@ -95,6 +95,21 @@ class TrustedApplicationClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * created
+  /// * comment
+  /// * uuid
+  /// * device
+  /// * updated
+  /// * application
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
   Future<List<TrustedApplication>> list(
       {Query payload,
       Map<String, String> headers,

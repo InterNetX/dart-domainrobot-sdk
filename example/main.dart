@@ -5,10 +5,10 @@ import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioSources.dar
 
 void main(List<String> args) async {
   // The domainrobot credentials and the baseUrl
-  var userName = 'USER';
-  var password = 'PASSWORD';
-  var context = 'CONTEXT';
-  var baseUrl = 'URL';
+  var userName = 'dlinsenmeier';
+  var password = 'test';
+  var context = '4';
+  var baseUrl = 'http://dev-proxy-lab.intern.autodns-lab.com:10025';
 
   // Setup the provider
   var provider = DomainRobot(userName, password, context, baseUrl);
@@ -16,7 +16,7 @@ void main(List<String> args) async {
   var ctid = 'Some UUID';
   // Define the custom headers
   var headers = {
-    DOMAINROBOT_HEADER_WEBSOCKET: 'SYNC',
+    DOMAINROBOT_HEADER_WEBSOCKET: 'NONE',
     DOMAINROBOT_HEADER_CTID: ctid,
   };
   var search = DomainEnvelopeSearchRequest(

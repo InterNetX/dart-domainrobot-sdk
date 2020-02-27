@@ -5,6 +5,7 @@ import 'package:dart_domainrobot_sdk/src/clients/AbstractDomainRobotClient.dart'
 import 'package:dart_domainrobot_sdk/src/model/generated/Certificate.dart';
 import 'package:dart_domainrobot_sdk/src/model/generated/CertificateData.dart';
 import 'package:dart_domainrobot_sdk/src/model/generated/Job.dart';
+import 'package:dart_domainrobot_sdk/src/model/generated/Query.dart';
 
 class CertificateClient extends AbstractDomainRobotClient {
   CertificateClient(String userName, String password, String context,
@@ -233,5 +234,59 @@ class CertificateClient extends AbstractDomainRobotClient {
     } catch (e) {
       AbstractDomainRobotClient.handleException(e);
     }
+  }
+
+  ///
+  /// Sends a certificate list request
+  ///
+  /// Throws an [DomainRobotApiException] if the status code is not 200.
+  ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * product
+  /// * technical
+  /// * orderId
+  /// * created
+  /// * admin
+  /// * type
+  /// * expire
+  /// * domain
+  /// * name
+  /// * comment
+  /// * id
+  /// * updated
+  /// * authentication
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
+  Future<List<Certificate>> list(
+      {Query payload,
+      Map<String, String> headers,
+      Map<String, String> queryParameters}) async {
+    headers = mergeHeaders(headers);
+    var payloadAsString = '';
+    if (payload != null) {
+      payloadAsString = json.encode(payload.toJson());
+    }
+    Map<String, dynamic> body;
+    try {
+      body = await HttpUtils.postForJson('$baseUrl/certificate/_search',
+          body: payloadAsString,
+          queryParameters: queryParameters,
+          headers: headers);
+    } catch (e) {
+      AbstractDomainRobotClient.handleException(e);
+    }
+    List data = body['data'];
+    var list = <Certificate>[];
+    data.forEach((e) {
+      var contact = Certificate.fromJson(e);
+      list.add(contact);
+    });
+    return list;
   }
 }

@@ -87,6 +87,31 @@ class DomainClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * sld
+  /// * subtld
+  /// * tld
+  /// * status
+  /// * authinfo
+  /// * expire
+  /// * comment
+  /// * ownerc
+  /// * updated
+  /// * zonec
+  /// * nserver
+  /// * techc
+  /// * adminc
+  /// * certificate
+  /// * created
+  /// * autorenew
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
   Future<List<domainrobot.Domain>> list(Query payload,
       {Map<String, String> headers,
       Map<String, String> queryParameters}) async {
@@ -239,6 +264,40 @@ class DomainClient extends AbstractDomainRobotClient {
   /// Sends a domain restore list request
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
+  ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * parking
+  /// * certificate
+  /// * adminc
+  /// * cancelation
+  /// * action
+  /// * zonec
+  /// * nserver
+  /// * techc
+  /// * nsentry
+  /// * dnssec
+  /// * period
+  /// * created
+  /// * sld
+  /// * tld
+  /// * subtld
+  /// * deleted
+  /// * autorenew
+  /// * expire
+  /// * domainsafe
+  /// * comment
+  /// * ownerc
+  /// * updated
+  /// * remarks
+  /// * authinfo
+  /// * status
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
   ///
   Future<List<DomainRestore>> restoreList(Query payload,
       {Map<String, String> headers,

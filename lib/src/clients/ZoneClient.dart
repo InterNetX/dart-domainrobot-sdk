@@ -104,6 +104,33 @@ class ZoneClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * dnssec
+  /// * created
+  /// * mainip
+  /// * secondary1
+  /// * secondary2
+  /// * secondary3
+  /// * secondary4
+  /// * secondary5
+  /// * secondary6
+  /// * secondary7
+  /// * virtualNameServer
+  /// * domainsafe
+  /// * name
+  /// * comment
+  /// * updated
+  /// * action
+  /// * primary
+  /// * changed
+  ///
+  ///
+  /// **Parameter:**
+  /// * [payload]: The query data to use for the request
+  /// * [headers]: Custom headers for the request
+  /// * [queryParameters]: Query parameter for the request
+  ///
   Future<List<Zone>> list(
       {Query payload,
       Map<String, String> headers,

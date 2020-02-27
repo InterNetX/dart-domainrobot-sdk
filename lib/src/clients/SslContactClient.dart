@@ -108,8 +108,27 @@ class SslContactClient extends AbstractDomainRobotClient {
   ///
   /// Throws an [DomainRobotApiException] if the status code is not 200.
   ///
+  ///
+  /// The following keys can be used for filtering, ordering and fetching additional data via query parameter:
+  /// * country
+  /// * fname
+  /// * address
+  /// * city
+  /// * created
+  /// * title
+  /// * lname
+  /// * phone
+  /// * organization
+  /// * state
+  /// * id
+  /// * fax
+  /// * pcode
+  /// * updated
+  /// * email
+  ///
+  ///
   /// **Parameter:**
-  /// * [payload]: The query for the list request
+  /// * [payload]: The query data to use for the request
   /// * [headers]: Custom headers for the request
   /// * [queryParameters]: Query parameter for the request
   ///
