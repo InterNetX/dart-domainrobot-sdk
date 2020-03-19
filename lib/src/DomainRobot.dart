@@ -3,6 +3,7 @@ import 'package:dart_domainrobot_sdk/src/clients/ContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainCancelationClient.dart';
 
 import 'package:dart_domainrobot_sdk/src/clients/Domainclient.dart';
+import 'package:dart_domainrobot_sdk/src/clients/ZoneClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainStudioClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/PollClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/SslContactClient.dart';
