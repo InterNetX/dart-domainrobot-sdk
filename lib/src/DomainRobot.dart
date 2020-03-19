@@ -2,13 +2,13 @@ import 'package:dart_domainrobot_sdk/src/clients/CertificateClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/ContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainCancelationClient.dart';
 
+import 'package:dart_domainrobot_sdk/src/clients/Domainclient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainStudioClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/PollClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/SslContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TransferOutClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TrustedApplicationClient.dart';
 
-import 'clients/ZoneClient.dart';
 
 ///
 /// Provider for the DomainRobot API
@@ -69,6 +69,7 @@ class DomainRobot {
     String context,
     String baseUrl,
   ) {
+    domain = DomainClient(user, password, context, baseUrl, version);
     certificate = CertificateClient(user, password, context, baseUrl, version);
     domainStudio =
         DomainStudioClient(user, password, context, baseUrl, version);
