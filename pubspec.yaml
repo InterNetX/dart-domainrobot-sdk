@@ -1,6 +1,6 @@
 name: dart_domainrobot_sdk
 description: A dart package for easy integration of the domainrobot API powered by InterNetX GmbH.
-version: 0.6.2
+version: 0.6.3
 author: InterNetX GmbH <entwicklung@internetx.com>
 homepage: https://github.com/InterNetX/dart-domainrobot-sdk
 publish_to: https://pub.dartlang.org
