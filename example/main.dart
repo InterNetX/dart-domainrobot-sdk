@@ -5,10 +5,10 @@ import 'package:dart_domainrobot_sdk/src/model/generated/DomainStudioSources.dar
 
 void main(List<String> args) async {
   // The domainrobot credentials and the baseUrl
-  var userName = 'dlinsenmeier';
-  var password = 'test';
+  var userName = 'USER';
+  var password = 'PASSWORD';
   var context = '4';
-  var baseUrl = 'http://dev-proxy-lab.intern.autodns-lab.com:10025';
+  var baseUrl = 'https://api.demo.autodns.com/v1';
 
   // Setup the provider
   var provider = DomainRobot(userName, password, context, baseUrl);
