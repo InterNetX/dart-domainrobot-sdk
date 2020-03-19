@@ -2,13 +2,14 @@ import 'package:dart_domainrobot_sdk/src/clients/CertificateClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/ContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainCancelationClient.dart';
 
+import 'package:dart_domainrobot_sdk/src/clients/Domainclient.dart';
+import 'package:dart_domainrobot_sdk/src/clients/ZoneClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/DomainStudioClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/PollClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/SslContactClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TransferOutClient.dart';
 import 'package:dart_domainrobot_sdk/src/clients/TrustedApplicationClient.dart';
 
-import 'clients/ZoneClient.dart';
 
 ///
 /// Provider for the DomainRobot API
@@ -16,8 +17,11 @@ import 'clients/ZoneClient.dart';
 class DomainRobot {
   static const String TAG = 'DomainRobot';
 
-  String version = '0.5.0';
+  String version = '0.6.3';
 
+  ///The domain service, containing all operations on domains
+  Domainclient domain;
+  
   /// The certificate service, containing all operations on certificates.
   CertificateClient certificate;
 
@@ -66,6 +70,7 @@ class DomainRobot {
     String context,
     String baseUrl,
   ) {
+    domain = DomainClient(user, password, context, baseUrl, version);
     certificate = CertificateClient(user, password, context, baseUrl, version);
     domainStudio =
         DomainStudioClient(user, password, context, baseUrl, version);
