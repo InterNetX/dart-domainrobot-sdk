@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6.4] - 2020-06-05
+
+* Export AbstractDomainRobotClient class
+
 ## [0.6.3] - 2020-03-19
 
 * Add missing DomainClient to DomainRobot class
